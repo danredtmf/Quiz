@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/caracal_1080p.jpg-0e1aadbb0e58e72b901c5b66f6cf2ae1.image"
+
+[deps]
+
+source_file="res://resourses/images/animals/caracal_1080p.jpg"
+dest_files=[ "res://.import/caracal_1080p.jpg-0e1aadbb0e58e72b901c5b66f6cf2ae1.image" ]
+
+[params]
+

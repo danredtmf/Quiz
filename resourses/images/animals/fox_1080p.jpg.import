@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/fox_1080p.jpg-945aa33b50bcf0cf0b97ba80e50a8dfb.image"
+
+[deps]
+
+source_file="res://resourses/images/animals/fox_1080p.jpg"
+dest_files=[ "res://.import/fox_1080p.jpg-945aa33b50bcf0cf0b97ba80e50a8dfb.image" ]
+
+[params]
+

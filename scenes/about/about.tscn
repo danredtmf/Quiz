@@ -1,0 +1,229 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resourses/themes/default/styles/win_default.tres" type="StyleBox" id=2]
+[ext_resource path="res://resourses/themes/default/styles/win_header.tres" type="StyleBox" id=3]
+[ext_resource path="res://resourses/themes/default/styles/button/button_normal.tres" type="StyleBox" id=4]
+[ext_resource path="res://resourses/themes/default/styles/button/button_hover.tres" type="StyleBox" id=5]
+[ext_resource path="res://resourses/themes/default/styles/button/button_pressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://scenes/about/about.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "show"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
+
+[node name="About" type="PanelContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -200.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 600, 400 )
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 7 )
+
+[node name="VB" type="VBoxContainer" parent="."]
+margin_right = 600.0
+margin_bottom = 400.0
+
+[node name="Header" type="PanelContainer" parent="VB"]
+margin_right = 600.0
+margin_bottom = 53.0
+custom_styles/panel = ExtResource( 3 )
+
+[node name="Info" type="Label" parent="VB/Header"]
+margin_top = 5.0
+margin_right = 600.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 1 )
+text = "Об игре"
+align = 1
+valign = 1
+
+[node name="Info" type="Label" parent="VB"]
+margin_top = 57.0
+margin_right = 600.0
+margin_bottom = 296.0
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Версия: @version
+Автор: DanRedTMF
+Сделано с помощью Godot Engine @version"
+align = 1
+autowrap = true
+
+[node name="Buttons" type="VBoxContainer" parent="VB"]
+margin_top = 300.0
+margin_right = 600.0
+margin_bottom = 400.0
+
+[node name="Horizontal" type="HBoxContainer" parent="VB/Buttons"]
+margin_right = 600.0
+margin_bottom = 48.0
+alignment = 1
+
+[node name="Site" type="Button" parent="VB/Buttons/Horizontal"]
+margin_right = 600.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Сайт"
+
+[node name="Close" type="Button" parent="VB/Buttons"]
+margin_top = 52.0
+margin_right = 600.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Закрыть"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 6 )
+
+[connection signal="pressed" from="VB/Buttons/Horizontal/Site" to="." method="_on_Site_pressed"]
+[connection signal="pressed" from="VB/Buttons/Close" to="." method="_on_Close_pressed"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

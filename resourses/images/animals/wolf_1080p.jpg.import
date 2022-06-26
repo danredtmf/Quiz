@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/wolf_1080p.jpg-6f7e7843da9cc0f13a4bdc29461db83d.image"
+
+[deps]
+
+source_file="res://resourses/images/animals/wolf_1080p.jpg"
+dest_files=[ "res://.import/wolf_1080p.jpg-6f7e7843da9cc0f13a4bdc29461db83d.image" ]
+
+[params]
+

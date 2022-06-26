@@ -1,0 +1,286 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resourses/themes/default/styles/win_main_menu.tres" type="StyleBox" id=2]
+[ext_resource path="res://resourses/themes/default/default.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/main_menu/main_menu.gd" type="Script" id=4]
+[ext_resource path="res://scenes/quiz/secondary/slide_show/slide_show.tscn" type="PackedScene" id=5]
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="DynamicFont" id=10]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxEmpty" id=19]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[sub_resource type="StyleBoxEmpty" id=21]
+
+[sub_resource type="DynamicFont" id=11]
+size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="DynamicFont" id=27]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BGReady:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BGReady:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BGReady:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BGReady:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("BGReady:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BGReady:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+
+[node name="SlideShow" parent="." instance=ExtResource( 5 )]
+MIN_IMAGES = 5
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.0
+margin_top = -544.0
+margin_right = 160.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 150
+
+[node name="Panel" type="PanelContainer" parent="Margin"]
+margin_left = 60.0
+margin_top = 207.0
+margin_right = 260.0
+margin_bottom = 394.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 8
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VB" type="VBoxContainer" parent="Margin/Panel"]
+margin_left = 38.0
+margin_top = 10.0
+margin_right = 161.0
+margin_bottom = 177.0
+size_flags_horizontal = 4
+size_flags_vertical = 9
+custom_constants/separation = 10
+
+[node name="Name" type="Label" parent="Margin/Panel/VB"]
+margin_right = 123.0
+margin_bottom = 29.0
+custom_fonts/font = SubResource( 8 )
+text = "NAME"
+align = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Margin/Panel/VB"]
+margin_top = 39.0
+margin_right = 123.0
+margin_bottom = 167.0
+
+[node name="Play" type="Button" parent="Margin/Panel/VB/Buttons"]
+margin_right = 123.0
+margin_bottom = 29.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_pressed = Color( 0.584314, 0.584314, 0.584314, 1 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = SubResource( 15 )
+custom_styles/normal = SubResource( 16 )
+text = "Играть"
+flat = true
+
+[node name="Settings" type="Button" parent="Margin/Panel/VB/Buttons"]
+margin_top = 33.0
+margin_right = 123.0
+margin_bottom = 62.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_pressed = Color( 0.584314, 0.584314, 0.584314, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+text = "Настройки"
+flat = true
+
+[node name="About" type="Button" parent="Margin/Panel/VB/Buttons"]
+margin_top = 66.0
+margin_right = 123.0
+margin_bottom = 95.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_pressed = Color( 0.584314, 0.584314, 0.584314, 1 )
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/focus = SubResource( 19 )
+custom_styles/disabled = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+text = "Об игре"
+flat = true
+
+[node name="Exit" type="Button" parent="Margin/Panel/VB/Buttons"]
+margin_top = 99.0
+margin_right = 123.0
+margin_bottom = 128.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.760784, 0.760784, 0.760784, 1 )
+custom_colors/font_color_pressed = Color( 0.584314, 0.584314, 0.584314, 1 )
+custom_fonts/font = SubResource( 11 )
+custom_styles/hover = SubResource( 22 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = SubResource( 25 )
+custom_styles/normal = SubResource( 26 )
+text = "Выход"
+flat = true
+
+[node name="Version" type="Label" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -100.0
+margin_top = -22.0
+rect_min_size = Vector2( 100, 0 )
+custom_fonts/font = SubResource( 27 )
+align = 2
+
+[node name="BGReady" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimReady" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 4 )
+
+[connection signal="pressed" from="Margin/Panel/VB/Buttons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Margin/Panel/VB/Buttons/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Margin/Panel/VB/Buttons/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="Margin/Panel/VB/Buttons/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="animation_finished" from="AnimReady" to="." method="_on_AnimReady_animation_finished"]

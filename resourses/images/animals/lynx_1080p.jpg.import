@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/lynx_1080p.jpg-2106444875390c73ee8466602e41caaf.image"
+
+[deps]
+
+source_file="res://resourses/images/animals/lynx_1080p.jpg"
+dest_files=[ "res://.import/lynx_1080p.jpg-2106444875390c73ee8466602e41caaf.image" ]
+
+[params]
+
