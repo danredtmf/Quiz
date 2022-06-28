@@ -8,12 +8,34 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "DataAchievements",
+"language": "GDScript",
+"path": "res://resourses/save_classes/DataAchievements.gd"
+}, {
+"base": "Resource",
+"class": "DataPlayer",
+"language": "GDScript",
+"path": "res://resourses/save_classes/DataPlayer.gd"
+}, {
+"base": "Resource",
+"class": "DataSettings",
+"language": "GDScript",
+"path": "res://resourses/save_classes/DataSettings.gd"
+} ]
+_global_script_class_icons={
+"DataAchievements": "",
+"DataPlayer": "",
+"DataSettings": ""
+}
+
 [application]
 
 config/name="Quiz"
 run/main_scene="res://scenes/loading_game/loading_game.tscn"
 config/icon="res://icon.png"
-config/version="1.0"
+config/version="0.5-alpha"
 
 [autoload]
 

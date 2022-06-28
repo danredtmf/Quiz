@@ -21,6 +21,8 @@ func update_ui():
 	$VB/Header/Info.text = tr('settings')
 	$VB/Scroll/VB/Lang/VB/Header/Info.text = tr('lang')
 	
+	$VB/Scroll/VB/Lang/VB/Lang.selected = Data.data_settings.current_lang
+	
 	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(0, tr('en'))
 	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(1, tr('ru'))
 	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(2, tr('eo'))
@@ -47,5 +49,11 @@ func _on_Close_pressed():
 	_end_animation()
 
 func _on_Lang_item_selected(index):
-	Data.current_lang = index
-	Data.change_locale()
+	match index:
+		DataSettings.LANG.ENGLISH:
+			Data.data_settings.set_en()
+		DataSettings.LANG.RUSSIAN:
+			Data.data_settings.set_ru()
+		DataSettings.LANG.ESPERANTO:
+			Data.data_settings.set_eo()
+#	Data.saving_settings()

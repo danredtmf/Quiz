@@ -1,67 +1,60 @@
 extends Node
 
+# Показывался ли splash_screen
 var splash_screen_is_appeared: bool = false
-var sending_data_is_allowed: bool = false
 
-# Хотел сделать сервер, где хранил бы ответы пользователей
-# Ответы бы использовались для анимации завершения викторины
+# Для сервера
+# | Хотел сделать сервер, где хранил бы ответы пользователей   |
+# | Ответы бы использовались для анимации завершения викторины |
+# - Отправлять ли данные на сервер
+var sending_data_is_allowed: bool = false
+# - Существует ли сервер
 var is_server_exists: bool = false
 
-var nick_name: String = ""
-var test_time: float = 0
-
-enum LANG { ENGLISH, RUSSIAN, ESPERANTO }
-
-var current_lang = LANG.ENGLISH
-
-var test_answers: Array = []
-
-var test_1_answers: Array = []
-var test_2_answers: Array = []
-var test_3_answers: Array = []
-
-var test_data_text: Array = ["кто", "волк", "тот", "не", "гуляет", "ходит", "борщ", "варить", "искать", "волки", "волчонок", "куда", "идёт", "дверь", "погода", "ясная", "бюргерство", "изгнанник", "пульс", "драгун", "палиндром", "нервничание", "жмыходробилка", "электролюминесценция", "ветродвигатель", "тропот", "умирать", "уснуть", "обнять", "поразить", "ощутить", "приняться", "двигаться", "попросить", "направиться", "закрывать", "повседневный", "водный", "рыжий", "отдельный", "сплошной", "тонкий", "потребительский", "дежурный", "бетонный", "налоговый", "пространственный", "тихий", "последний", "населенный", "процентный", "видный", "неизвестный", "органический"]
+# Данные
+# - Игрок
+var data_player: DataPlayer = loading_player()
+# - Настройки
+var data_settings: DataSettings = loading_settings()
+# - Достижения
+var data_achievements: DataAchievements
 
 func _ready():
-	change_locale()
+	data_settings.change_locale()
 
-func change_locale():
-	if current_lang == LANG.ENGLISH:
-		TranslationServer.set_locale('en')
-	elif current_lang == LANG.RUSSIAN:
-		TranslationServer.set_locale('ru')
-	elif current_lang == LANG.ESPERANTO:
-		TranslationServer.set_locale('eo')
+func loading_player() -> DataPlayer:
+	if ResourceLoader.exists(DataPlayer.PATH):
+		var data = ResourceLoader.load(DataPlayer.PATH)
+		if data is DataPlayer:
+			return data
+		else:
+			return DataPlayer.new()
+	else:
+		return DataPlayer.new()
 
-func connect_answers():
-	test_answers.append_array(test_1_answers)
-	test_answers.append_array(test_2_answers)
-	test_answers.append_array(test_3_answers)
+func loading_settings() -> DataSettings:
+	if ResourceLoader.exists(DataSettings.PATH):
+		var data = ResourceLoader.load(DataSettings.PATH)
+		if data is DataSettings:
+			return data
+		else:
+			return DataSettings.new()
+	else:
+		return DataSettings.new()
 
-func test_data():
-	randomize()
-	for _i in range(3):
-		test_1_answers.append(_create_test_data())
-	for _i in range(3):
-		test_2_answers.append(_create_test_data())
-	for _i in range(3):
-		test_3_answers.append(_create_test_data())
+func saving_player():
+	var result = ResourceSaver.save(DataPlayer.PATH, data_player)
+	if result == OK:
+		print('complete loading settings')
 
-func _create_test_data() -> String:
-	var result = "%s %s %s %s" % [
-		test_data_text[randi() % test_data_text.size()],
-		test_data_text[randi() % test_data_text.size()],
-		test_data_text[randi() % test_data_text.size()],
-		test_data_text[randi() % test_data_text.size()]
-		]
-	
-	return result
+func saving_settings():
+	var result = ResourceSaver.save(DataSettings.PATH, data_settings)
+	if result == OK:
+		print('complete loading settings')
 
-func clear_data():
-	nick_name = ""
-	test_time = 0
-	test_answers.clear()
-	test_1_answers.clear()
-	test_2_answers.clear()
-	test_3_answers.clear()
+func clear_player():
+	data_player = DataPlayer.new()
 	Core.used_images.clear()
+
+func clear_settings():
+	data_settings = DataSettings.new()

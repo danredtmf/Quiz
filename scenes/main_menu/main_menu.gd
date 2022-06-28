@@ -66,4 +66,4 @@ func _on_closing_about_win():
 	$Margin/Panel/VB/Buttons/About.disabled = false
 
 func _on_closing_settings_win():
-	$Margin/Panel/VB/Buttons/About.disabled = false
+	$Margin/Panel/VB/Buttons/Settings.disabled = false
