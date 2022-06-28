@@ -65,5 +65,14 @@ func _on_pressed_send_data_win():
 func _on_closing_about_win():
 	$Margin/Panel/VB/Buttons/About.disabled = false
 
+func _on_closing_achievements_win():
+	$Margin/Panel/VB/Buttons/Achievements.disabled = false
+
 func _on_closing_settings_win():
 	$Margin/Panel/VB/Buttons/Settings.disabled = false
+
+func _on_Achievements_pressed():
+	var achievements_win = Core.achievements_res.instance()
+	add_child(achievements_win)
+	achievements_win.connect("closing", self, "_on_closing_achievements_win")
+	$Margin/Panel/VB/Buttons/Achievements.disabled = true

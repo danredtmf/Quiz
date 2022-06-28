@@ -6,6 +6,7 @@ const main_menu_res = preload("res://scenes/main_menu/main_menu.tscn")
 const send_data_question_res = preload("res://scenes/quiz/secondary/send_data_question/send_data_question.tscn")
 const game_res = preload("res://scenes/quiz/game/game.tscn")
 
+const achievements_res = preload("res://scenes/achievements/achievements.tscn")
 const settings_res = preload("res://scenes/settings/settings.tscn")
 const about_res = preload("res://scenes/about/about.tscn")
 

@@ -17,7 +17,7 @@ var data_player: DataPlayer = loading_player()
 # - Настройки
 var data_settings: DataSettings = loading_settings()
 # - Достижения
-var data_achievements: DataAchievements
+var data_achievements: DataAchievements = loading_achievements()
 
 func _ready():
 	data_settings.change_locale()
@@ -42,15 +42,15 @@ func loading_settings() -> DataSettings:
 	else:
 		return DataSettings.new()
 
-func saving_player():
-	var result = ResourceSaver.save(DataPlayer.PATH, data_player)
-	if result == OK:
-		print('complete loading settings')
-
-func saving_settings():
-	var result = ResourceSaver.save(DataSettings.PATH, data_settings)
-	if result == OK:
-		print('complete loading settings')
+func loading_achievements() -> DataAchievements:
+	if ResourceLoader.exists(DataAchievements.PATH):
+		var data = ResourceLoader.load(DataAchievements.PATH)
+		if data is DataAchievements:
+			return data
+		else:
+			return DataAchievements.new()
+	else:
+		return DataAchievements.new()
 
 func clear_player():
 	data_player = DataPlayer.new()
