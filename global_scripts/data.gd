@@ -11,6 +11,11 @@ var sending_data_is_allowed: bool = false
 # - Существует ли сервер
 var is_server_exists: bool = false
 
+# Данные звуковых дорожок
+var master_idx = AudioServer.get_bus_index('Master')
+var music_idx = AudioServer.get_bus_index('Music')
+var sound_idx = AudioServer.get_bus_index('Sound')
+
 # Данные
 # - Игрок
 var data_player: DataPlayer = loading_player()
@@ -19,10 +24,11 @@ var data_settings: DataSettings = loading_settings()
 # - Достижения
 var data_achievements: DataAchievements = loading_achievements()
 # - Секретные слова
-var secret_words = ["secret", "haggy", "minecraft", "gachi", "floppa"]
+var secret_words: Array = ["secret", "haggy", "minecraft", "gachi", "floppa"]
 
 func _ready():
 	data_settings.change_locale()
+	data_settings.set_volume()
 
 func loading_player() -> DataPlayer:
 	var empty = DataPlayer.new()
@@ -63,6 +69,10 @@ func clear_player():
 
 func clear_settings():
 	data_settings = DataSettings.new().duplicate()
+	data_settings.change_locale()
+	data_settings.reset_volume()
+	data_settings.saving()
 
 func clear_achievements():
 	data_achievements = DataAchievements.new().duplicate()
+	data_achievements.saving()

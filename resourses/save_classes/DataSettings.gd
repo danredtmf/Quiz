@@ -8,6 +8,13 @@ enum LANG { ENGLISH, RUSSIAN, ESPERANTO }
 # - Текущий язык
 export(LANG) var current_lang: int = LANG.ENGLISH
 
+# Громкость
+export(float) var volume_master: float
+# - Музыки
+export(float) var volume_music: float
+# - Звуков
+export(float) var volume_sounds: float
+
 # Обновление локализации
 func change_locale() -> void:
 	if current_lang == LANG.ENGLISH:
@@ -34,6 +41,18 @@ func set_eo() -> void:
 	current_lang = LANG.ESPERANTO
 	change_locale()
 	saving()
+
+func set_volume() -> void:
+	if !volume_master and !volume_music and !volume_sounds:
+		volume_master = AudioServer.get_bus_volume_db(Data.master_idx)
+		volume_music = AudioServer.get_bus_volume_db(Data.music_idx)
+		volume_sounds = AudioServer.get_bus_volume_db(Data.sound_idx)
+
+func reset_volume() -> void:
+	AudioServer.set_bus_volume_db(Data.master_idx, 0)
+	AudioServer.set_bus_volume_db(Data.music_idx, 0)
+	AudioServer.set_bus_volume_db(Data.sound_idx, 0)
+	set_volume()
 
 func saving():
 	var result = ResourceSaver.save(PATH, self)

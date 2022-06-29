@@ -87,3 +87,7 @@ achv_26_desc,"hear ""Bruh""","услышать ""Bruh""","aŭdu ""Bruh"""
 achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
 achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
 achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
+volume,Volume,Громкость,Volumo
+volume_general,General,Общая,Generalo
+volume_music,Music,Музыки,Muziko
+volume_sound,Sounds,Звуков,Sonoj

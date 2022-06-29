@@ -32,6 +32,7 @@ func check_achievement():
 	_check_lang()
 	_check_secret_words()
 	_check_open_images()
+	_check_volume()
 
 func _check_achv_open():
 	if is_achievement_opened:
@@ -125,6 +126,14 @@ func _check_open_images():
 	structures_count == 0:
 		if opened.find(all[18]) == -1:
 			opened.append(all[18])
+
+func _check_volume():
+	if AudioServer.is_bus_mute(Data.master_idx):
+		if opened.find(all[2]) == -1:
+			opened.append(all[2])
+	elif AudioServer.is_bus_mute(Data.music_idx) and AudioServer.is_bus_mute(Data.sound_idx):
+		if opened.find(all[2]) == -1:
+			opened.append(all[2])
 
 func add_image(image: Image):
 	if open_images.find(image) == -1:
