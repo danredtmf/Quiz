@@ -18,6 +18,8 @@ var data_player: DataPlayer = loading_player()
 var data_settings: DataSettings = loading_settings()
 # - Достижения
 var data_achievements: DataAchievements = loading_achievements()
+# - Секретные слова
+var secret_words = ["secret", "haggy", "minecraft", "gachi", "floppa"]
 
 func _ready():
 	data_settings.change_locale()

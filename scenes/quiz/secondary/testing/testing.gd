@@ -72,11 +72,11 @@ func _on_Next_pressed():
 	if $VB/TextEdit.text != "":
 		match state:
 			Core.GAME_STATE.TEST1:
-				Data.test_1_answers.append($VB/TextEdit.text)
+				Data.data_player.test_1_answers.append($VB/TextEdit.text)
 			Core.GAME_STATE.TEST2:
-				Data.test_2_answers.append($VB/TextEdit.text)
+				Data.data_player.test_2_answers.append($VB/TextEdit.text)
 			Core.GAME_STATE.TEST3:
-				Data.test_3_answers.append($VB/TextEdit.text)
+				Data.data_player.test_3_answers.append($VB/TextEdit.text)
 		_end_animation()
 
 func _on_Anim_animation_finished(anim_name):

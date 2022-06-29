@@ -17,6 +17,7 @@ func _process(_delta):
 	update_ui()
 
 func _gen():
+	Data.data_achievements.opened.sort()
 	for i in Data.data_achievements.opened:
 		var block = block_res.instance()
 		block.text_id = i

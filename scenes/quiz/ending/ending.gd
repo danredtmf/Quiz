@@ -5,6 +5,8 @@ var animated_text_arr_compl: Array = []
 
 func _ready():
 	Data.data_player.connect_answers()
+	Data.data_achievements.quiz_win = true
+	Data.data_achievements.check_achievement()
 	_create_animated_text()
 	yield(get_tree().create_timer(1), "timeout")
 	$ATDelay.start()

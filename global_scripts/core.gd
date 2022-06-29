@@ -39,7 +39,6 @@ const illuminating_spaces: Array = [
 	preload("res://resourses/images/illuminating_spaces/liminal_2_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/liminal_3_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/liminal_4_1080p.jpg"),
-	preload("res://resourses/images/illuminating_spaces/abstract_psychedelic_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/dark_room_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/dark_room_2_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/forest_top_1080p.jpg"),
@@ -135,6 +134,18 @@ func load_scene(scene_name: String, scene: PackedScene):
 func get_rand_screen_position() -> Vector2:
 	randomize()
 	return Vector2(rand_range(0, get_viewport().size.x / 3), rand_range(0, get_viewport().size.y))
+
+func get_rand_chance() -> float:
+	randomize()
+	return rand_range(0, 100)
+
+func shuffle_images():
+	abandoned_houses.shuffle()
+	illuminating_spaces.shuffle()
+	abstraction.shuffle()
+	animals.shuffle()
+	unusual_people.shuffle()
+	structures.shuffle()
 
 func image_is_used(image: Image) -> bool:
 	if used_images.find(image) != -1: return true

@@ -56,4 +56,4 @@ func _on_Lang_item_selected(index):
 			Data.data_settings.set_ru()
 		DataSettings.LANG.ESPERANTO:
 			Data.data_settings.set_eo()
-#	Data.saving_settings()
+	Data.data_achievements.check_achievement()

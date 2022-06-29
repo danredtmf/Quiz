@@ -83,3 +83,9 @@ func _on_Achievements_pressed():
 	add_child(achievements_win)
 	achievements_win.connect("closing", self, "_on_closing_achievements_win")
 	$Margin/Panel/VB/Buttons/Achievements.disabled = true
+
+func _input(event):
+	if event is InputEventKey:
+		if event.pressed and event.shift and event.scancode == KEY_A:
+			Data.data_achievements.is_achievement_opened = true
+			Data.data_achievements.check_achievement()

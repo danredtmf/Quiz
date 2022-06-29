@@ -12,7 +12,9 @@ var test_time: float = 0
 
 func _ready():
 	set_process(false)
+	Core.shuffle_images()
 	if OS.has_feature('editor'):
+		_load_pictures_test()
 		Data.data_player.test_data()
 		_state_ending()
 	else:
@@ -164,64 +166,126 @@ func _load_pictures():
 			var i = 0
 			while i != 1:
 				for pic in Core.abandoned_houses:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.structures:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.animals:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST2:
 			var i = 0
 			while i != 3:
 				for pic in Core.abstraction:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if selected_images.find(pic) == -1 && !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST3:
 			var i = 0
 			while i != 1:
 				for pic in Core.animals:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.unusual_people:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.unusual_people:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
+	
+	Data.data_achievements.check_achievement()
+
+func _load_pictures_test():
+	randomize()
+	
+	selected_images.clear()
+	
+	var i = 0
+	while i != 1:
+		for pic in Core.abandoned_houses:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 2:
+		for pic in Core.structures:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 3:
+		for pic in Core.animals:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	i = 0
+	while i != 3:
+		for pic in Core.abstraction:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	i = 0
+	while i != 1:
+		for pic in Core.animals:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 2:
+		for pic in Core.unusual_people:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 3:
+		for pic in Core.unusual_people:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	
+	Data.data_achievements.check_achievement()
 
 func _load_audio():
 	pass

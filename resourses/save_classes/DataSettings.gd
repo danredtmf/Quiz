@@ -38,4 +38,4 @@ func set_eo() -> void:
 func saving():
 	var result = ResourceSaver.save(PATH, self)
 	if result == OK:
-		print('complete loading player data')
+		print('complete loading settings')
