@@ -1,7 +1,5 @@
 extends Control
 
-const main_menu_res = preload("res://scenes/main_menu/main_menu.tscn")
-
 func _ready():
 	_start_animation()
 
@@ -18,4 +16,4 @@ func _on_Anim_animation_finished(anim_name):
 	elif anim_name == "hide":
 		Data.splash_screen_is_appeared = true
 		yield(get_tree().create_timer(1), "timeout")
-		Core.load_scene("main_menu", main_menu_res)
+		Core.load_scene("main_menu", Core.main_menu_res)

@@ -23,38 +23,44 @@ func _ready():
 	data_settings.change_locale()
 
 func loading_player() -> DataPlayer:
+	var empty = DataPlayer.new()
 	if ResourceLoader.exists(DataPlayer.PATH):
 		var data = ResourceLoader.load(DataPlayer.PATH)
 		if data is DataPlayer:
-			return data
+			return data.duplicate()
 		else:
-			return DataPlayer.new()
+			return empty.duplicate()
 	else:
-		return DataPlayer.new()
+		return empty.duplicate()
 
 func loading_settings() -> DataSettings:
+	var empty = DataSettings.new()
 	if ResourceLoader.exists(DataSettings.PATH):
 		var data = ResourceLoader.load(DataSettings.PATH)
 		if data is DataSettings:
-			return data
+			return data.duplicate()
 		else:
-			return DataSettings.new()
+			return empty.duplicate()
 	else:
-		return DataSettings.new()
+		return empty.duplicate()
 
 func loading_achievements() -> DataAchievements:
+	var empty = DataAchievements.new()
 	if ResourceLoader.exists(DataAchievements.PATH):
 		var data = ResourceLoader.load(DataAchievements.PATH)
 		if data is DataAchievements:
-			return data
+			return data.duplicate()
 		else:
-			return DataAchievements.new()
+			return empty.duplicate()
 	else:
-		return DataAchievements.new()
+		return empty.duplicate()
 
 func clear_player():
-	data_player = DataPlayer.new()
+	data_player = DataPlayer.new().duplicate()
 	Core.used_images.clear()
 
 func clear_settings():
-	data_settings = DataSettings.new()
+	data_settings = DataSettings.new().duplicate()
+
+func clear_achievements():
+	data_achievements = DataAchievements.new().duplicate()

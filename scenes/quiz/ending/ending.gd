@@ -4,7 +4,7 @@ var animated_text_arr: Array = []
 var animated_text_arr_compl: Array = []
 
 func _ready():
-	Data.connect_answers()
+	Data.data_player.connect_answers()
 	_create_animated_text()
 	yield(get_tree().create_timer(1), "timeout")
 	$ATDelay.start()
@@ -18,7 +18,9 @@ func _create_animated_text():
 	custom_theme.default_font = dynamic
 	var center_screen = get_viewport().size / 2
 	
-	for answer in Data.test_answers:
+	print(Data.data_player.test_answers.size())
+	
+	for answer in Data.data_player.test_answers:
 		var label = Label.new()
 		var tween = Tween.new()
 		var tween_show = Tween.new()
@@ -73,7 +75,7 @@ func _on_AnimationBG_animation_finished(anim_name):
 		$AnimationBG.play("show")
 		$Result.start_animation()
 	elif anim_name == "hide":
-		Core.load_scene("main_menu", Core.main_menu_res)
+		Core.load_scene("main_menu", load(ProjectSettings.get_setting('application/run/main_scene')))
 
 func _on_Result_pressed():
 	$AnimationBG.play("hide")

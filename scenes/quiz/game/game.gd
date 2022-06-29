@@ -13,7 +13,7 @@ var test_time: float = 0
 func _ready():
 	set_process(false)
 	if OS.has_feature('editor'):
-		Data.test_data()
+		Data.data_player.test_data()
 		_state_ending()
 	else:
 		_check_state()
@@ -74,7 +74,7 @@ func _record_test_time():
 	var seconds = int(test_time) % 60
 	var result = "Test time - %d min %d sec" % [minutes, seconds]
 	print(result)
-	Data.test_time = test_time
+	Data.data_player.test_time = test_time
 
 func _build_info():
 	var info = Core.info_res.instance()

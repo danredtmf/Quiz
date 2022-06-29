@@ -15,20 +15,20 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="Achievement" type="PanelContainer"]
-margin_right = 600.0
+margin_right = 11.0
 margin_bottom = 81.0
-size_flags_horizontal = 3
+rect_min_size = Vector2( 200, 0 )
 custom_styles/panel = ExtResource( 1 )
 script = ExtResource( 3 )
 
 [node name="VB" type="VBoxContainer" parent="."]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 595.0
+margin_right = 195.0
 margin_bottom = 76.0
 
 [node name="Name" type="Label" parent="VB"]
-margin_right = 590.0
+margin_right = 190.0
 margin_bottom = 38.0
 custom_fonts/font = SubResource( 7 )
 text = "Название"
@@ -38,8 +38,9 @@ autowrap = true
 
 [node name="Description" type="Label" parent="VB"]
 margin_top = 42.0
-margin_right = 590.0
+margin_right = 190.0
 margin_bottom = 71.0
+custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Описание"
 align = 1

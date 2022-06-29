@@ -19,8 +19,7 @@ func _process(_delta):
 func _gen():
 	for i in Data.data_achievements.opened:
 		var block = block_res.instance()
-		block.text_name = i["name"]
-		block.text_description = i["description"]
+		block.text_id = i
 		$VB/Scroll/Margin/VB.add_child(block)
 
 func _set_center_screen():
@@ -30,9 +29,9 @@ func _set_center_screen():
 func _check_count():
 	var count = Data.data_achievements.all.size() - Data.data_achievements.opened.size()
 	if count == 0:
-		$VB/Scroll/Margin/VB/Info.text = 'Все достижения открыты!'
+		$VB/Scroll/Margin/VB/Info.text = tr('achv_opened')
 	else:
-		$VB/Scroll/Margin/VB/Info.text = 'Закрытых достижений: %d' % [count]
+		$VB/Scroll/Margin/VB/Info.text = tr('achv_closed') % [count]
 
 func update_ui():
 	$VB/Header/Info.text = tr('achievements')
