@@ -128,20 +128,15 @@ func _input(event):
 func _check_secret_word():
 	for secret in Data.secret_words:
 		word = word.to_lower()
-		if word.to_lower() == secret:
+		if word == secret:
 			_show_secret_pic()
-		
-	_check_achv()
+			Data.data_achievements.add_word(word)
+			Data.data_achievements.check_achievement()
 	
 	word = ""
 
-func _check_achv():
-	if Data.data_achievements.open_secret_words.find(word) == -1:
-		Data.data_achievements.open_secret_words.append(word)
-		Data.data_achievements.check_achievement()
-
 func _show_secret_pic():
-	_change_secret_picture(word.to_lower())
+	_change_secret_picture(word)
 	$SecretPic.show()
 	$DelaySecretPic.start()
 

@@ -122,6 +122,19 @@ const special_images: Array = [
 	preload("res://resourses/images/special_images/question_mark_3_1080p.jpg"),
 ]
 
+const special_sounds: Array = [
+	preload("res://resourses/audio/special_sounds/are_you_playing.ogg"),
+	preload("res://resourses/audio/special_sounds/aughhhhh.ogg"),
+	preload("res://resourses/audio/special_sounds/blue_hg.ogg"),
+	preload("res://resourses/audio/special_sounds/bruh.ogg"),
+	preload("res://resourses/audio/special_sounds/connect.ogg"),
+	preload("res://resourses/audio/special_sounds/cool_dude.ogg"),
+	preload("res://resourses/audio/special_sounds/disconnect.ogg"),
+	preload("res://resourses/audio/special_sounds/ha.ogg"),
+	preload("res://resourses/audio/special_sounds/hello.ogg"),
+	preload("res://resourses/audio/special_sounds/joke.ogg"),
+]
+
 var used_images: Array = []
 
 func load_scene(scene_name: String, scene: PackedScene):
@@ -130,6 +143,16 @@ func load_scene(scene_name: String, scene: PackedScene):
 		print("Status load \"{0}\": OK".format([scene_name]))
 	elif err == ERR_CANT_CREATE:
 		print("Status load \"{0}\": ERR_CANT_CREATE".format([scene_name]))
+
+func get_audio_name(audio: AudioStreamOGGVorbis) -> String:
+	var name = Data.special_sounds[special_sounds.rfind(audio)]
+	
+	return name
+
+func get_audio(name: String) -> AudioStreamOGGVorbis:
+	var audio: AudioStreamOGGVorbis = special_sounds[Data.special_sounds.rfind(name)]
+	
+	return audio
 
 func get_rand_screen_position() -> Vector2:
 	randomize()

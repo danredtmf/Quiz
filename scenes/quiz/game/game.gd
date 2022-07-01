@@ -7,6 +7,7 @@ var current_state: int = Core.GAME_STATE.ENTER_NICKNAME
 var current_stage: int = Core.TEST_STAGE.NONE
 
 var selected_images: Array = []
+var selected_sound: AudioStreamOGGVorbis
 
 var test_time: float = 0
 
@@ -15,6 +16,7 @@ func _ready():
 	Core.shuffle_images()
 	if OS.has_feature('editor'):
 		_load_pictures_test()
+		_load_audio()
 		Data.data_player.test_data()
 		_state_ending()
 	else:
@@ -64,6 +66,7 @@ func _state_test2():
 func _state_test3():
 	_check_stage()
 	_load_pictures()
+	_load_audio()
 
 func _state_ending():
 	set_process(false)
@@ -120,6 +123,9 @@ func _build_stage():
 			add_child(testing)
 			testing.connect("pressed", self, "_on_testing_pressed")
 		Core.GAME_STATE.TEST3:
+			if current_stage == Core.TEST_STAGE.THREE:
+				testing.audio = selected_sound
+			
 			testing.is_black_white = true
 			testing.header_text = tr('test3_header')
 			add_child(testing)
@@ -157,8 +163,6 @@ func _change_stage():
 			_change_state()
 
 func _load_pictures():
-	randomize()
-	
 	selected_images.clear()
 	
 	match current_state:
@@ -235,8 +239,6 @@ func _load_pictures():
 	Data.data_achievements.check_achievement()
 
 func _load_pictures_test():
-	randomize()
-	
 	selected_images.clear()
 	
 	var i = 0
@@ -288,7 +290,28 @@ func _load_pictures_test():
 	Data.data_achievements.check_achievement()
 
 func _load_audio():
-	pass
+	var audio: AudioStreamOGGVorbis
+	
+	var i = 0
+	while i == 0:
+		for a in Core.special_sounds:
+			var audio_name = Core.get_audio_name(a)
+			if Core.get_rand_chance() < 50 and audio_name != "connect":
+				if Data.data_achievements.open_special_sounds.find(audio_name) != -1:
+					if Core.get_rand_chance() < 50:
+						audio = a
+						Data.data_achievements.add_special_sound(audio_name)
+						i += 1
+						break
+				else:
+					audio = a
+					Data.data_achievements.add_special_sound(audio_name)
+					i += 1
+					break
+	
+	Data.data_achievements.check_achievement()
+	
+	selected_sound = audio
 
 func _on_info_pressed():
 	_change_stage()

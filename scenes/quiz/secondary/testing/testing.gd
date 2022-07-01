@@ -91,7 +91,28 @@ func _on_Timer_timeout():
 			bw_state = BW_STATE.BW
 			set_process(false)
 			_check_bw()
+			_audio()
 			_set_header_text()
 
+func _audio():
+	match Core.get_audio_name(audio):
+		"disconnect":
+			_init_audio()
+			_play_audio()
+			yield(get_tree().create_timer(3), "timeout")
+			_set_stream("connect")
+			_play_audio()
+		_:
+			_init_audio()
+			_play_audio()
+
+func _init_audio():
+	$SoundPlayer.stream = audio
+
+func _set_stream(name: String):
+	var audio = Core.get_audio(name)
+	$SoundPlayer.stop()
+	$SoundPlayer.stream = audio
+
 func _play_audio():
-	pass
+	$SoundPlayer.play()

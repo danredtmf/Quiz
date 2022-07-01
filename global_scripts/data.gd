@@ -25,6 +25,19 @@ var data_settings: DataSettings = loading_settings()
 var data_achievements: DataAchievements = loading_achievements()
 # - Секретные слова
 var secret_words: Array = ["secret", "haggy", "minecraft", "gachi", "floppa"]
+# - Названия особенных звуков
+var special_sounds: Array = [
+	"are_you_playing",
+	"aughhhhh",
+	"blue_hg",
+	"bruh",
+	"connect",
+	"cool_dude",
+	"disconnect",
+	"ha",
+	"hello",
+	"joke",
+]
 
 func _ready():
 	data_settings.change_locale()

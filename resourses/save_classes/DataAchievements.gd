@@ -33,6 +33,8 @@ func check_achievement():
 	_check_secret_words()
 	_check_open_images()
 	_check_volume()
+	_check_special_sounds()
+	saving()
 
 func _check_achv_open():
 	if is_achievement_opened:
@@ -135,9 +137,51 @@ func _check_volume():
 		if opened.find(all[2]) == -1:
 			opened.append(all[2])
 
+func _check_special_sounds():
+	for name in open_special_sounds:
+		if name == Data.special_sounds[0]:
+			if opened.find(all[20]) == -1:
+				opened.append(all[20])
+		if name == Data.special_sounds[1]:
+			if opened.find(all[26]) == -1:
+				opened.append(all[26])
+		if name == Data.special_sounds[2]:
+			if opened.find(all[23]) == -1:
+				opened.append(all[23])
+		if name == Data.special_sounds[3]:
+			if opened.find(all[25]) == -1:
+				opened.append(all[25])
+		if name == Data.special_sounds[5]:
+			if opened.find(all[24]) == -1:
+				opened.append(all[24])
+		if name == Data.special_sounds[6]:
+			if opened.find(all[27]) == -1:
+				opened.append(all[27])
+		if name == Data.special_sounds[7]:
+			if opened.find(all[21]) == -1:
+				opened.append(all[21])
+		if name == Data.special_sounds[8]:
+			if opened.find(all[19]) == -1:
+				opened.append(all[19])
+		if name == Data.special_sounds[9]:
+			if opened.find(all[22]) == -1:
+				opened.append(all[22])
+	
+	if open_special_sounds.size() >= 9:
+		if opened.find(all[28]) == -1:
+			opened.append(all[28])
+
+func add_word(word: String):
+	if open_secret_words.find(word) == -1:
+		open_secret_words.append(word)
+
 func add_image(image: Image):
 	if open_images.find(image) == -1:
 		open_images.append(image)
+
+func add_special_sound(sound_name: String):
+	if open_special_sounds.find(sound_name) == -1:
+		open_special_sounds.append(sound_name)
 
 func test_open_image():
 	open_images.append_array(Core.abandoned_houses)

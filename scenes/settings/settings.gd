@@ -20,6 +20,11 @@ onready var general_info = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/Info
 onready var music_info = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/Info
 onready var sound_info = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/Info
 
+onready var reset_header_info = $VB/Scroll/HB/VBReset/Reset/VB/Header/Info
+onready var reset_progress = $VB/Scroll/HB/VBReset/Reset/VB/ResetProgress
+onready var reset_settings = $VB/Scroll/HB/VBReset/Reset/VB/ResetSettings
+onready var reset_achievements = $VB/Scroll/HB/VBReset/Reset/VB/ResetAchievements
+
 onready var close_btn = $VB/Buttons/Close
 
 func _ready():
@@ -42,6 +47,7 @@ func update_ui():
 	
 	_lang_info()
 	_volume_info()
+	_reset_info()
 	
 	close_btn.text = tr('close')
 
@@ -82,6 +88,13 @@ func _volume_info():
 	general_slider.value = Data.data_settings.volume_master
 	music_slider.value = Data.data_settings.volume_music
 	sound_slider.value = Data.data_settings.volume_sounds
+
+func _reset_info():
+	reset_header_info.text = tr('reset')
+	
+	reset_progress.text = tr('reset_progress')
+	reset_settings.text = tr('reset_settings')
+	reset_achievements.text = tr('reset_achievements')
 
 func _start_animation():
 	$Animation.play("show")
