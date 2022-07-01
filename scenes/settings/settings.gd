@@ -4,21 +4,21 @@ signal closing
 
 onready var header_win = $VB/Header/Info
 
-onready var lang_header_info = $VB/Scroll/VB/Lang/VB/Header/Info
-onready var lang_menu = $VB/Scroll/VB/Lang/VB/Lang
+onready var lang_header_info = $VB/Scroll/HB/VB/Lang/VB/Header/Info
+onready var lang_menu = $VB/Scroll/HB/VB/Lang/VB/Lang
 
-onready var volume_header_info = $VB/Scroll/VB/Volume/VB/Header/Info
-onready var general_header_info = $VB/Scroll/VB/Volume/VB/VB/General/VB/Header/Info
-onready var music_header_info = $VB/Scroll/VB/Volume/VB/VB/Music/VB/Header/Info
-onready var sound_header_info = $VB/Scroll/VB/Volume/VB/VB/Sound/VB/Header/Info
+onready var volume_header_info = $VB/Scroll/HB/VB/Volume/VB/Header/Info
+onready var general_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/Header/Info
+onready var music_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/Header/Info
+onready var sound_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/Header/Info
 
-onready var general_slider = $VB/Scroll/VB/Volume/VB/VB/General/VB/VB/GeneralSlider
-onready var music_slider = $VB/Scroll/VB/Volume/VB/VB/Music/VB/VB/MusicSlider
-onready var sound_slider = $VB/Scroll/VB/Volume/VB/VB/Sound/VB/VB/SoundSlider
+onready var general_slider = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/GeneralSlider
+onready var music_slider = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/MusicSlider
+onready var sound_slider = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/SoundSlider
 
-onready var general_info = $VB/Scroll/VB/Volume/VB/VB/General/VB/VB/Info
-onready var music_info = $VB/Scroll/VB/Volume/VB/VB/Music/VB/VB/Info
-onready var sound_info = $VB/Scroll/VB/Volume/VB/VB/Sound/VB/VB/Info
+onready var general_info = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/Info
+onready var music_info = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/Info
+onready var sound_info = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/Info
 
 onready var close_btn = $VB/Buttons/Close
 
@@ -141,3 +141,12 @@ func _on_SoundSlider_value_changed(value):
 		AudioServer.set_bus_mute(Data.sound_idx, true)
 	Data.data_settings.saving()
 	Data.data_achievements.check_achievement()
+
+func _on_ResetProgress_pressed():
+	Data.clear_player()
+
+func _on_ResetSettings_pressed():
+	Data.clear_settings()
+
+func _on_ResetAchievements_pressed():
+	Data.clear_achievements()

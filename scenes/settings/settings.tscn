@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resourses/themes/default/styles/win_default.tres" type="StyleBox" id=2]
@@ -26,6 +26,21 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 24
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 18
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 18
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -193,30 +208,36 @@ margin_right = 800.0
 margin_bottom = 548.0
 size_flags_vertical = 3
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll"]
-margin_left = 250.0
-margin_right = 550.0
+[node name="HB" type="HBoxContainer" parent="VB/Scroll"]
+margin_left = 85.0
+margin_right = 715.0
 margin_bottom = 409.0
 size_flags_horizontal = 6
 custom_constants/separation = 30
 
-[node name="Lang" type="PanelContainer" parent="VB/Scroll/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB"]
+margin_right = 300.0
+margin_bottom = 409.0
+size_flags_horizontal = 6
+custom_constants/separation = 30
+
+[node name="Lang" type="PanelContainer" parent="VB/Scroll/HB/VB"]
 margin_right = 300.0
 margin_bottom = 82.0
 rect_min_size = Vector2( 300, 0 )
 size_flags_horizontal = 6
 custom_styles/panel = ExtResource( 2 )
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Lang"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Lang"]
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="Header" type="PanelContainer" parent="VB/Scroll/VB/Lang/VB"]
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VB/Lang/VB"]
 margin_right = 300.0
 margin_bottom = 39.0
 custom_styles/panel = ExtResource( 8 )
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Lang/VB/Header"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Lang/VB/Header"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 295.0
@@ -226,7 +247,7 @@ text = "Язык"
 align = 1
 valign = 1
 
-[node name="Lang" type="OptionButton" parent="VB/Scroll/VB/Lang/VB"]
+[node name="Lang" type="OptionButton" parent="VB/Scroll/HB/VB/Lang/VB"]
 margin_top = 43.0
 margin_right = 300.0
 margin_bottom = 82.0
@@ -240,23 +261,23 @@ align = 1
 items = [ "0", null, false, 0, null, "1", null, false, 1, null, "2", null, false, 2, null ]
 selected = 0
 
-[node name="Volume" type="PanelContainer" parent="VB/Scroll/VB"]
+[node name="Volume" type="PanelContainer" parent="VB/Scroll/HB/VB"]
 margin_top = 112.0
 margin_right = 300.0
 margin_bottom = 409.0
 rect_min_size = Vector2( 300, 0 )
 custom_styles/panel = ExtResource( 2 )
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume"]
 margin_right = 300.0
 margin_bottom = 297.0
 
-[node name="Header" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB"]
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB"]
 margin_right = 300.0
 margin_bottom = 39.0
 custom_styles/panel = ExtResource( 8 )
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/Header"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/Header"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 295.0
@@ -266,27 +287,27 @@ text = "Громкость"
 align = 1
 valign = 1
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB"]
 margin_top = 43.0
 margin_right = 300.0
 margin_bottom = 297.0
 
-[node name="General" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB"]
+[node name="General" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB"]
 margin_right = 300.0
 margin_bottom = 82.0
 rect_min_size = Vector2( 300, 0 )
 custom_styles/panel = ExtResource( 2 )
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/General"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/General"]
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="Header" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB/General/VB"]
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/General/VB"]
 margin_right = 300.0
 margin_bottom = 39.0
 custom_styles/panel = ExtResource( 8 )
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/General/VB/Header"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/General/VB/Header"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 295.0
@@ -296,18 +317,18 @@ text = "Общая"
 align = 1
 valign = 1
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/General/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/General/VB"]
 margin_top = 43.0
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="GeneralSlider" type="HSlider" parent="VB/Scroll/VB/Volume/VB/VB/General/VB/VB"]
+[node name="GeneralSlider" type="HSlider" parent="VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB"]
 margin_right = 300.0
 margin_bottom = 16.0
 min_value = -24.0
 max_value = 0.0
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/General/VB/VB"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB"]
 margin_top = 20.0
 margin_right = 300.0
 margin_bottom = 39.0
@@ -315,23 +336,23 @@ custom_fonts/font = ExtResource( 13 )
 align = 1
 valign = 1
 
-[node name="Music" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB"]
+[node name="Music" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB"]
 margin_top = 86.0
 margin_right = 300.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 300, 0 )
 custom_styles/panel = ExtResource( 2 )
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/Music"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music"]
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="Header" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB/Music/VB"]
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB"]
 margin_right = 300.0
 margin_bottom = 39.0
 custom_styles/panel = ExtResource( 8 )
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/Music/VB/Header"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/Header"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 295.0
@@ -341,18 +362,18 @@ text = "Музыка"
 align = 1
 valign = 1
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/Music/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB"]
 margin_top = 43.0
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="MusicSlider" type="HSlider" parent="VB/Scroll/VB/Volume/VB/VB/Music/VB/VB"]
+[node name="MusicSlider" type="HSlider" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB"]
 margin_right = 300.0
 margin_bottom = 16.0
 min_value = -24.0
 max_value = 0.0
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/Music/VB/VB"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB"]
 margin_top = 20.0
 margin_right = 300.0
 margin_bottom = 39.0
@@ -360,23 +381,23 @@ custom_fonts/font = ExtResource( 13 )
 align = 1
 valign = 1
 
-[node name="Sound" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB"]
+[node name="Sound" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB"]
 margin_top = 172.0
 margin_right = 300.0
 margin_bottom = 254.0
 rect_min_size = Vector2( 300, 0 )
 custom_styles/panel = ExtResource( 2 )
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/Sound"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound"]
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="Header" type="PanelContainer" parent="VB/Scroll/VB/Volume/VB/VB/Sound/VB"]
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB"]
 margin_right = 300.0
 margin_bottom = 39.0
 custom_styles/panel = ExtResource( 8 )
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/Sound/VB/Header"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/Header"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 295.0
@@ -386,24 +407,90 @@ text = "Звук"
 align = 1
 valign = 1
 
-[node name="VB" type="VBoxContainer" parent="VB/Scroll/VB/Volume/VB/VB/Sound/VB"]
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB"]
 margin_top = 43.0
 margin_right = 300.0
 margin_bottom = 82.0
 
-[node name="SoundSlider" type="HSlider" parent="VB/Scroll/VB/Volume/VB/VB/Sound/VB/VB"]
+[node name="SoundSlider" type="HSlider" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB"]
 margin_right = 300.0
 margin_bottom = 16.0
 min_value = -24.0
 max_value = 0.0
 
-[node name="Info" type="Label" parent="VB/Scroll/VB/Volume/VB/VB/Sound/VB/VB"]
+[node name="Info" type="Label" parent="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB"]
 margin_top = 20.0
 margin_right = 300.0
 margin_bottom = 39.0
 custom_fonts/font = ExtResource( 13 )
 align = 1
 valign = 1
+
+[node name="VBReset" type="VBoxContainer" parent="VB/Scroll/HB"]
+margin_left = 330.0
+margin_right = 630.0
+margin_bottom = 409.0
+size_flags_horizontal = 6
+custom_constants/separation = 30
+
+[node name="Reset" type="PanelContainer" parent="VB/Scroll/HB/VBReset"]
+margin_right = 300.0
+margin_bottom = 147.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_horizontal = 6
+custom_styles/panel = ExtResource( 2 )
+
+[node name="VB" type="VBoxContainer" parent="VB/Scroll/HB/VBReset/Reset"]
+margin_right = 300.0
+margin_bottom = 147.0
+
+[node name="Header" type="PanelContainer" parent="VB/Scroll/HB/VBReset/Reset/VB"]
+margin_right = 300.0
+margin_bottom = 39.0
+custom_styles/panel = ExtResource( 8 )
+
+[node name="Info" type="Label" parent="VB/Scroll/HB/VBReset/Reset/VB/Header"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 295.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 7 )
+text = "Сброс"
+align = 1
+valign = 1
+
+[node name="ResetProgress" type="Button" parent="VB/Scroll/HB/VBReset/Reset/VB"]
+margin_top = 43.0
+margin_right = 300.0
+margin_bottom = 75.0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Прогресса"
+
+[node name="ResetSettings" type="Button" parent="VB/Scroll/HB/VBReset/Reset/VB"]
+margin_top = 79.0
+margin_right = 300.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Настроек"
+
+[node name="ResetAchievements" type="Button" parent="VB/Scroll/HB/VBReset/Reset/VB"]
+margin_top = 115.0
+margin_right = 300.0
+margin_bottom = 147.0
+custom_fonts/font = SubResource( 11 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Достижений"
 
 [node name="Buttons" type="VBoxContainer" parent="VB"]
 margin_top = 552.0
@@ -425,9 +512,12 @@ anims/RESET = SubResource( 4 )
 anims/hide = SubResource( 5 )
 anims/show = SubResource( 6 )
 
-[connection signal="item_selected" from="VB/Scroll/VB/Lang/VB/Lang" to="." method="_on_Lang_item_selected"]
-[connection signal="value_changed" from="VB/Scroll/VB/Volume/VB/VB/General/VB/VB/GeneralSlider" to="." method="_on_GeneralSlider_value_changed"]
-[connection signal="value_changed" from="VB/Scroll/VB/Volume/VB/VB/Music/VB/VB/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
-[connection signal="value_changed" from="VB/Scroll/VB/Volume/VB/VB/Sound/VB/VB/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="item_selected" from="VB/Scroll/HB/VB/Lang/VB/Lang" to="." method="_on_Lang_item_selected"]
+[connection signal="value_changed" from="VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/GeneralSlider" to="." method="_on_GeneralSlider_value_changed"]
+[connection signal="value_changed" from="VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/SoundSlider" to="." method="_on_SoundSlider_value_changed"]
+[connection signal="pressed" from="VB/Scroll/HB/VBReset/Reset/VB/ResetProgress" to="." method="_on_ResetProgress_pressed"]
+[connection signal="pressed" from="VB/Scroll/HB/VBReset/Reset/VB/ResetSettings" to="." method="_on_ResetSettings_pressed"]
+[connection signal="pressed" from="VB/Scroll/HB/VBReset/Reset/VB/ResetAchievements" to="." method="_on_ResetAchievements_pressed"]
 [connection signal="pressed" from="VB/Buttons/Close" to="." method="_on_Close_pressed"]
 [connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]
