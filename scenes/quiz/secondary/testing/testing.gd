@@ -110,9 +110,9 @@ func _init_audio():
 	$SoundPlayer.stream = audio
 
 func _set_stream(name: String):
-	var audio = Core.get_audio(name)
+	var new_audio = Core.get_audio(name)
 	$SoundPlayer.stop()
-	$SoundPlayer.stream = audio
+	$SoundPlayer.stream = new_audio
 
 func _play_audio():
 	$SoundPlayer.play()

@@ -57,4 +57,4 @@ func reset_volume() -> void:
 func saving():
 	var result = ResourceSaver.save(PATH, self)
 	if result == OK:
-		print('complete loading settings')
+		print('complete saving settings')

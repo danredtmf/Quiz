@@ -25,6 +25,8 @@ export(Array) var open_secret_words: Array = []
 export(Array) var open_images: Array = []
 # - Список особенных звуков, которые услышал игрок
 export(Array) var open_special_sounds: Array = []
+# - Открыта ли вторая часть
+export(bool) var is_chapter_two_opened: bool = false
 
 func check_achievement():
 	_check_achv_open()
@@ -34,6 +36,7 @@ func check_achievement():
 	_check_open_images()
 	_check_volume()
 	_check_special_sounds()
+	_check_chapter_two()
 	saving()
 
 func _check_achv_open():
@@ -171,6 +174,11 @@ func _check_special_sounds():
 		if opened.find(all[28]) == -1:
 			opened.append(all[28])
 
+func _check_chapter_two():
+	if is_chapter_two_opened:
+		if opened.find(all[29]) == -1:
+			opened.append(all[29])
+
 func add_word(word: String):
 	if open_secret_words.find(word) == -1:
 		open_secret_words.append(word)
@@ -194,7 +202,7 @@ func test_open_image():
 func _gen_achv_id() -> Array:
 	var result = []
 	
-	for i in range(29):
+	for i in range(30):
 		result.append(i+1)
 	
 	return result
@@ -202,4 +210,4 @@ func _gen_achv_id() -> Array:
 func saving():
 	var result = ResourceSaver.save(PATH, self)
 	if result == OK:
-		print('complete loading achievements')
+		print('complete saving achievements')

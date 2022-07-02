@@ -76,9 +76,14 @@ func loading_achievements() -> DataAchievements:
 	else:
 		return empty.duplicate()
 
+func clear_data():
+	Core.used_images.clear()
+	data_player.clear_quiz()
+	data_achievements.is_chapter_two_opened = false
+
 func clear_player():
 	data_player = DataPlayer.new().duplicate()
-	Core.used_images.clear()
+	data_player.saving()
 
 func clear_settings():
 	data_settings = DataSettings.new().duplicate()
