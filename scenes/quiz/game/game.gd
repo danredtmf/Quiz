@@ -162,6 +162,11 @@ func _change_stage():
 			current_stage = Core.TEST_STAGE.NONE
 			_change_state()
 
+func _add_image(image: Image):
+	selected_images.append(image)
+	Core.used_images.append(image)
+	Data.data_achievements.add_image(image)
+
 func _load_pictures():
 	selected_images.clear()
 	
@@ -170,69 +175,83 @@ func _load_pictures():
 			var i = 0
 			while i != 1:
 				for pic in Core.abandoned_houses:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.structures:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.animals:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST2:
 			var i = 0
 			while i != 3:
 				for pic in Core.abstraction:
-					if Core.get_rand_chance() <= 30:
-						if selected_images.find(pic) == -1 && !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST3:
 			var i = 0
 			while i != 1:
 				for pic in Core.animals:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.unusual_people:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.unusual_people:
-					if Core.get_rand_chance() <= 30:
-						if !Core.image_is_used(pic):
-							selected_images.append(pic)
-							Core.used_images.append(pic)
-							Data.data_achievements.add_image(pic)
+					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
 							i += 1
 							break
 	
@@ -244,48 +263,83 @@ func _load_pictures_test():
 	var i = 0
 	while i != 1:
 		for pic in Core.abandoned_houses:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	while i != 2:
 		for pic in Core.structures:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	while i != 3:
 		for pic in Core.animals:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	i = 0
 	while i != 3:
 		for pic in Core.abstraction:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	i = 0
 	while i != 1:
 		for pic in Core.animals:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	while i != 2:
 		for pic in Core.unusual_people:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	while i != 3:
 		for pic in Core.unusual_people:
-			if Core.get_rand_chance() <= 30:
-				Data.data_achievements.add_image(pic)
-				i += 1
-				break
+			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
+				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
 	
 	Data.data_achievements.check_achievement()
 

@@ -31,60 +31,39 @@ func _start_animation():
 func _choose_pictures():
 	randomize()
 	
-	var count = 0
-	
-	print("Starting load images for slide show...")
-	
-	print("	Step 1 / 6")
 	for img in Core.abandoned_houses:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
-	
-	print("	Step 2 / 6")
+
 	for img in Core.illuminating_spaces:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
-	
-	print("	Step 3 / 6")
+
 	for img in Core.abstraction:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
-	
-	print("	Step 4 / 6")
+
 	for img in Core.animals:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
-	
-	print("	Step 5 / 6")
+
 	for img in Core.unusual_people:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
-	
-	print("	Step 6 / 6")
+
 	for img in Core.structures:
 		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
 			Data.data_achievements.add_image(img)
-			count += 1
 	
 	Data.data_achievements.check_achievement()
 	
 	special_image = Core.special_images[randi() % Core.special_images.size()]
-	
-	print("	Loaded images: {0}".format([count]))
-	
-	if count < MIN_IMAGES:
-		print("	Oops! Few images! Showing a question mark. Hmm...")
 
 func _change_pictures(number: int) -> void:
 	randomize()

@@ -10,7 +10,6 @@ func _end_animation():
 	$AnimReady.play("hide")
 
 func _config():
-	$Margin/Panel/VB/Name.text = ProjectSettings.get_setting('application/config/name')
 	update_ui()
 	
 	$Version.text = ProjectSettings.get_setting('application/config/version') + " "
@@ -23,6 +22,11 @@ func _process(_delta):
 	check_achv()
 
 func update_ui():
+	if Data.data_achievements.quiz_win and !Data.data_achievements.is_achievement_opened:
+		$Margin/Panel/VB/Name.text = "Shift+A"
+	else:
+		$Margin/Panel/VB/Name.text = ProjectSettings.get_setting('application/config/name')
+	
 	$Margin/Panel/VB/Buttons/Play.text = tr('play')
 	$Margin/Panel/VB/Buttons/Achievements.text = tr('achievements')
 	$Margin/Panel/VB/Buttons/Settings.text = tr('settings')
@@ -40,7 +44,7 @@ func _on_AnimReady_animation_finished(anim_name):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	elif anim_name == "hide":
 		yield(get_tree().create_timer(1), "timeout")
-		Data.clear_player()
+		Data.clear_data()
 		Core.load_scene("game", Core.game_res)
 
 func _on_Exit_pressed():

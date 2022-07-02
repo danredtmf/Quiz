@@ -9,6 +9,8 @@ func _config():
 	_show_info()
 	_correct_blocks()
 	
+	_chance_chapter_two()
+	
 	$MarginButtons/HB/MainMenu.text = tr('in_main_menu')
 
 func _show_info():
@@ -31,6 +33,16 @@ func start_animation():
 
 func _end_animation():
 	$Animation.play("hide")
+
+func _chance_chapter_two():
+	if Data.data_achievements.quiz_win == true and Data.data_player.is_possible_activate_chapter_two == true:
+		var chance = Core.get_rand_chance()
+		if chance < 45:
+			_delete_slide_show()
+			Data.data_achievements.is_chapter_two_opened = true
+
+func _delete_slide_show():
+	$SlideShow.queue_free()
 
 func _on_MainMenu_pressed():
 	_end_animation()

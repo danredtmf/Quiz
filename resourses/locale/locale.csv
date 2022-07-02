@@ -58,6 +58,7 @@ achv_26_name,hurB,hurB,hurB
 achv_27_name,hhhhhA,hhhhhA,hhhhhA
 achv_28_name,Device connection sound,Звук подключения устройства,Aparato-konekto sono
 achv_29_name,I heard everything,Я слышал всё,Mi aŭdis ĉion
+achv_30_name,Looking for...,В поисках…,Serĉas...
 achv_1_desc,"open ""Achievements""","открыть ""Достижения""","malfermu ""Atingoj"""
 achv_2_desc,"open ""Achievements"" before the first playthrough","открыть ""Достижения"" перед первым прохождением","malfermu ""Atingojn"" antaŭ la unua ludo"
 achv_3_desc,reduce the volume of music and sounds to 0%,уменьшить громкость музыки и звуков до 0%,redukti la volumon de muziko kaj sonoj al 0%
@@ -87,6 +88,7 @@ achv_26_desc,"hear ""Bruh""","услышать ""Bruh""","aŭdu ""Bruh"""
 achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
 achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
 achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
+achv_30_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
 volume,Volume,Громкость,Volumo
 volume_general,General,Общая,Generalo
 volume_music,Music,Музыки,Muziko

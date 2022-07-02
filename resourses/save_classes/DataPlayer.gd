@@ -13,6 +13,8 @@ export(Array) var test_answers: Array = []
 export(Array) var test_1_answers: Array = []
 export(Array) var test_2_answers: Array = []
 export(Array) var test_3_answers: Array = []
+# - Возможно ли открыть вторую часть
+export(bool) var is_possible_activate_chapter_two: bool = false
 
 # - Для тестирования анимации концовки викторины
 var test_data_text: Array = [
@@ -24,6 +26,22 @@ export(Array) var pass_answers: Array = []
 export(Array) var test_1_pass_answers: Array = []
 export(Array) var test_2_pass_answers: Array = []
 export(Array) var test_3_pass_answers: Array = []
+
+func clear_quiz():
+	nick_name = ""
+	test_time = 0
+	
+	test_answers.clear()
+	test_1_answers.clear()
+	test_2_answers.clear()
+	test_3_answers.clear()
+	
+	pass_answers.clear()
+	test_1_pass_answers.clear()
+	test_2_pass_answers.clear()
+	test_3_pass_answers.clear()
+	
+	saving()
 
 # Соединение всех ответов в один массив
 func connect_answers() -> void:
@@ -54,4 +72,4 @@ func _create_test_data() -> String:
 func saving():
 	var result = ResourceSaver.save(PATH, self)
 	if result == OK:
-		print('complete loading player data')
+		print('complete saving player data')

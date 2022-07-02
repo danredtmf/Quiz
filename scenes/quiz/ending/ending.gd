@@ -20,8 +20,6 @@ func _create_animated_text():
 	custom_theme.default_font = dynamic
 	var center_screen = get_viewport().size / 2
 	
-	print(Data.data_player.test_answers.size())
-	
 	for answer in Data.data_player.test_answers:
 		var label = Label.new()
 		var tween = Tween.new()
@@ -77,7 +75,13 @@ func _on_AnimationBG_animation_finished(anim_name):
 		$AnimationBG.play("show")
 		$Result.start_animation()
 	elif anim_name == "hide":
-		Core.load_scene("main_menu", load(ProjectSettings.get_setting('application/run/main_scene')))
+		if Data.data_achievements.is_chapter_two_opened:
+			get_tree().quit()
+		else:
+			Data.data_player.is_possible_activate_chapter_two = true
+			Data.data_player.saving()
+			
+			Core.load_scene("main_menu", load(ProjectSettings.get_setting('application/run/main_scene')))
 
 func _on_Result_pressed():
 	$AnimationBG.play("hide")
