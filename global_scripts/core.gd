@@ -6,6 +6,7 @@ const main_menu_res = preload("res://scenes/main_menu/main_menu.tscn")
 const send_data_question_res = preload("res://scenes/quiz/secondary/send_data_question/send_data_question.tscn")
 const game_res = preload("res://scenes/quiz/game/game.tscn")
 
+const achievements_res = preload("res://scenes/achievements/achievements.tscn")
 const settings_res = preload("res://scenes/settings/settings.tscn")
 const about_res = preload("res://scenes/about/about.tscn")
 
@@ -38,7 +39,6 @@ const illuminating_spaces: Array = [
 	preload("res://resourses/images/illuminating_spaces/liminal_2_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/liminal_3_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/liminal_4_1080p.jpg"),
-	preload("res://resourses/images/illuminating_spaces/abstract_psychedelic_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/dark_room_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/dark_room_2_1080p.jpg"),
 	preload("res://resourses/images/illuminating_spaces/forest_top_1080p.jpg"),
@@ -122,6 +122,19 @@ const special_images: Array = [
 	preload("res://resourses/images/special_images/question_mark_3_1080p.jpg"),
 ]
 
+const special_sounds: Array = [
+	preload("res://resourses/audio/special_sounds/are_you_playing.ogg"),
+	preload("res://resourses/audio/special_sounds/aughhhhh.ogg"),
+	preload("res://resourses/audio/special_sounds/blue_hg.ogg"),
+	preload("res://resourses/audio/special_sounds/bruh.ogg"),
+	preload("res://resourses/audio/special_sounds/connect.ogg"),
+	preload("res://resourses/audio/special_sounds/cool_dude.ogg"),
+	preload("res://resourses/audio/special_sounds/disconnect.ogg"),
+	preload("res://resourses/audio/special_sounds/ha.ogg"),
+	preload("res://resourses/audio/special_sounds/hello.ogg"),
+	preload("res://resourses/audio/special_sounds/joke.ogg"),
+]
+
 var used_images: Array = []
 
 func load_scene(scene_name: String, scene: PackedScene):
@@ -131,9 +144,31 @@ func load_scene(scene_name: String, scene: PackedScene):
 	elif err == ERR_CANT_CREATE:
 		print("Status load \"{0}\": ERR_CANT_CREATE".format([scene_name]))
 
+func get_audio_name(audio: AudioStreamOGGVorbis) -> String:
+	var name = Data.special_sounds[special_sounds.rfind(audio)]
+	
+	return name
+
+func get_audio(name: String) -> AudioStreamOGGVorbis:
+	var audio: AudioStreamOGGVorbis = special_sounds[Data.special_sounds.rfind(name)]
+	
+	return audio
+
 func get_rand_screen_position() -> Vector2:
 	randomize()
 	return Vector2(rand_range(0, get_viewport().size.x / 3), rand_range(0, get_viewport().size.y))
+
+func get_rand_chance() -> float:
+	randomize()
+	return rand_range(0, 100)
+
+func shuffle_images():
+	abandoned_houses.shuffle()
+	illuminating_spaces.shuffle()
+	abstraction.shuffle()
+	animals.shuffle()
+	unusual_people.shuffle()
+	structures.shuffle()
 
 func image_is_used(image: Image) -> bool:
 	if used_images.find(image) != -1: return true

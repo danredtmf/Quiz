@@ -2,17 +2,16 @@ extends Control
 
 export(int) var MIN_IMAGES = 7
 
-var secret_words = ["secret", "haggy", "minecraft", "gachi", "floppa"]
 var word = ""
 
 var slide_show_pics = []
 
 var secret_pics = {
-	secret_words[0]: Core.secret_images[0],
-	secret_words[1]: Core.secret_images[1],
-	secret_words[2]: Core.secret_images[2],
-	secret_words[3]: Core.secret_images[3],
-	secret_words[4]: Core.secret_images[4],
+	Data.secret_words[0]: Core.secret_images[0],
+	Data.secret_words[1]: Core.secret_images[1],
+	Data.secret_words[2]: Core.secret_images[2],
+	Data.secret_words[3]: Core.secret_images[3],
+	Data.secret_words[4]: Core.secret_images[4],
 }
 
 var special_image: Image
@@ -38,39 +37,47 @@ func _choose_pictures():
 	
 	print("	Step 1 / 6")
 	for img in Core.abandoned_houses:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
 	
 	print("	Step 2 / 6")
 	for img in Core.illuminating_spaces:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
 	
 	print("	Step 3 / 6")
 	for img in Core.abstraction:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
 	
 	print("	Step 4 / 6")
 	for img in Core.animals:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
 	
 	print("	Step 5 / 6")
 	for img in Core.unusual_people:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
 	
 	print("	Step 6 / 6")
 	for img in Core.structures:
-		if randi() % 8 == 0:
+		if Core.get_rand_chance() <= 10:
 			slide_show_pics.append(img)
+			Data.data_achievements.add_image(img)
 			count += 1
+	
+	Data.data_achievements.check_achievement()
 	
 	special_image = Core.special_images[randi() % Core.special_images.size()]
 	
@@ -119,14 +126,17 @@ func _input(event):
 			_check_secret_word()
 
 func _check_secret_word():
-	for secret in secret_words:
-		if word.to_lower() == secret:
+	for secret in Data.secret_words:
+		word = word.to_lower()
+		if word == secret:
 			_show_secret_pic()
+			Data.data_achievements.add_word(word)
+			Data.data_achievements.check_achievement()
 	
 	word = ""
 
 func _show_secret_pic():
-	_change_secret_picture(word.to_lower())
+	_change_secret_picture(word)
 	$SecretPic.show()
 	$DelaySecretPic.start()
 

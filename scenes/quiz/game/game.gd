@@ -7,13 +7,17 @@ var current_state: int = Core.GAME_STATE.ENTER_NICKNAME
 var current_stage: int = Core.TEST_STAGE.NONE
 
 var selected_images: Array = []
+var selected_sound: AudioStreamOGGVorbis
 
 var test_time: float = 0
 
 func _ready():
 	set_process(false)
+	Core.shuffle_images()
 	if OS.has_feature('editor'):
-		Data.test_data()
+		_load_pictures_test()
+		_load_audio()
+		Data.data_player.test_data()
 		_state_ending()
 	else:
 		_check_state()
@@ -62,6 +66,7 @@ func _state_test2():
 func _state_test3():
 	_check_stage()
 	_load_pictures()
+	_load_audio()
 
 func _state_ending():
 	set_process(false)
@@ -74,7 +79,7 @@ func _record_test_time():
 	var seconds = int(test_time) % 60
 	var result = "Test time - %d min %d sec" % [minutes, seconds]
 	print(result)
-	Data.test_time = test_time
+	Data.data_player.test_time = test_time
 
 func _build_info():
 	var info = Core.info_res.instance()
@@ -118,6 +123,9 @@ func _build_stage():
 			add_child(testing)
 			testing.connect("pressed", self, "_on_testing_pressed")
 		Core.GAME_STATE.TEST3:
+			if current_stage == Core.TEST_STAGE.THREE:
+				testing.audio = selected_sound
+			
 			testing.is_black_white = true
 			testing.header_text = tr('test3_header')
 			add_child(testing)
@@ -155,8 +163,6 @@ func _change_stage():
 			_change_state()
 
 func _load_pictures():
-	randomize()
-	
 	selected_images.clear()
 	
 	match current_state:
@@ -164,67 +170,148 @@ func _load_pictures():
 			var i = 0
 			while i != 1:
 				for pic in Core.abandoned_houses:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.structures:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.animals:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST2:
 			var i = 0
 			while i != 3:
 				for pic in Core.abstraction:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if selected_images.find(pic) == -1 && !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 		Core.GAME_STATE.TEST3:
 			var i = 0
 			while i != 1:
 				for pic in Core.animals:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 2:
 				for pic in Core.unusual_people:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
 			while i != 3:
 				for pic in Core.unusual_people:
-					if randi() % 10 == 0:
+					if Core.get_rand_chance() <= 30:
 						if !Core.image_is_used(pic):
 							selected_images.append(pic)
 							Core.used_images.append(pic)
+							Data.data_achievements.add_image(pic)
 							i += 1
 							break
+	
+	Data.data_achievements.check_achievement()
+
+func _load_pictures_test():
+	selected_images.clear()
+	
+	var i = 0
+	while i != 1:
+		for pic in Core.abandoned_houses:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 2:
+		for pic in Core.structures:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 3:
+		for pic in Core.animals:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	i = 0
+	while i != 3:
+		for pic in Core.abstraction:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	i = 0
+	while i != 1:
+		for pic in Core.animals:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 2:
+		for pic in Core.unusual_people:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	while i != 3:
+		for pic in Core.unusual_people:
+			if Core.get_rand_chance() <= 30:
+				Data.data_achievements.add_image(pic)
+				i += 1
+				break
+	
+	Data.data_achievements.check_achievement()
 
 func _load_audio():
-	pass
+	var audio: AudioStreamOGGVorbis
+	
+	var i = 0
+	while i == 0:
+		for a in Core.special_sounds:
+			var audio_name = Core.get_audio_name(a)
+			if Core.get_rand_chance() < 50 and audio_name != "connect":
+				if Data.data_achievements.open_special_sounds.find(audio_name) != -1:
+					if Core.get_rand_chance() < 50:
+						audio = a
+						Data.data_achievements.add_special_sound(audio_name)
+						i += 1
+						break
+				else:
+					audio = a
+					Data.data_achievements.add_special_sound(audio_name)
+					i += 1
+					break
+	
+	Data.data_achievements.check_achievement()
+	
+	selected_sound = audio
 
 func _on_info_pressed():
 	_change_stage()

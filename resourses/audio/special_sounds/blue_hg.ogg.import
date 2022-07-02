@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/blue_hg.ogg-c7466a91d9fafdbef0b781e883278a8d.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/special_sounds/blue_hg.ogg"
+dest_files=[ "res://.import/blue_hg.ogg-c7466a91d9fafdbef0b781e883278a8d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

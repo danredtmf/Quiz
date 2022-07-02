@@ -12,10 +12,10 @@ func _config():
 	$MarginButtons/HB/MainMenu.text = tr('in_main_menu')
 
 func _show_info():
-	var minutes = Data.test_time / 60
-	var seconds = int(Data.test_time) % 60
+	var minutes = Data.data_player.test_time / 60
+	var seconds = int(Data.data_player.test_time) % 60
 	
-	$MarginInfo/VB/Congratulations/Info.text = tr('win') % [Data.nick_name]
+	$MarginInfo/VB/Congratulations/Info.text = tr('win') % [Data.data_player.nick_name]
 	$MarginInfo/VB/Time/Info.text = tr('time_result') % [minutes, seconds]
 
 func _correct_blocks():

@@ -2,6 +2,31 @@ extends PanelContainer
 
 signal closing
 
+onready var header_win = $VB/Header/Info
+
+onready var lang_header_info = $VB/Scroll/HB/VB/Lang/VB/Header/Info
+onready var lang_menu = $VB/Scroll/HB/VB/Lang/VB/Lang
+
+onready var volume_header_info = $VB/Scroll/HB/VB/Volume/VB/Header/Info
+onready var general_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/Header/Info
+onready var music_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/Header/Info
+onready var sound_header_info = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/Header/Info
+
+onready var general_slider = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/GeneralSlider
+onready var music_slider = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/MusicSlider
+onready var sound_slider = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/SoundSlider
+
+onready var general_info = $VB/Scroll/HB/VB/Volume/VB/VB/General/VB/VB/Info
+onready var music_info = $VB/Scroll/HB/VB/Volume/VB/VB/Music/VB/VB/Info
+onready var sound_info = $VB/Scroll/HB/VB/Volume/VB/VB/Sound/VB/VB/Info
+
+onready var reset_header_info = $VB/Scroll/HB/VBReset/Reset/VB/Header/Info
+onready var reset_progress = $VB/Scroll/HB/VBReset/Reset/VB/ResetProgress
+onready var reset_settings = $VB/Scroll/HB/VBReset/Reset/VB/ResetSettings
+onready var reset_achievements = $VB/Scroll/HB/VBReset/Reset/VB/ResetAchievements
+
+onready var close_btn = $VB/Buttons/Close
+
 func _ready():
 	_config()
 
@@ -18,16 +43,58 @@ func _set_center_screen():
 	set_anchors_preset(Control.PRESET_CENTER, true)
 
 func update_ui():
-	$VB/Header/Info.text = tr('settings')
-	$VB/Scroll/VB/Lang/VB/Header/Info.text = tr('lang')
+	header_win.text = tr('settings')
 	
-	$VB/Scroll/VB/Lang/VB/Lang.selected = Data.data_settings.current_lang
+	_lang_info()
+	_volume_info()
+	_reset_info()
 	
-	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(0, tr('en'))
-	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(1, tr('ru'))
-	$VB/Scroll/VB/Lang/VB/Lang.set_item_text(2, tr('eo'))
+	close_btn.text = tr('close')
+
+func _lang_info():
+	lang_header_info.text = tr('lang')
 	
-	$VB/Buttons/Close.text = tr('close')
+	lang_menu.selected = Data.data_settings.current_lang
+	
+	lang_menu.set_item_text(0, tr('en'))
+	lang_menu.set_item_text(1, tr('ru'))
+	lang_menu.set_item_text(2, tr('eo'))
+
+func _volume_info():
+	volume_header_info.text = tr('volume')
+	general_header_info.text = tr('volume_general')
+	music_header_info.text = tr('volume_music')
+	sound_header_info.text = tr('volume_sound')
+	
+	general_info.text = str(
+		int(
+			lerp(0, 1, 
+			((general_slider.value + -general_slider.min_value) * 100) / -general_slider.min_value)
+		)
+	) + ' %'
+	music_info.text = str(
+		int(
+			lerp(0, 1, 
+			((music_slider.value + -music_slider.min_value) * 100) / -music_slider.min_value)
+		)
+	) + ' %'
+	sound_info.text = str(
+		int(
+			lerp(0, 1, 
+			((sound_slider.value + -sound_slider.min_value) * 100) / -sound_slider.min_value)
+		)
+	) + ' %'
+	
+	general_slider.value = Data.data_settings.volume_master
+	music_slider.value = Data.data_settings.volume_music
+	sound_slider.value = Data.data_settings.volume_sounds
+
+func _reset_info():
+	reset_header_info.text = tr('reset')
+	
+	reset_progress.text = tr('reset_progress')
+	reset_settings.text = tr('reset_settings')
+	reset_achievements.text = tr('reset_achievements')
 
 func _start_animation():
 	$Animation.play("show")
@@ -56,4 +123,43 @@ func _on_Lang_item_selected(index):
 			Data.data_settings.set_ru()
 		DataSettings.LANG.ESPERANTO:
 			Data.data_settings.set_eo()
-#	Data.saving_settings()
+	Data.data_achievements.check_achievement()
+
+func _on_GeneralSlider_value_changed(value):
+	Data.data_settings.volume_master = value
+	if value > general_slider.min_value:
+		AudioServer.set_bus_mute(Data.master_idx, false)
+		AudioServer.set_bus_volume_db(Data.master_idx, Data.data_settings.volume_master)
+	else:
+		AudioServer.set_bus_mute(Data.master_idx, true)
+	Data.data_settings.saving()
+	Data.data_achievements.check_achievement()
+
+func _on_MusicSlider_value_changed(value):
+	Data.data_settings.volume_music = value
+	if value > music_slider.min_value:
+		AudioServer.set_bus_mute(Data.music_idx, false)
+		AudioServer.set_bus_volume_db(Data.music_idx, Data.data_settings.volume_music)
+	else:
+		AudioServer.set_bus_mute(Data.music_idx, true)
+	Data.data_settings.saving()
+	Data.data_achievements.check_achievement()
+
+func _on_SoundSlider_value_changed(value):
+	Data.data_settings.volume_sounds = value
+	if value > sound_slider.min_value:
+		AudioServer.set_bus_mute(Data.sound_idx, false)
+		AudioServer.set_bus_volume_db(Data.sound_idx, Data.data_settings.volume_sounds)
+	else:
+		AudioServer.set_bus_mute(Data.sound_idx, true)
+	Data.data_settings.saving()
+	Data.data_achievements.check_achievement()
+
+func _on_ResetProgress_pressed():
+	Data.clear_player()
+
+func _on_ResetSettings_pressed():
+	Data.clear_settings()
+
+func _on_ResetAchievements_pressed():
+	Data.clear_achievements()

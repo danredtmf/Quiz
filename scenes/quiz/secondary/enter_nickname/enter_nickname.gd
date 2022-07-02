@@ -22,7 +22,7 @@ func _end_animation():
 
 func _on_Next_pressed():
 	if $VB/LineEdit.text != "":
-		Data.nick_name = $VB/LineEdit.text
+		Data.data_player.nick_name = $VB/LineEdit.text
 		_end_animation()
 
 func _on_Anim_animation_finished(anim_name):
