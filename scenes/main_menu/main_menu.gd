@@ -10,6 +10,7 @@ func _end_animation():
 	$AnimReady.play("hide")
 
 func _config():
+	AchvCards.is_allowed = true
 	update_ui()
 	
 	$Version.text = ProjectSettings.get_setting('application/config/version') + " "

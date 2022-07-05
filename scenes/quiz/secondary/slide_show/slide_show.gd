@@ -14,8 +14,6 @@ var secret_pics = {
 	Data.secret_words[4]: Core.secret_images[4],
 }
 
-var special_image: Image
-
 func _ready():
 	_config()
 
@@ -32,48 +30,38 @@ func _choose_pictures():
 	randomize()
 	
 	for img in Core.abandoned_houses:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 
 	for img in Core.illuminating_spaces:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 
 	for img in Core.abstraction:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 
 	for img in Core.animals:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 
 	for img in Core.unusual_people:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 
 	for img in Core.structures:
-		if Core.get_rand_chance() <= 10:
+		if randi() % 10 == 0:
 			slide_show_pics.append(img)
-			Data.data_achievements.add_image(img)
 	
-	Data.data_achievements.check_achievement()
-	
-	special_image = Core.special_images[randi() % Core.special_images.size()]
+	if slide_show_pics.size() < MIN_IMAGES:
+		slide_show_pics.clear()
+		slide_show_pics.append_array(Core.special_images)
 
 func _change_pictures(number: int) -> void:
 	randomize()
 	
 	var texture = ImageTexture.new()
-	var image: Image
-	if slide_show_pics.size() >= MIN_IMAGES:
-		image = slide_show_pics[randi() % slide_show_pics.size()]
-	else:
-		image = special_image
+	var image: Image = slide_show_pics[randi() % slide_show_pics.size()]
 	
 	texture.create_from_image(image)
 	

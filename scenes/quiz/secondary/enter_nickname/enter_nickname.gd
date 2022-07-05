@@ -11,6 +11,7 @@ func _config():
 	set_anchors_and_margins_preset(Control.PRESET_CENTER, Control.PRESET_MODE_KEEP_SIZE)
 	_start_animation()
 	
+	$VB/HeaderPanel/Header.text = tr('request')
 	$VB/LineEdit.placeholder_text = tr('enter_nickname')
 	$VB/Buttons/Next.text = tr('start_quiz')
 

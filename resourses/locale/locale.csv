@@ -10,6 +10,7 @@ eo,Esperanto,Эсперанто,Esperanto
 site,Site,Сайт,Retejo
 close,Close,Закрыть,Proksime
 about_info,Version: %s\nAuthor: DanRedTMF\nMade with Godot Engine %s,Версия: %s\nАвтор: DanRedTMF\nСделано с помощью Godot Engine %s,Versio: %s\nAŭtoro: DanRedTMF\nFarita per Godot Engine %s
+request,Request,Просьба,Peto
 enter_nickname,Enter Nickname...,Введите никнейм...,Enigu kromnomon...
 start_quiz,Start Quiz,Начать викторину,Komencu Kvizon
 ok,OK,Окей,Bone
@@ -58,7 +59,10 @@ achv_26_name,hurB,hurB,hurB
 achv_27_name,hhhhhA,hhhhhA,hhhhhA
 achv_28_name,Device connection sound,Звук подключения устройства,Aparato-konekto sono
 achv_29_name,I heard everything,Я слышал всё,Mi aŭdis ĉion
-achv_30_name,Looking for...,В поисках…,Serĉas...
+achv_30_name,And all?,И все?,Kaj ĉio?
+achv_31_name,Сramped,Тесновато,Malvasta
+achv_32_name,That was not boring…,Чтобы не было скучно…,Tio ne estis enuiga...
+achv_33_name,They didn't hear me...,Они меня не слышали…,Ili ne aŭdis min...
 achv_1_desc,"open ""Achievements""","открыть ""Достижения""","malfermu ""Atingoj"""
 achv_2_desc,"open ""Achievements"" before the first playthrough","открыть ""Достижения"" перед первым прохождением","malfermu ""Atingojn"" antaŭ la unua ludo"
 achv_3_desc,reduce the volume of music and sounds to 0%,уменьшить громкость музыки и звуков до 0%,redukti la volumon de muziko kaj sonoj al 0%
@@ -88,7 +92,10 @@ achv_26_desc,"hear ""Bruh""","услышать ""Bruh""","aŭdu ""Bruh"""
 achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
 achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
 achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
-achv_30_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
+achv_30_desc,play the demo version of the game,пройти демо версию игры,ludu la demonstran version de la ludo
+achv_31_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
+achv_32_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
+achv_33_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn
 volume,Volume,Громкость,Volumo
 volume_general,General,Общая,Generalo
 volume_music,Music,Музыки,Muziko

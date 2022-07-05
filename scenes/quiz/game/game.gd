@@ -12,6 +12,7 @@ var selected_sound: AudioStreamOGGVorbis
 var test_time: float = 0
 
 func _ready():
+	AchvCards.is_allowed = false
 	set_process(false)
 	Core.shuffle_images()
 	if OS.has_feature('editor'):
@@ -168,6 +169,8 @@ func _add_image(image: Image):
 	Data.data_achievements.add_image(image)
 
 func _load_pictures():
+	randomize()
+	
 	selected_images.clear()
 	
 	match current_state:
@@ -175,8 +178,8 @@ func _load_pictures():
 			var i = 0
 			while i != 1:
 				for pic in Core.abandoned_houses:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -186,8 +189,8 @@ func _load_pictures():
 							break
 			while i != 2:
 				for pic in Core.structures:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -197,8 +200,8 @@ func _load_pictures():
 							break
 			while i != 3:
 				for pic in Core.animals:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -208,10 +211,32 @@ func _load_pictures():
 							break
 		Core.GAME_STATE.TEST2:
 			var i = 0
+			while i != 1:
+				for pic in Core.illuminating_spaces:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
+							i += 1
+							break
+			while i != 2:
+				for pic in Core.illuminating_spaces:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+							_add_image(pic)
+							i += 1
+							break
+						else:
+							_add_image(pic)
+							i += 1
+							break
 			while i != 3:
 				for pic in Core.abstraction:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+					if randi() % 2 == 0 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -222,9 +247,9 @@ func _load_pictures():
 		Core.GAME_STATE.TEST3:
 			var i = 0
 			while i != 1:
-				for pic in Core.animals:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+				for pic in Core.unusual_people:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -233,9 +258,9 @@ func _load_pictures():
 							i += 1
 							break
 			while i != 2:
-				for pic in Core.unusual_people:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+				for pic in Core.abstraction:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -244,9 +269,9 @@ func _load_pictures():
 							i += 1
 							break
 			while i != 3:
-				for pic in Core.unusual_people:
-					if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-						if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+				for pic in Core.abstraction:
+					if randi() % 2 == 0 and !Core.image_is_used(pic):
+						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 							_add_image(pic)
 							i += 1
 							break
@@ -258,13 +283,15 @@ func _load_pictures():
 	Data.data_achievements.check_achievement()
 
 func _load_pictures_test():
+	randomize()
+	
 	selected_images.clear()
 	
 	var i = 0
 	while i != 1:
 		for pic in Core.abandoned_houses:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -274,8 +301,8 @@ func _load_pictures_test():
 					break
 	while i != 2:
 		for pic in Core.structures:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -285,20 +312,8 @@ func _load_pictures_test():
 					break
 	while i != 3:
 		for pic in Core.animals:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
-	i = 0
-	while i != 3:
-		for pic in Core.abstraction:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -308,9 +323,9 @@ func _load_pictures_test():
 					break
 	i = 0
 	while i != 1:
-		for pic in Core.animals:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+		for pic in Core.illuminating_spaces:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -319,9 +334,9 @@ func _load_pictures_test():
 					i += 1
 					break
 	while i != 2:
-		for pic in Core.unusual_people:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+		for pic in Core.illuminating_spaces:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -330,9 +345,43 @@ func _load_pictures_test():
 					i += 1
 					break
 	while i != 3:
+		for pic in Core.abstraction:
+			if randi() % 2 == 0 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
+	i = 0
+	while i != 1:
 		for pic in Core.unusual_people:
-			if Core.get_rand_chance() <= 30 and !Core.image_is_used(pic):
-				if Core.get_rand_chance() <= 50 and Data.data_achievements.open_images.find(pic) != -1:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
+	while i != 2:
+		for pic in Core.abstraction:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+					_add_image(pic)
+					i += 1
+					break
+				else:
+					_add_image(pic)
+					i += 1
+					break
+	while i != 3:
+		for pic in Core.abstraction:
+			if randi() % 2 == 0 and !Core.image_is_used(pic):
+				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
 					_add_image(pic)
 					i += 1
 					break
@@ -344,15 +393,17 @@ func _load_pictures_test():
 	Data.data_achievements.check_achievement()
 
 func _load_audio():
+	randomize()
+	
 	var audio: AudioStreamOGGVorbis
 	
 	var i = 0
 	while i == 0:
 		for a in Core.special_sounds:
 			var audio_name = Core.get_audio_name(a)
-			if Core.get_rand_chance() < 50 and audio_name != "connect":
+			if randi() % 2 == 0 and audio_name != "connect":
 				if Data.data_achievements.open_special_sounds.find(audio_name) != -1:
-					if Core.get_rand_chance() < 50:
+					if randi() % 5 == 0:
 						audio = a
 						Data.data_achievements.add_special_sound(audio_name)
 						i += 1
