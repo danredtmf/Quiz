@@ -244,7 +244,39 @@ func _gen_achv_id() -> Array:
 	
 	return result
 
+func loading():
+	var data := ConfigFile.new()
+	
+	if data.load(PATH) != OK:
+		printerr("File achievements has been not found!")
+	
+	opened = data.get_value("achv", "o", [])
+	quiz_win = data.get_value("achv", "quiz_win", false)
+	is_achievement_opened = data.get_value("achv", "is_achv_o", false)
+	is_en_selected = data.get_value("achv", "is_en_s", false)
+	is_ru_selected = data.get_value("achv", "is_ru_s", false)
+	is_eo_selected = data.get_value("achv", "is_eo_s", false)
+	open_secret_words = data.get_value("achv", "o_secret_words", [])
+	open_images = data.get_value("achv", "o_images", [])
+	open_special_sounds = data.get_value("achv", "o_special_sounds", [])
+	is_demo_passed = data.get_value("achv", "is_demo_passed", false)
+	is_chapter_two_opened = data.get_value("achv", "is_chp_two_o", false)
+
 func saving():
-	var result = ResourceSaver.save(PATH, self)
-	if result == OK:
-		print('complete saving achievements')
+	var result := ConfigFile.new()
+	result.set_value("achv", "o", opened)
+	result.set_value("achv", "quiz_win", quiz_win)
+	result.set_value("achv", "is_achv_o", is_achievement_opened)
+	result.set_value("achv", "is_en_s", is_en_selected)
+	result.set_value("achv", "is_ru_s", is_ru_selected)
+	result.set_value("achv", "is_eo_s", is_eo_selected)
+	result.set_value("achv", "o_secret_words", open_secret_words)
+	result.set_value("achv", "o_images", open_images)
+	result.set_value("achv", "o_special_sounds", open_special_sounds)
+	result.set_value("achv", "is_demo_passed", is_demo_passed)
+	result.set_value("achv", "is_chp_two_o", is_chapter_two_opened)
+	if result.save(PATH) == OK:
+		print('complete saving settings')
+#	var result = ResourceSaver.save(PATH, self)
+#	if result == OK:
+#		print('complete saving achievements')

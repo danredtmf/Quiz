@@ -137,6 +137,8 @@ const special_sounds: Array = [
 
 var used_images: Array = []
 
+var player
+
 func load_scene(scene_name: String, scene: PackedScene):
 	var err = get_tree().change_scene_to(scene)
 	if err == OK:
