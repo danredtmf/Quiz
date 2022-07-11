@@ -2,6 +2,8 @@ extends Control
 
 signal pressed
 
+var is_chapter_two_opened: bool = false
+
 func _ready():
 	_config()
 
@@ -35,11 +37,13 @@ func _end_animation():
 	$Animation.play("hide")
 
 func _chance_chapter_two():
+	randomize()
+	
 	if Data.data_achievements.quiz_win == true and Data.data_player.is_possible_activate_chapter_two == true:
-		var chance = Core.get_rand_chance()
-		if chance < 45:
+		var chance = randi() % 2
+		if chance == 0:
 			_delete_slide_show()
-			Data.data_achievements.is_chapter_two_opened = true
+			is_chapter_two_opened = true
 
 func _delete_slide_show():
 	$SlideShow.queue_free()

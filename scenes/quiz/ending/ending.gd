@@ -4,6 +4,7 @@ var animated_text_arr: Array = []
 var animated_text_arr_compl: Array = []
 
 func _ready():
+	AchvCards.is_allowed = true
 	Data.data_player.connect_answers()
 	Data.data_achievements.quiz_win = true
 	Data.data_achievements.check_achievement()
@@ -75,8 +76,8 @@ func _on_AnimationBG_animation_finished(anim_name):
 		$AnimationBG.play("show")
 		$Result.start_animation()
 	elif anim_name == "hide":
-		if Data.data_achievements.is_chapter_two_opened:
-			get_tree().quit()
+		if $Result.is_chapter_two_opened:
+			Core.load_scene("chp_two_start", Core.chp_two_start)
 		else:
 			Data.data_player.is_possible_activate_chapter_two = true
 			Data.data_player.saving()

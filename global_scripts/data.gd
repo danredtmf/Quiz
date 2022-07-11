@@ -2,6 +2,9 @@ extends Node
 
 # Показывался ли splash_screen
 var splash_screen_is_appeared: bool = false
+# Играл ли игрок после запуска
+# | Нужно для того, чтобы лишний раз не появлялось окно demo_win |
+var is_playing: bool = false
 
 # Для сервера
 # | Хотел сделать сервер, где хранил бы ответы пользователей   |
@@ -18,11 +21,11 @@ var sound_idx = AudioServer.get_bus_index('Sound')
 
 # Данные
 # - Игрок
-var data_player: DataPlayer = loading_player()
+var data_player: DataPlayer = DataPlayer.new()
 # - Настройки
-var data_settings: DataSettings = loading_settings()
+var data_settings: DataSettings = DataSettings.new()
 # - Достижения
-var data_achievements: DataAchievements = loading_achievements()
+var data_achievements: DataAchievements = DataAchievements.new()
 # - Секретные слова
 var secret_words: Array = ["secret", "haggy", "minecraft", "gachi", "floppa"]
 # - Названия особенных звуков
@@ -40,44 +43,16 @@ var special_sounds: Array = [
 ]
 
 func _ready():
+	data_player.loading()
+	data_settings.loading()
+	data_achievements.loading()
+	
 	data_settings.change_locale()
 	data_settings.set_volume()
 
-func loading_player() -> DataPlayer:
-	var empty = DataPlayer.new()
-	if ResourceLoader.exists(DataPlayer.PATH):
-		var data = ResourceLoader.load(DataPlayer.PATH)
-		if data is DataPlayer:
-			return data.duplicate()
-		else:
-			return empty.duplicate()
-	else:
-		return empty.duplicate()
-
-func loading_settings() -> DataSettings:
-	var empty = DataSettings.new()
-	if ResourceLoader.exists(DataSettings.PATH):
-		var data = ResourceLoader.load(DataSettings.PATH)
-		if data is DataSettings:
-			return data.duplicate()
-		else:
-			return empty.duplicate()
-	else:
-		return empty.duplicate()
-
-func loading_achievements() -> DataAchievements:
-	var empty = DataAchievements.new()
-	if ResourceLoader.exists(DataAchievements.PATH):
-		var data = ResourceLoader.load(DataAchievements.PATH)
-		if data is DataAchievements:
-			return data.duplicate()
-		else:
-			return empty.duplicate()
-	else:
-		return empty.duplicate()
-
 func clear_data():
 	Core.used_images.clear()
+	is_playing = false
 	data_player.clear_quiz()
 	data_achievements.is_chapter_two_opened = false
 

@@ -10,6 +10,9 @@ func _end_animation():
 	$AnimReady.play("hide")
 
 func _config():
+	AchvCards.is_allowed = true
+	Data.data_achievements.check_achievement()
+	_open_demo_win()
 	update_ui()
 	
 	$Version.text = ProjectSettings.get_setting('application/config/version') + " "
@@ -20,6 +23,11 @@ func _config():
 func _process(_delta):
 	update_ui()
 	check_achv()
+
+func _open_demo_win():
+	if Data.is_playing and Data.data_achievements.is_demo_passed:
+		var demo = Core.demo_win.instance()
+		add_child(demo)
 
 func update_ui():
 	if Data.data_achievements.quiz_win and !Data.data_achievements.is_achievement_opened:

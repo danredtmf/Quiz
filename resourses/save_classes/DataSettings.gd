@@ -54,7 +54,25 @@ func reset_volume() -> void:
 	AudioServer.set_bus_volume_db(Data.sound_idx, 0)
 	set_volume()
 
+func loading():
+	var data := ConfigFile.new()
+	
+	if data.load(PATH) != OK:
+		printerr("File settings has been not found!")
+	
+	current_lang = data.get_value("settings", "lang", LANG.ENGLISH)
+	volume_master = data.get_value("settings", "v_master", AudioServer.get_bus_volume_db(Data.master_idx))
+	volume_music = data.get_value("settings", "v_music", AudioServer.get_bus_volume_db(Data.music_idx))
+	volume_sounds = data.get_value("settings", "v_sounds", AudioServer.get_bus_volume_db(Data.sound_idx))
+
 func saving():
-	var result = ResourceSaver.save(PATH, self)
-	if result == OK:
+	var result := ConfigFile.new()
+	result.set_value("settings", "lang", current_lang)
+	result.set_value("settings", "v_master", volume_master)
+	result.set_value("settings", "v_music", volume_music)
+	result.set_value("settings", "v_sounds", volume_sounds)
+	if result.save(PATH) == OK:
 		print('complete saving settings')
+#	var result = ResourceSaver.save(PATH, self)
+#	if result == OK:
+#		print('complete saving settings')

@@ -69,7 +69,39 @@ func _create_test_data() -> String:
 	
 	return result
 
+func loading():
+	var data := ConfigFile.new()
+	
+	if data.load(PATH) != OK:
+		printerr("File player has been not found!")
+	
+	nick_name = data.get_value("player", "nick_name", "")
+	test_time = data.get_value("player", "t_time", 0)
+	test_answers = data.get_value("player", "t_answers", [])
+	test_1_answers = data.get_value("player", "t_1_answers", [])
+	test_2_answers = data.get_value("player", "t_2_answers", [])
+	test_3_answers = data.get_value("player", "t_3_answers", [])
+	is_possible_activate_chapter_two = data.get_value("player", "is_a_chp_two", false)
+	pass_answers = data.get_value("player", "p_answers", [])
+	test_1_pass_answers = data.get_value("player", "t_1_p_answers", [])
+	test_2_pass_answers = data.get_value("player", "t_2_p_answers", [])
+	test_3_pass_answers = data.get_value("player", "t_3_p_answers", [])
+
 func saving():
-	var result = ResourceSaver.save(PATH, self)
-	if result == OK:
-		print('complete saving player data')
+	var result := ConfigFile.new()
+	result.set_value("player", "nick_name", nick_name)
+	result.set_value("player", "t_time", test_time)
+	result.set_value("player", "t_answers", test_answers)
+	result.set_value("player", "t_1_answers", test_1_answers)
+	result.set_value("player", "t_2_answers", test_2_answers)
+	result.set_value("player", "t_3_answers", test_3_answers)
+	result.set_value("player", "is_a_chp_two", is_possible_activate_chapter_two)
+	result.set_value("player", "p_answers", pass_answers)
+	result.set_value("player", "t_1_p_answers", test_1_pass_answers)
+	result.set_value("player", "t_2_p_answers", test_2_pass_answers)
+	result.set_value("player", "t_3_p_answers", test_3_pass_answers)
+	if result.save(PATH) == OK:
+		print('complete saving settings')
+#	var result = ResourceSaver.save(PATH, self)
+#	if result == OK:
+#		print('complete saving player data')
