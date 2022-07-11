@@ -77,7 +77,7 @@ func _on_AnimationBG_animation_finished(anim_name):
 		$Result.start_animation()
 	elif anim_name == "hide":
 		if $Result.is_chapter_two_opened:
-			Core.load_scene("main_menu", load(ProjectSettings.get_setting('application/run/main_scene')))
+			Core.load_scene("chp_two_start", Core.chp_two_start)
 		else:
 			Data.data_player.is_possible_activate_chapter_two = true
 			Data.data_player.saving()

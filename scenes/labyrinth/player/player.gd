@@ -6,8 +6,8 @@ extends KinematicBody
 enum WalkStates { Walk, Run, Air }
 var walk_state = WalkStates.Walk
 const AirSpeed = 20
-const RunSpeed = AirSpeed / 1.5
-const WalkSpeed = AirSpeed / 2.5
+const RunSpeed = AirSpeed / 2
+const WalkSpeed = AirSpeed / 3
 
 var speed
 const ACCEL_DEFAULT = 7
@@ -26,6 +26,8 @@ var gravity_vec = Vector3()
 var movement = Vector3()
 
 var is_movement_allowed: bool = true
+var is_running_allowed: bool = true
+var is_jumping_allowed: bool = true
 
 onready var head = $Head
 onready var camera = $Head/Camera
@@ -73,13 +75,13 @@ func _physics_process(delta):
 			accel = ACCEL_AIR
 			gravity_vec += Vector3.DOWN * gravity * delta
 		
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_pressed("jump") and is_on_floor() and is_jumping_allowed:
 			snap = Vector3.ZERO
 			gravity_vec = Vector3.UP * jump
 		
-		if Input.is_action_pressed("run") and not is_on_floor():
+		if Input.is_action_pressed("run") and not is_on_floor() and is_running_allowed:
 			walk_state = WalkStates.Air
-		elif Input.is_action_pressed("run") and is_on_floor():
+		elif Input.is_action_pressed("run") and is_on_floor() and is_running_allowed:
 			walk_state = WalkStates.Run
 		else:
 			walk_state = WalkStates.Walk

@@ -15,6 +15,10 @@ const info_res = preload("res://scenes/quiz/secondary/info/info.tscn")
 const testing_res = preload("res://scenes/quiz/secondary/testing/testing.tscn")
 const ending_res = preload("res://scenes/quiz/ending/ending.tscn")
 
+const chp_two_start = preload("res://scenes/labyrinth/start_location/start_location.tscn")
+
+const demo_win = preload("res://scenes/demo_win/demo_win.tscn")
+
 enum GAME_STATE { ENTER_NICKNAME, TEST1, TEST2, TEST3, ENDING }
 enum TEST_STAGE { NONE, ONE, TWO, THREE }
 

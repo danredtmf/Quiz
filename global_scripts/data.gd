@@ -2,6 +2,9 @@ extends Node
 
 # Показывался ли splash_screen
 var splash_screen_is_appeared: bool = false
+# Играл ли игрок после запуска
+# | Нужно для того, чтобы лишний раз не появлялось окно demo_win |
+var is_playing: bool = false
 
 # Для сервера
 # | Хотел сделать сервер, где хранил бы ответы пользователей   |
@@ -49,6 +52,7 @@ func _ready():
 
 func clear_data():
 	Core.used_images.clear()
+	is_playing = false
 	data_player.clear_quiz()
 	data_achievements.is_chapter_two_opened = false
 
