@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://resourses/models/wall_three.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resourses/models/wall_two.tscn" type="PackedScene" id=2]
@@ -8,11 +8,13 @@
 [ext_resource path="res://scenes/labyrinth/start_location/start_location.gd" type="Script" id=6]
 [ext_resource path="res://resourses/models/ghost.tscn" type="PackedScene" id=7]
 [ext_resource path="res://labyrinth_env.tres" type="Environment" id=8]
+[ext_resource path="res://resourses/models/wall_corner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/labyrinth/secondary/check_player_area/check_player_area.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Map/Light:visible")
+tracks/0/path = NodePath("Map1/Light:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -24,7 +26,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Map/Light2:visible")
+tracks/1/path = NodePath("Map1/Light2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -36,7 +38,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Map/Light3:visible")
+tracks/2/path = NodePath("Map1/Light3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -94,6 +96,18 @@ tracks/6/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("WorldEnvironment:environment:fog_depth_end")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 70.0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -156,9 +170,9 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "start"
-length = 7.0
+length = 9.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Map/Light:visible")
+tracks/0/path = NodePath("Map1/Light:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -170,25 +184,25 @@ tracks/0/keys = {
 "values": [ false, true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Map/Light2:visible")
+tracks/1/path = NodePath("Map1/Light2:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 2.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Map/Light3:visible")
+tracks/2/path = NodePath("Map1/Light3:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 4.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -212,10 +226,22 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 4, 5, 6 ),
-"transitions": PoolRealArray( 1e-05, 1.7905, 1, 1 ),
+"times": PoolRealArray( 0, 4.9, 7, 8 ),
+"transitions": PoolRealArray( 1e-05, 2, 1, 1 ),
 "update": 0,
 "values": [ 20.0, 20.0, 90.0, 90.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("WorldEnvironment:environment:fog_depth_end")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 4.9, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 100.0, 100.0, 70.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -257,66 +283,300 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4.1,
 current = true
 fov = 20.0
 
-[node name="Map" type="Spatial" parent="."]
+[node name="Map1" type="Spatial" parent="."]
 
-[node name="Light" type="SpotLight" parent="Map"]
+[node name="Light" type="SpotLight" parent="Map1"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0 )
 visible = false
 spot_range = 15.0
 spot_angle = 75.0
 
-[node name="Light2" type="SpotLight" parent="Map"]
+[node name="Light2" type="SpotLight" parent="Map1"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 40 )
 visible = false
 spot_range = 15.0
 spot_angle = 75.0
 
-[node name="Light3" type="SpotLight" parent="Map"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 81 )
+[node name="Light3" type="SpotLight" parent="Map1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 80 )
 visible = false
 spot_range = 15.0
 spot_angle = 75.0
 
-[node name="WallThree" parent="Map" instance=ExtResource( 1 )]
+[node name="WallThree" parent="Map1" instance=ExtResource( 1 )]
 
-[node name="WallTwo" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
-[node name="WallTwo2" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo2" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
 
-[node name="WallTwo3" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo3" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
 
-[node name="WallTwo4" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo4" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
 
-[node name="WallTwo5" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo5" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
 
-[node name="WallTwo6" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo6" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
 
-[node name="WallTwo7" parent="Map" instance=ExtResource( 2 )]
+[node name="WallTwo7" parent="Map1" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70 )
 
-[node name="WallThree2" parent="Map" instance=ExtResource( 1 )]
+[node name="WallThree2" parent="Map1" instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 80 )
 
-[node name="Desk" parent="Map" instance=ExtResource( 3 )]
+[node name="Desk" parent="Map1" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 83.9 )
 
-[node name="Ghost" parent="Map" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 70 )
+[node name="Wall1" parent="Map1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0938469, 0, 5, 4.97804 )
+visible = false
+removed = true
+
+[node name="Wall2" parent="Map1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0938469, 0, 5, 39.9122 )
+visible = false
+removed = true
+
+[node name="Desk1" parent="Map1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0938469, 0, 5, 75.1457 )
+visible = false
+removed = true
+
+[node name="CheckPlayerArea" parent="Map1" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 5, 75 )
+
+[node name="Map2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
 visible = false
 
-[node name="VisibilityNotifier" type="VisibilityNotifier" parent="Map/Ghost"]
+[node name="PlayerPoint" type="Position3D" parent="Map2"]
+
+[node name="WallThree" parent="Map2" instance=ExtResource( 1 )]
+
+[node name="WallTwo" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+
+[node name="WallTwo2" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+
+[node name="WallTwo3" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
+
+[node name="WallTwo4" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
+
+[node name="WallTwo5" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+
+[node name="WallTwo6" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
+
+[node name="WallTwo7" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70 )
+
+[node name="Light" type="SpotLight" parent="Map2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light2" type="SpotLight" parent="Map2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 40 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light3" type="SpotLight" parent="Map2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 80 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="WallCorner" parent="Map2" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 80 )
+
+[node name="WallTwo8" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 80 )
+
+[node name="WallTwo9" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20, 0, 80 )
+
+[node name="WallTwo10" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30, 0, 80 )
+
+[node name="WallTwo11" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -40, 0, 80 )
+
+[node name="WallTwo12" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -50, 0, 80 )
+
+[node name="WallTwo13" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -60, 0, 80 )
+
+[node name="WallTwo14" parent="Map2" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -70, 0, 80 )
+
+[node name="WallThree2" parent="Map2" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -80, 0, 80 )
+
+[node name="Desk" parent="Map2" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -83.9, 0, 80 )
+
+[node name="Light4" type="SpotLight" parent="Map2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -40, 10, 80 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light5" type="SpotLight" parent="Map2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -80, 10, 80 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Wall1" parent="Map2" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, -8.29157e-08, 0, 1, 0, -4.14579e-08, 0, 0.10311, 7.62939e-06, 5, 5 )
+removed = true
+
+[node name="Wall2" parent="Map2" instance=ExtResource( 10 )]
+transform = Transform( -2.25354e-09, 0, -0.10311, 0, 1, 0, 1, 0, -8.74228e-08, -4.99999, 5, 79 )
+removed = true
+
+[node name="Desk1" parent="Map2" instance=ExtResource( 10 )]
+transform = Transform( -2.25354e-09, 0, -0.10311, 0, 1, 0, 1, 0, -8.74228e-08, -75, 5, 79 )
+removed = true
+
+[node name="CheckPlayerArea" parent="Map2" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, -2, 0, 1, 0, 1, 0, -8.74228e-08, -75, 5, 80 )
+
+[node name="Map3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 0 )
+visible = false
+
+[node name="PlayerPoint" type="Position3D" parent="Map3"]
+
+[node name="WallThree" parent="Map3" instance=ExtResource( 1 )]
+
+[node name="WallTwo" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+
+[node name="WallTwo2" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+
+[node name="WallTwo3" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30 )
+
+[node name="WallTwo4" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
+
+[node name="WallTwo5" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50 )
+
+[node name="WallTwo6" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60 )
+
+[node name="WallTwo7" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 70 )
+
+[node name="WallTwo8" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 80 )
+
+[node name="WallTwo9" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 90 )
+
+[node name="WallTwo10" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 100 )
+
+[node name="WallTwo11" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 110 )
+
+[node name="Light" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light2" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 40 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light3" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 80 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light4" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 120 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="WallCorner" parent="Map3" instance=ExtResource( 9 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 120 )
+
+[node name="WallTwo12" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 10, 0, 120 )
+
+[node name="WallTwo13" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 20, 0, 120 )
+
+[node name="WallTwo14" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 30, 0, 120 )
+
+[node name="WallTwo15" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 40, 0, 120 )
+
+[node name="WallTwo16" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 50, 0, 120 )
+
+[node name="WallTwo17" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 60, 0, 120 )
+
+[node name="WallTwo18" parent="Map3" instance=ExtResource( 2 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 70, 0, 120 )
+
+[node name="WallThree2" parent="Map3" instance=ExtResource( 1 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 80, 0, 120 )
+
+[node name="Light5" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 40, 10, 120 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Light6" type="SpotLight" parent="Map3"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 80, 10, 120 )
+spot_range = 15.0
+spot_angle = 75.0
+
+[node name="Desk" parent="Map3" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 83.9, 0, 120 )
+
+[node name="Ghost" parent="Map3" instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 67.499, 4, 120 )
+visible = false
+skeleton = NodePath("../../Map1")
+
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="Map3/Ghost"]
 aabb = AABB( -0.210754, -0.238512, -1, 0.421509, 0.477024, 2 )
 
-[node name="SpawnCreatureArea" parent="Map" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.349394, 0, 5.06206, 81.0027 )
+[node name="SpawnCreatureArea" parent="Map3" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-08, 0, 0.349394, 0, 1, 0, -1, 0, -1.52725e-08, 78.501, 5.062, 120 )
 showing_creature = NodePath("../Ghost")
 destroyed = true
+
+[node name="Wall1" parent="Map3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0938469, 0, 5, 4.97804 )
+visible = false
+removed = true
+
+[node name="Wall2" parent="Map3" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.0938469, 0, 5, 54.978 )
+visible = false
+removed = true
+
+[node name="Desk1" parent="Map3" instance=ExtResource( 10 )]
+transform = Transform( -4.37114e-08, 0, 0.0938469, 0, 1, 0, -1, 0, -4.10218e-09, 12, 5, 119.978 )
+visible = false
+removed = true
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
@@ -335,6 +595,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[connection signal="screen_entered" from="Map/Ghost/VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_entered"]
-[connection signal="body_entered" from="Map/SpawnCreatureArea" to="." method="_on_SpawnCreatureArea_body_entered"]
+[connection signal="exited" from="Map1/Wall1" to="." method="_on_Wall1_exited_in_Map1"]
+[connection signal="exited" from="Map1/Wall2" to="." method="_on_Wall2_exited_in_Map1"]
+[connection signal="exited" from="Map1/Desk1" to="." method="_on_Desk1_exited_in_Map1"]
+[connection signal="exited" from="Map1/CheckPlayerArea" to="." method="_on_CheckPlayerArea_exited_in_Map1"]
+[connection signal="exited" from="Map2/Wall1" to="." method="_on_Wall1_exited_in_Map2"]
+[connection signal="exited" from="Map2/Wall2" to="." method="_on_Wall2_exited_in_Map2"]
+[connection signal="exited" from="Map2/Desk1" to="." method="_on_Desk1_exited_in_Map2"]
+[connection signal="exited" from="Map2/CheckPlayerArea" to="." method="_on_CheckPlayerArea_exited_in_Map2"]
+[connection signal="camera_entered" from="Map3/Ghost/VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_entered"]
+[connection signal="notify" from="Map3/SpawnCreatureArea" to="." method="_on_SpawnCreatureArea_notify"]
+[connection signal="exited" from="Map3/Wall1" to="." method="_on_Wall1_exited_in_Map3"]
+[connection signal="exited" from="Map3/Wall2" to="." method="_on_Wall2_exited_in_Map3"]
+[connection signal="exited" from="Map3/Desk1" to="." method="_on_Desk1_exited_in_Map3"]
 [connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

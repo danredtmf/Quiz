@@ -35,13 +35,14 @@ _global_script_class_icons={
 config/name="Quiz"
 run/main_scene="res://scenes/loading_game/loading_game.tscn"
 config/icon="res://icon.png"
-config/version="0.7-alpha"
+config/version="0.7.1-alpha"
 
 [autoload]
 
 Data="*res://global_scripts/data.gd"
 Core="*res://global_scripts/core.gd"
 AchvCards="*res://global_scripts/achv_cards/achv_cards.tscn"
+Subtitles="*res://global_scripts/subtitles/subtitles.tscn"
 
 [display]
 

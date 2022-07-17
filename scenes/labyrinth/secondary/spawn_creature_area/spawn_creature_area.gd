@@ -1,5 +1,7 @@
 extends Area
 
+signal notify
+
 enum Creatures { Ghost }
 
 export(NodePath) var spawn_point: NodePath
@@ -21,3 +23,4 @@ func _check_conditions():
 func _on_SpawnCreatureArea_body_entered(body):
 	if body.is_in_group("Player"):
 		_check_conditions()
+		emit_signal("notify")
