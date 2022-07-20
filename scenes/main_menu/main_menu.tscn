@@ -295,9 +295,14 @@ anims/RESET = SubResource( 3 )
 anims/hide = SubResource( 5 )
 anims/show = SubResource( 4 )
 
+[node name="TimerHintDuration" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Achievements" to="." method="_on_Achievements_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="animation_finished" from="AnimReady" to="." method="_on_AnimReady_animation_finished"]
+[connection signal="timeout" from="TimerHintDuration" to="." method="_on_TimerHintDuration_timeout"]

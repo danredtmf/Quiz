@@ -50,7 +50,7 @@ achv_17_name,Unusual people,Необычные люди,Nekutimaj homoj
 achv_18_name,The buildings,Постройки,La konstruaĵoj
 achv_19_name,I have seen everything,Я видел всё,Mi vidis ĉion
 achv_20_name,Hello to you too,И тебе привет,Saluton ankaŭ al vi
-achv_21_name,Yes,Yes,Jes
+achv_21_name,Who is speaking?,Кто говорит?,Kiu parolas?
 achv_22_name,Ho,Хо,Ho
 achv_23_name,Joke,Прикол,Amuza
 achv_24_name,We have lost...,У нас пропал…,Ni perdis...
@@ -60,9 +60,17 @@ achv_27_name,hhhhhA,hhhhhA,hhhhhA
 achv_28_name,Device connection sound,Звук подключения устройства,Aparato-konekto sono
 achv_29_name,I heard everything,Я слышал всё,Mi aŭdis ĉion
 achv_30_name,And all?,И все?,Kaj ĉio?
-achv_31_name,Сramped,Тесновато,Malvasta
-achv_32_name,That was not boring…,Чтобы не было скучно…,Tio ne estis enuiga...
-achv_33_name,They didn't hear me...,Они меня не слышали…,Ili ne aŭdis min...
+achv_31_name,Bye-bye,До связи,Antaŭ komunikado
+achv_32_name,Ben,Бен,Ben
+achv_33_name,Yes,Yes,Jes
+achv_34_name,No...,No,Ne
+achv_35_name,Ughhh,Ughhh,Ughhh
+achv_36_name,Ho-ho-ho,Хо-Хо-Хо,Ho-ho-ho
+achv_37_name,Got it,Разглядел,Atingis
+achv_38_name,I already know everything,Я уже всё знаю,Mi jam scias ĉion
+achv_39_name,Сramped,Тесновато,Malvasta
+achv_40_name,That was not boring…,Чтобы не было скучно…,Tio ne estis enuiga...
+achv_41_name,They didn't hear me...,Они меня не слышали…,Ili ne aŭdis min...
 achv_1_desc,"open ""Achievements""","открыть ""Достижения""","malfermu ""Atingoj"""
 achv_2_desc,"open ""Achievements"" before the first playthrough","открыть ""Достижения"" перед первым прохождением","malfermu ""Atingojn"" antaŭ la unua ludo"
 achv_3_desc,reduce the volume of music and sounds to 0%,уменьшить громкость музыки и звуков до 0%,redukti la volumon de muziko kaj sonoj al 0%
@@ -93,9 +101,17 @@ achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
 achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
 achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
 achv_30_desc,play the demo version of the game,пройти демо версию игры,ludu la demonstran version de la ludo
-achv_31_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
-achv_32_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
-achv_33_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn
+achv_31_desc,"enter the secret word ""ben"" during the slideshow","ввести секретное слово ""ben"" во время слайд-шоу","enigu la sekretan vorton ""ben"" dum la bildoprezento"
+achv_32_desc,"hear ""Ben"" after entering the secret word ""ben""","услышать ""Бен"" после ввода секретного слова ""ben""","aŭdu ""Ben"" post enigo de la sekreta vorto ""ben"""
+achv_33_desc,"hear ""Yes"" after entering the secret word ""ben""","услышать ""Yes"" после ввода секретного слова ""ben""","aŭdu ""Jes"" post enigi la sekretan vorton ""ben"""
+achv_34_desc,"hear ""No"" after entering the secret word ""ben""","услышать ""No"" после ввода секретного слова ""ben""","aŭdu ""Ne"" post enigo de la sekreta vorto ""ben"""
+achv_35_desc,"hear ""Ughhh"" after entering the secret word ""ben""","услышать ""Ughhh"" после ввода секретного слова ""ben""","aŭdu ""Ughhh"" post enigo de la sekreta vorto ""ben"""
+achv_36_desc,"hear ""Ho-Ho-Ho"" after entering the secret word ""ben""","услышать ""Хо-Хо-Хо"" после ввода секретного слова ""ben""","aŭdu ""Ho-Ho-Ho"" post enigo de la sekreta vorto ""ben"""
+achv_37_desc,use hint to show another hint,"воспользоваться подсказкой, чтобы показать другую подсказку",uzu sugeston por montri alian sugeston
+achv_38_desc,show tooltip before the tooltip for that,показать подсказку до появления подсказки для этого,montri konsileton antaŭ la konsileto por tio
+achv_39_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
+achv_40_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
+achv_41_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn
 volume,Volume,Громкость,Volumo
 volume_general,General,Общая,Generalo
 volume_music,Music,Музыки,Muziko
