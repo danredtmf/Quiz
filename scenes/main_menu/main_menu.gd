@@ -1,6 +1,10 @@
 extends Control
 
+var is_showing_main_hint: bool = false
+
 func _ready():
+	randomize()
+	
 	_config()
 
 func _start_animation():
@@ -14,9 +18,9 @@ func _config():
 	Data.data_achievements.check_achievement()
 	_open_demo_win()
 	update_ui()
+	_gen_hint()
 	
-	$Version.text = ProjectSettings.get_setting('application/config/version') + " "
-	$Version.set_anchors_and_margins_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_KEEP_SIZE)
+	$Version.text = " " + ProjectSettings.get_setting('application/config/version')
 	
 	_start_animation()
 
@@ -32,6 +36,8 @@ func _open_demo_win():
 func update_ui():
 	if Data.data_achievements.quiz_win and !Data.data_achievements.is_achievement_opened:
 		$Margin/Panel/VB/Name.text = "Shift+A"
+	elif is_showing_main_hint:
+		$Margin/Panel/VB/Name.text = "F5"
 	else:
 		$Margin/Panel/VB/Name.text = ProjectSettings.get_setting('application/config/name')
 	
@@ -96,8 +102,41 @@ func _on_Achievements_pressed():
 	achievements_win.connect("closing", self, "_on_closing_achievements_win")
 	$Margin/Panel/VB/Buttons/Achievements.disabled = true
 
-func _input(event):
+func _input(event) -> void:
 	if event is InputEventKey:
 		if event.pressed and event.shift and event.scancode == KEY_A:
 			Data.data_achievements.is_achievement_opened = true
 			Data.data_achievements.check_achievement()
+		elif not event.pressed and event.scancode == KEY_F5:
+			_hint()
+
+func _hint() -> void:
+	var hint
+	
+	var i = 0
+	if Data.data_achievements.open_secret_words.size() != Data.secret_words.size():
+		while i == 0:
+			var h = Data.secret_words[randi() % Data.secret_words.size()]
+			if Data.data_achievements.open_secret_words.find(h) == -1:
+				hint = h
+				i = 1
+				break
+
+	if i == 1:
+		$Version.text = " " + hint
+		$TimerHintDuration.start()
+		is_showing_main_hint = false
+		AchvCards.is_allowed = true
+		Data.data_achievements.is_hint_used = true
+		Data.data_achievements.check_achievement()
+
+func _gen_hint() -> void:
+	if Data.data_achievements.quiz_win and Data.data_achievements.is_achievement_opened and not Data.data_achievements.is_hint_showed:
+		if randi() % 2 == 0:
+			is_showing_main_hint = true
+			Data.data_achievements.is_hint_showed = true
+			AchvCards.is_allowed = false
+			Data.data_achievements.check_achievement()
+
+func _on_TimerHintDuration_timeout() -> void:
+	$Version.text = " " + ProjectSettings.get_setting('application/config/version')

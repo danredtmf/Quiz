@@ -48,7 +48,7 @@ func _show_card():
 		for card in queue:
 			if queue_showed.find(card) == -1:
 				is_showing = true
-				$UI/Scroll/Margin/VB.add_child(card)
+				$UI/Scroll/Margin/VB/Cards.add_child(card)
 				queue_showed.append(card)
 				yield(card, "showed")
 				queue.pop_front()
@@ -57,7 +57,7 @@ func _show_card():
 
 func _delete_card():
 	if queue_showed.size() > 0:
-		var card = queue_showed[-1]
+		var card = queue_showed.front()
 		card.call_deferred("emit_signal", "hiding")
 		is_deleting = true
 		yield(card, "hided")

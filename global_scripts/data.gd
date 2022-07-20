@@ -27,7 +27,7 @@ var data_settings: DataSettings = DataSettings.new()
 # - Достижения
 var data_achievements: DataAchievements = DataAchievements.new()
 # - Секретные слова
-var secret_words: Array = ["secret", "haggy", "minecraft", "gachi", "floppa"]
+var secret_words: Array = ["secret", "haggy", "minecraft", "gachi", "floppa", "ben"]
 # - Названия особенных звуков
 var special_sounds: Array = [
 	"are_you_playing",
@@ -40,6 +40,14 @@ var special_sounds: Array = [
 	"ha",
 	"hello",
 	"joke",
+]
+# - Названия секретных звуков
+var secret_sounds: Array = [
+	"ben",
+	"yes",
+	"no",
+	"laugh",
+	"ughhh",
 ]
 
 func _ready():

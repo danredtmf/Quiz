@@ -13,6 +13,10 @@ export(Array) var opened: Array = []
 export(bool) var quiz_win: bool = false
 # - Открыт ли раздел "Достижения"
 export(bool) var is_achievement_opened: bool = false
+# - Показывалась ли подсказка "F5"
+export(bool) var is_hint_showed: bool = false
+# - Воспользовался ли игрок подсказкой "F5"
+export(bool) var is_hint_used: bool = false
 # - Переключался ли язык на English
 export(bool) var is_en_selected: bool = false
 # - Переключался ли язык на Russian
@@ -25,6 +29,8 @@ export(Array) var open_secret_words: Array = []
 export(Array) var open_images: Array = []
 # - Список особенных звуков, которые услышал игрок
 export(Array) var open_special_sounds: Array = []
+# - Список секретных звуков, которые услышал игрок
+export(Array) var open_secret_sounds: Array = []
 # - Пройдена ли демо версия
 export(bool) var is_demo_passed: bool = false
 # - Открыта ли вторая часть (не для демо версии)
@@ -39,6 +45,8 @@ func check_achievement():
 	_check_volume()
 	_check_special_sounds()
 	_check_demo()
+	_check_secret_sounds()
+	_check_hint()
 	saving()
 
 func _check_achv_open():
@@ -212,6 +220,42 @@ func _check_demo():
 			opened.append(all[29])
 			AchvCards.add_achv(all[29])
 
+func _check_secret_sounds():
+	for name in open_secret_sounds:
+		if name == Data.secret_sounds[0]: # "ben"
+			if opened.find(all[30]) == -1:
+				opened.append(all[30])
+				AchvCards.add_achv(all[30])
+			if opened.find(all[31]) == -1:
+				opened.append(all[31])
+				AchvCards.add_achv(all[31])
+		if name == Data.secret_sounds[1]: # "yes"
+			if opened.find(all[32]) == -1:
+				opened.append(all[32])
+				AchvCards.add_achv(all[32])
+		if name == Data.secret_sounds[2]: # "no"
+			if opened.find(all[33]) == -1:
+				opened.append(all[33])
+				AchvCards.add_achv(all[33])
+		if name == Data.secret_sounds[3]: # "laugh"
+			if opened.find(all[35]) == -1:
+				opened.append(all[35])
+				AchvCards.add_achv(all[35])
+		if name == Data.secret_sounds[4]: # "ughhh"
+			if opened.find(all[34]) == -1:
+				opened.append(all[34])
+				AchvCards.add_achv(all[34])
+
+func _check_hint():
+	if is_hint_showed and is_hint_used:
+		if opened.find(all[36]) == -1:
+			opened.append(all[36])
+			AchvCards.add_achv(all[36])
+	if is_hint_used and not is_hint_showed:
+		if opened.find(all[37]) == -1:
+			opened.append(all[37])
+			AchvCards.add_achv(all[37])
+
 func add_word(word: String):
 	if open_secret_words.find(word) == -1:
 		open_secret_words.append(word)
@@ -228,6 +272,10 @@ func add_special_sound(sound_name: String):
 	if open_special_sounds.find(sound_name) == -1:
 		open_special_sounds.append(sound_name)
 
+func add_secret_sound(sound_name: String):
+	if open_secret_sounds.find(sound_name) == -1:
+		open_secret_sounds.append(sound_name)
+
 func test_open_image():
 	open_images.append_array(Core.abandoned_houses)
 	open_images.append_array(Core.illuminating_spaces)
@@ -239,7 +287,16 @@ func test_open_image():
 func _gen_achv_id() -> Array:
 	var result = []
 	
-	for i in range(30):
+	# Номера достижений начинаются с 1
+	# | Пример |
+	# if opened.find(all[0]) == -1:
+	#		opened.append(all[0])
+	#		AchvCards.add_achv(all[0])
+	# - Здесь 0 - это 1
+	# - Если индекс массива all, к примеру = 28, то
+	# 	номер достижения = 29
+	
+	for i in range(38):
 		result.append(i+1)
 	
 	return result
@@ -253,11 +310,14 @@ func loading():
 	opened = data.get_value("achv", "o", [])
 	quiz_win = data.get_value("achv", "quiz_win", false)
 	is_achievement_opened = data.get_value("achv", "is_achv_o", false)
+	is_hint_showed = data.get_value("achv", "is_hint_s", false)
+	is_hint_used = data.get_value("achv", "is_hint_u", false)
 	is_en_selected = data.get_value("achv", "is_en_s", false)
 	is_ru_selected = data.get_value("achv", "is_ru_s", false)
 	is_eo_selected = data.get_value("achv", "is_eo_s", false)
 	open_secret_words = data.get_value("achv", "o_secret_words", [])
 	open_images = data.get_value("achv", "o_images", [])
+	open_secret_sounds = data.get_value("achv", "o_secret_sounds", [])
 	open_special_sounds = data.get_value("achv", "o_special_sounds", [])
 	is_demo_passed = data.get_value("achv", "is_demo_passed", false)
 	is_chapter_two_opened = data.get_value("achv", "is_chp_two_o", false)
@@ -267,12 +327,15 @@ func saving():
 	result.set_value("achv", "o", opened)
 	result.set_value("achv", "quiz_win", quiz_win)
 	result.set_value("achv", "is_achv_o", is_achievement_opened)
+	result.set_value("achv", "is_hint_s", is_hint_showed)
+	result.set_value("achv", "is_hint_u", is_hint_used)
 	result.set_value("achv", "is_en_s", is_en_selected)
 	result.set_value("achv", "is_ru_s", is_ru_selected)
 	result.set_value("achv", "is_eo_s", is_eo_selected)
 	result.set_value("achv", "o_secret_words", open_secret_words)
 	result.set_value("achv", "o_images", open_images)
 	result.set_value("achv", "o_special_sounds", open_special_sounds)
+	result.set_value("achv", "o_secret_sounds", open_secret_sounds)
 	result.set_value("achv", "is_demo_passed", is_demo_passed)
 	result.set_value("achv", "is_chp_two_o", is_chapter_two_opened)
 	if result.save(PATH) == OK:

@@ -139,6 +139,14 @@ const special_sounds: Array = [
 	preload("res://resourses/audio/special_sounds/joke.ogg"),
 ]
 
+const secret_sounds: Array = [
+	preload('res://resourses/audio/secret_sounds/ben/ben.ogg'),
+	preload('res://resourses/audio/secret_sounds/ben/yes.ogg'),
+	preload('res://resourses/audio/secret_sounds/ben/no.ogg'),
+	preload('res://resourses/audio/secret_sounds/ben/laughh.ogg'),
+	preload('res://resourses/audio/secret_sounds/ben/ughhh.ogg'),
+]
+
 var used_images: Array = []
 
 var player
