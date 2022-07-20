@@ -275,15 +275,12 @@ text = "Выход"
 flat = true
 
 [node name="Version" type="Label" parent="."]
-anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -100.0
 margin_top = -22.0
+margin_right = 100.0
 rect_min_size = Vector2( 100, 0 )
 custom_fonts/font = SubResource( 27 )
-align = 2
 
 [node name="BGReady" type="ColorRect" parent="."]
 anchor_right = 1.0

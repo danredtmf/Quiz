@@ -13,6 +13,10 @@ export(Array) var opened: Array = []
 export(bool) var quiz_win: bool = false
 # - Открыт ли раздел "Достижения"
 export(bool) var is_achievement_opened: bool = false
+# - Показывалась ли подсказка "F5"
+export(bool) var is_hint_showed: bool = false
+# - Воспользовался ли игрок подсказкой "F5"
+export(bool) var is_hint_used: bool = false
 # - Переключался ли язык на English
 export(bool) var is_en_selected: bool = false
 # - Переключался ли язык на Russian
@@ -42,6 +46,7 @@ func check_achievement():
 	_check_special_sounds()
 	_check_demo()
 	_check_secret_sounds()
+	_check_hint()
 	saving()
 
 func _check_achv_open():
@@ -241,6 +246,16 @@ func _check_secret_sounds():
 				opened.append(all[34])
 				AchvCards.add_achv(all[34])
 
+func _check_hint():
+	if is_hint_showed and is_hint_used:
+		if opened.find(all[36]) == -1:
+			opened.append(all[36])
+			AchvCards.add_achv(all[36])
+	if is_hint_used and not is_hint_showed:
+		if opened.find(all[37]) == -1:
+			opened.append(all[37])
+			AchvCards.add_achv(all[37])
+
 func add_word(word: String):
 	if open_secret_words.find(word) == -1:
 		open_secret_words.append(word)
@@ -272,6 +287,15 @@ func test_open_image():
 func _gen_achv_id() -> Array:
 	var result = []
 	
+	# Номера достижений начинаются с 1
+	# | Пример |
+	# if opened.find(all[0]) == -1:
+	#		opened.append(all[0])
+	#		AchvCards.add_achv(all[0])
+	# - Здесь 0 - это 1
+	# - Если индекс массива all, к примеру = 28, то
+	# 	номер достижения = 29
+	
 	for i in range(38):
 		result.append(i+1)
 	
@@ -286,6 +310,8 @@ func loading():
 	opened = data.get_value("achv", "o", [])
 	quiz_win = data.get_value("achv", "quiz_win", false)
 	is_achievement_opened = data.get_value("achv", "is_achv_o", false)
+	is_hint_showed = data.get_value("achv", "is_hint_s", false)
+	is_hint_used = data.get_value("achv", "is_hint_u", false)
 	is_en_selected = data.get_value("achv", "is_en_s", false)
 	is_ru_selected = data.get_value("achv", "is_ru_s", false)
 	is_eo_selected = data.get_value("achv", "is_eo_s", false)
@@ -301,6 +327,8 @@ func saving():
 	result.set_value("achv", "o", opened)
 	result.set_value("achv", "quiz_win", quiz_win)
 	result.set_value("achv", "is_achv_o", is_achievement_opened)
+	result.set_value("achv", "is_hint_s", is_hint_showed)
+	result.set_value("achv", "is_hint_u", is_hint_used)
 	result.set_value("achv", "is_en_s", is_en_selected)
 	result.set_value("achv", "is_ru_s", is_ru_selected)
 	result.set_value("achv", "is_eo_s", is_eo_selected)

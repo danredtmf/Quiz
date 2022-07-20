@@ -17,11 +17,10 @@ func _config():
 	AchvCards.is_allowed = true
 	Data.data_achievements.check_achievement()
 	_open_demo_win()
-	_gen_hint()
 	update_ui()
+	_gen_hint()
 	
-	$Version.text = ProjectSettings.get_setting('application/config/version') + " "
-	$Version.set_anchors_and_margins_preset(Control.PRESET_BOTTOM_RIGHT, Control.PRESET_MODE_KEEP_SIZE)
+	$Version.text = " " + ProjectSettings.get_setting('application/config/version')
 	
 	_start_animation()
 
@@ -37,6 +36,8 @@ func _open_demo_win():
 func update_ui():
 	if Data.data_achievements.quiz_win and !Data.data_achievements.is_achievement_opened:
 		$Margin/Panel/VB/Name.text = "Shift+A"
+	elif is_showing_main_hint:
+		$Margin/Panel/VB/Name.text = "F5"
 	else:
 		$Margin/Panel/VB/Name.text = ProjectSettings.get_setting('application/config/name')
 	
@@ -122,17 +123,20 @@ func _hint() -> void:
 				break
 
 	if i == 1:
-		$Version.text = hint + " "
+		$Version.text = " " + hint
 		$TimerHintDuration.start()
-		if is_showing_main_hint:
-			$Margin/Panel/VB/Name.text = ProjectSettings.get_setting('application/config/name')
+		is_showing_main_hint = false
+		AchvCards.is_allowed = true
+		Data.data_achievements.is_hint_used = true
+		Data.data_achievements.check_achievement()
 
 func _gen_hint() -> void:
-	# Добавить условие/я для достижения
-	if Data.data_achievements.quiz_win and Data.data_achievements.is_achievement_opened:
+	if Data.data_achievements.quiz_win and Data.data_achievements.is_achievement_opened and not Data.data_achievements.is_hint_showed:
 		if randi() % 2 == 0:
-			$Margin/Panel/VB/Name.text = "F5"
 			is_showing_main_hint = true
+			Data.data_achievements.is_hint_showed = true
+			AchvCards.is_allowed = false
+			Data.data_achievements.check_achievement()
 
 func _on_TimerHintDuration_timeout() -> void:
-	$Version.text = ProjectSettings.get_setting('application/config/version') + " "
+	$Version.text = " " + ProjectSettings.get_setting('application/config/version')
