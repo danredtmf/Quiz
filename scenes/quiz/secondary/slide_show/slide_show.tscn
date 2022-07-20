@@ -191,5 +191,8 @@ anims/show_2 = SubResource( 3 )
 wait_time = 5.0
 one_shot = true
 
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Sound"
+
 [connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
 [connection signal="timeout" from="DelaySecretPic" to="." method="_on_DelaySecretPic_timeout"]

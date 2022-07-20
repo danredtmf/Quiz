@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/no.ogg-83274ebfd9814175376d0a144084933b.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/secret_sounds/ben/no.ogg"
+dest_files=[ "res://.import/no.ogg-83274ebfd9814175376d0a144084933b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

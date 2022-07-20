@@ -86,7 +86,7 @@ func _on_Anim_animation_finished(anim_name):
 		$Anim.play("show_2")
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed():
+	if event is InputEventKey and not event.is_pressed():
 		if event.scancode != KEY_ENTER:
 			word += event.as_text()
 		else:
@@ -95,12 +95,41 @@ func _input(event):
 func _check_secret_word():
 	for secret in Data.secret_words:
 		word = word.to_lower()
-		if word == secret:
+		if word == secret and word != Data.secret_words.back(): # "ben"
 			_show_secret_pic()
 			Data.data_achievements.add_word(word)
 			Data.data_achievements.check_achievement()
-	
-	word = ""
+			word = ""
+		elif word == Data.secret_words.back(): # "ben"
+			_gen_secret_sound()
+			word = ""
+		else:
+			word = ""
+
+func _gen_secret_sound():
+	if Data.data_achievements.open_secret_sounds.size() < 1:
+		var sound = Core.secret_sounds.front()
+		var sound_name = Data.secret_sounds.front()
+		$SoundPlayer.stream = sound
+		_play_sound()
+		
+		Data.data_achievements.add_secret_sound(sound_name)
+		Data.data_achievements.check_achievement()
+	else:
+		var i = 0
+		while i == 0:
+			for s in Core.secret_sounds:
+				var sound = s
+				var sound_name = Data.secret_sounds[Core.secret_sounds.rfind(s)]
+				if sound_name != Data.secret_sounds.front():
+					if randi() % 3 == 0:
+						i = 1
+						$SoundPlayer.stream = sound
+						_play_sound()
+						
+						Data.data_achievements.add_secret_sound(sound_name)
+						Data.data_achievements.check_achievement()
+						break
 
 func _show_secret_pic():
 	_change_secret_picture(word)
@@ -109,3 +138,6 @@ func _show_secret_pic():
 
 func _on_DelaySecretPic_timeout():
 	$SecretPic.hide()
+
+func _play_sound():
+	$SoundPlayer.play()

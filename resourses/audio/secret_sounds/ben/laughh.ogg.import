@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laughh.ogg-304e4ab62649a1a6c729250a008556a2.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/secret_sounds/ben/laughh.ogg"
+dest_files=[ "res://.import/laughh.ogg-304e4ab62649a1a6c729250a008556a2.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ughhh.ogg-cac59b91101a921c875d889ea7698f1d.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/secret_sounds/ben/ughhh.ogg"
+dest_files=[ "res://.import/ughhh.ogg-cac59b91101a921c875d889ea7698f1d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
