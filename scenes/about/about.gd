@@ -38,7 +38,7 @@ func _on_Animation_animation_finished(anim_name):
 
 func _on_Site_pressed():
 # warning-ignore:return_value_discarded
-	OS.shell_open("https://danredtmf.github.io")
+	OS.shell_open("https://danredtmf.github.io/dev.html")
 
 func _on_Close_pressed():
 	_end_animation()
