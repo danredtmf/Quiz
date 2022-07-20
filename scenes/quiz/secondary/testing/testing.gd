@@ -99,9 +99,16 @@ func _audio():
 		"disconnect":
 			_init_audio()
 			_play_audio()
+			$BG.show()
+			OS.window_fullscreen = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			yield(get_tree().create_timer(3), "timeout")
 			_set_stream("connect")
 			_play_audio()
+			yield(get_tree().create_timer(.5), "timeout")
+			OS.window_fullscreen = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			$BG.hide()
 		_:
 			_init_audio()
 			_play_audio()
