@@ -25,6 +25,8 @@ var velocity = Vector3()
 var gravity_vec = Vector3()
 var movement = Vector3()
 
+var is_moving: bool = false
+var is_jumping: bool = false
 var is_movement_allowed: bool = true
 var is_running_allowed: bool = true
 var is_jumping_allowed: bool = true
@@ -93,8 +95,25 @@ func _physics_process(delta):
 		else:
 			speed = RunSpeed
 		
+		if not $JumpStepRay.is_colliding():
+			is_jumping = true
+		
+		if is_on_floor() and is_jumping:
+			play_step('step')
+			is_jumping = false
+		
+		if direction != Vector3.ZERO:
+			if walk_state == WalkStates.Walk:
+				play_step('walk')
+			elif walk_state == WalkStates.Run:
+				play_step('run')
+		
 		# Движение
 		velocity = velocity.linear_interpolate(direction * speed, accel * delta)
 		movement = velocity + gravity_vec
 		
 		movement = move_and_slide_with_snap(movement, snap, Vector3.UP)
+
+func play_step(anim_name: String):
+	if not $StepPlayer.is_playing() and not walk_state == WalkStates.Air:
+		$StepPlayer.play(anim_name)
