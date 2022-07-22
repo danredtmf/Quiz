@@ -18,6 +18,9 @@ func _check_state():
 				$Animation.play("start")
 		States.Map1:
 			$Animation.play("show")
+			$Map1/WallText1.show()
+			$Map1/WallText2.show()
+			$Map1/Text3.show()
 			$Camera.current = false
 			if Core.player:
 				Core.player.is_movement_allowed = true
