@@ -28,6 +28,7 @@ test1_header,What do you feel when looking at the photo?,"Что вы чувст
 test2_header,What is your opinion about this drawing?,Ваше мнение насчет данного рисунка,Kio estas via opinio pri ĉi tiu desegno?
 test3_header,Your reply?,Ваш ответ?,Via respondo?
 achievements,Achievements,Достижения,Atingoj
+achv_info,New achievement!,Новое достижение!,Nova atingo!
 achv_closed,Achievements locked: %d,Закрытые достижения: %d,Atingoj ŝlositaj: %d
 achv_opened,All achievements are unlocked!,Все достижения открыты!,Ĉiuj atingoj estas malŝlositaj!
 achv_1_name,Welcome,Добро пожаловать,Bonvenon

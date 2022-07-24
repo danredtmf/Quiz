@@ -20,6 +20,7 @@ func _ready():
 	_start_animation()
 
 func _process(_delta):
+	_update_ui()
 	var time = "%1.0f" % $Timer.time_left
 	$VB/HeaderPanel/Header.text = time
 
@@ -37,6 +38,9 @@ func _config():
 		_set_header_text()
 		_change_image()
 		set_process(false)
+
+func _update_ui():
+	$VB/Buttons/Next.text = tr('next')
 
 func _set_header_text():
 	$VB/HeaderPanel/Header.text = header_text

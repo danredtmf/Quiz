@@ -15,8 +15,9 @@ var is_showing: bool = false
 var is_deleting: bool = false
 
 func _process(_delta):
-	_check_activate()
+	_update_ui()
 	
+	_check_activate()
 	_create_card()
 	
 	if is_activated and is_allowed:
@@ -24,6 +25,9 @@ func _process(_delta):
 	
 	if !is_showing and !is_deleting and $DelayEnd.is_stopped():
 		$DelayEnd.start()
+
+func _update_ui():
+	$UI/Scroll/Margin/VB/Header/Info.text = tr('achv_info')
 
 func add_achv(number: int):
 	queue_achv.append(number)
