@@ -13,8 +13,8 @@ func _check_state():
 		States.AnimStart:
 			if Core.player:
 				Core.player.is_movement_allowed = false
-#				Core.player.is_running_allowed = false
-#				Core.player.is_jumping_allowed = false
+				Core.player.is_running_allowed = false
+				Core.player.is_jumping_allowed = false
 				
 				$CanvasLayer/Image.texture = Core.main_menu_screenshot
 				OS.window_fullscreen = true
