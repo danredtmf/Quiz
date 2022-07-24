@@ -35,8 +35,8 @@ _global_script_class_icons={
 config/name="Quiz"
 run/main_scene="res://scenes/loading_game/loading_game.tscn"
 config/icon="res://icon.png"
-config/windows_native_icon="res://resourses/images/icon/icon.ico"
-config/version="0.8-beta"
+config/windows_native_icon="res://resourses/images/icon/icon-16.ico"
+config/version="0.8.1-alpha"
 
 [autoload]
 

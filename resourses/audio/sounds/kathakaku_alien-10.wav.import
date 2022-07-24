@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/kathakaku_alien-10.wav-8df19788b3676f05c7c9e257cc038ce4.sample"
+
+[deps]
+
+source_file="res://resourses/audio/sounds/kathakaku_alien-10.wav"
+dest_files=[ "res://.import/kathakaku_alien-10.wav-8df19788b3676f05c7c9e257cc038ce4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,5 +1,7 @@
 extends Control
 
+signal captured
+
 var is_showing_main_hint: bool = false
 
 func _ready():
@@ -16,6 +18,7 @@ func _end_animation():
 func _config():
 	AchvCards.is_allowed = true
 	Data.data_achievements.check_achievement()
+	OS.window_fullscreen = false
 	_open_demo_win()
 	update_ui()
 	_gen_hint()
@@ -47,6 +50,17 @@ func update_ui():
 	$Margin/Panel/VB/Buttons/About.text = tr('about')
 	$Margin/Panel/VB/Buttons/Exit.text = tr('exit')
 
+func _screenshot_screen():
+	get_viewport().set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
+	yield(VisualServer, "frame_post_draw")
+	var img = get_viewport().get_texture().get_data()
+	img.flip_y()
+	var tex = ImageTexture.new()
+	tex.create_from_image(img)
+	Core.main_menu_screenshot = tex
+	
+	emit_signal('captured')
+
 func check_achv():
 	if Data.data_achievements.is_achievement_opened:
 		$Margin/Panel/VB/Buttons/Achievements.visible = true
@@ -70,6 +84,8 @@ func _on_Play_pressed():
 		add_child(send_data_win)
 		send_data_win.connect("pressed", self, "_on_pressed_send_data_win")
 	else:
+		_screenshot_screen()
+		yield(self, 'captured')
 		_end_animation()
 
 func _on_About_pressed():

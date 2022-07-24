@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/amicasys_glitch.wav-0b9e8aa6308e20dd7066c6e76ee18f85.sample"
+
+[deps]
+
+source_file="res://resourses/audio/sounds/amicasys_glitch.wav"
+dest_files=[ "res://.import/amicasys_glitch.wav-0b9e8aa6308e20dd7066c6e76ee18f85.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -87,24 +87,29 @@ func _on_Anim_animation_finished(anim_name):
 
 func _input(event):
 	if event is InputEventKey and not event.is_pressed():
-		if event.scancode != KEY_ENTER:
+		if event.scancode != KEY_ENTER and event.scancode != KEY_F5 and event.scancode != KEY_SHIFT and event.scancode != KEY_ALT:
 			word += event.as_text()
-		else:
+		elif event.scancode == KEY_ENTER:
 			_check_secret_word()
 
 func _check_secret_word():
 	for secret in Data.secret_words:
 		word = word.to_lower()
-		if word == secret and word != Data.secret_words.back(): # "ben"
-			_show_secret_pic()
-			Data.data_achievements.add_word(word)
-			Data.data_achievements.check_achievement()
-			word = ""
-		elif word == Data.secret_words.back(): # "ben"
-			_gen_secret_sound()
-			word = ""
-		else:
-			word = ""
+		print(word)
+		if word == secret:
+			if word == Data.secret_words.back(): # "ben"
+				_gen_secret_sound()
+				if Data.data_achievements.open_secret_sounds.size() > 4:
+					Data.data_achievements.add_word(word)
+					Data.data_achievements.check_achievement()
+				break
+			else:
+				_show_secret_pic()
+				Data.data_achievements.add_word(word)
+				Data.data_achievements.check_achievement()
+				break
+	
+	word = ""
 
 func _gen_secret_sound():
 	if Data.data_achievements.open_secret_sounds.size() < 1:
