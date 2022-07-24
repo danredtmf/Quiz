@@ -149,6 +149,8 @@ const secret_sounds: Array = [
 
 var used_images: Array = []
 
+var main_menu_screenshot: ImageTexture
+
 var player
 
 func load_scene(scene_name: String, scene: PackedScene):

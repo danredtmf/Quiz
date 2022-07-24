@@ -13,8 +13,11 @@ func _check_state():
 		States.AnimStart:
 			if Core.player:
 				Core.player.is_movement_allowed = false
-				Core.player.is_running_allowed = false
-				Core.player.is_jumping_allowed = false
+#				Core.player.is_running_allowed = false
+#				Core.player.is_jumping_allowed = false
+				
+				$CanvasLayer/Image.texture = Core.main_menu_screenshot
+				OS.window_fullscreen = true
 				$Animation.play("start")
 		States.Map1:
 			$Animation.play("show")
@@ -76,6 +79,9 @@ func _on_VisibilityNotifier_camera_entered(_camera):
 
 func _on_SpawnCreatureArea_notify():
 	is_creature_showed = true
+	$Map3/Ghost/GhostSound.play()
+	yield(get_tree().create_timer(0.25), 'timeout')
+	$Music.stop()
 
 func _on_CheckPlayerArea_exited_in_Map1():
 	$Animation.play("end_start")
