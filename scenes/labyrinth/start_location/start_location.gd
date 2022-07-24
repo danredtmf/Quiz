@@ -79,6 +79,7 @@ func _on_VisibilityNotifier_camera_entered(_camera):
 
 func _on_SpawnCreatureArea_notify():
 	is_creature_showed = true
+	yield(get_tree().create_timer(.5), 'timeout')	
 	$Map3/Ghost/GhostSound.play()
 	yield(get_tree().create_timer(0.25), 'timeout')
 	$Music.stop()
