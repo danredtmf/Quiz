@@ -88,30 +88,3 @@ func _on_CheckPlayerArea_exited_in_Map1():
 
 func _on_CheckPlayerArea_exited_in_Map2():
 	$Animation.play("end_start")
-
-func _on_Wall1_exited_in_Map1() -> void:
-	Subtitles.add_queue("tsp_gw_1")
-
-func _on_Wall2_exited_in_Map1() -> void:
-	Subtitles.add_queue("tsp_gw_2")
-
-func _on_Desk1_exited_in_Map1() -> void:
-	Subtitles.add_queue("tsp_g_1")
-
-func _on_Wall1_exited_in_Map2() -> void:
-	Subtitles.add_queue("tsp_gw_3")
-
-func _on_Wall2_exited_in_Map2() -> void:
-	Subtitles.add_queue("tsp_gw_4")
-
-func _on_Desk1_exited_in_Map2() -> void:
-	Subtitles.add_queue("tsp_g_2")
-
-func _on_Wall1_exited_in_Map3() -> void:
-	Subtitles.add_queue("tsp_gw_5")
-
-func _on_Wall2_exited_in_Map3() -> void:
-	Subtitles.add_queue("tsp_gw_6")
-
-func _on_Desk1_exited_in_Map3() -> void:
-	Subtitles.add_queue("tsp_g_3")
