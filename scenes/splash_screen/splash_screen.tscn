@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/splash_screen/splash_screen.gd" type="Script" id=1]
 [ext_resource path="res://resourses/themes/default/default.tres" type="Theme" id=2]
@@ -7,6 +7,16 @@
 
 [sub_resource type="DynamicFont" id=4]
 size = 24
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 32
 use_filter = true
 font_data = ExtResource( 4 )
 
@@ -36,9 +46,57 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("VB2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VB2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VB3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("VB3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
-resource_name = "hide"
+resource_name = "hide_dev"
 tracks/0/type = "value"
 tracks/0/path = NodePath("VB:visible")
 tracks/0/interp = 1
@@ -46,10 +104,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true, false ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("VB:modulate")
@@ -64,8 +122,59 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "hide_warning"
+tracks/0/type = "value"
+tracks/0/path = NodePath("VB2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VB2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VB3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VB3:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=3]
-resource_name = "show"
+resource_name = "show_dev"
 tracks/0/type = "value"
 tracks/0/path = NodePath("VB:visible")
 tracks/0/interp = 1
@@ -91,6 +200,58 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "show_warning"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("VB2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VB2:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("VB3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("VB3:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="SplashScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -109,34 +270,103 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 1
 
-[node name="VB" type="VBoxContainer" parent="VB"]
-margin_left = 576.0
-margin_top = 284.0
-margin_right = 704.0
-margin_bottom = 435.0
+[node name="VBDev" type="VBoxContainer" parent="VB"]
+margin_left = 574.0
+margin_top = 279.0
+margin_right = 706.0
+margin_bottom = 440.0
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="LogoDev" type="TextureRect" parent="VB/VB"]
-margin_right = 128.0
+[node name="LogoDev" type="TextureRect" parent="VB/VBDev"]
+margin_right = 132.0
 margin_bottom = 128.0
 rect_min_size = Vector2( 128, 128 )
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="DevName" type="Label" parent="VB/VB"]
+[node name="DevName" type="Label" parent="VB/VBDev"]
 margin_top = 132.0
-margin_right = 128.0
-margin_bottom = 151.0
+margin_right = 132.0
+margin_bottom = 161.0
 custom_fonts/font = SubResource( 4 )
 text = "DanRedTMF"
 align = 1
 valign = 1
 
-[node name="Anim" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/hide = SubResource( 2 )
-anims/show = SubResource( 3 )
+[node name="VB2" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
 
-[connection signal="animation_finished" from="Anim" to="." method="_on_Anim_animation_finished"]
+[node name="Margin" type="MarginContainer" parent="VB2"]
+margin_top = 269.0
+margin_right = 1280.0
+margin_bottom = 450.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 0
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 0
+
+[node name="VBWarning" type="VBoxContainer" parent="VB2/Margin"]
+margin_left = 25.0
+margin_right = 1255.0
+margin_bottom = 181.0
+
+[node name="Header" type="Label" parent="VB2/Margin/VBWarning"]
+margin_right = 1230.0
+margin_bottom = 57.0
+custom_colors/font_color = Color( 1, 0.831373, 0, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Внимание!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Info" type="Label" parent="VB2/Margin/VBWarning"]
+margin_top = 61.0
+margin_right = 1230.0
+margin_bottom = 181.0
+custom_fonts/font = SubResource( 6 )
+text = "В игре присутствует мерцание и внезапность. Если вы почувствовали себя плохо, настоятельно рекомендуется выключить игру! Разработчик снимает с себя ответственность за несоблюдение такой важной рекомендации!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VB3" type="VBoxContainer" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+
+[node name="Margin" type="MarginContainer" parent="VB3"]
+margin_top = 657.0
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_constants/margin_right = 25
+custom_constants/margin_top = 0
+custom_constants/margin_left = 25
+custom_constants/margin_bottom = 25
+
+[node name="Info" type="Label" parent="VB3/Margin"]
+margin_left = 25.0
+margin_right = 1255.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 6 )
+text = "Нажмите Enter, чтобы продолжить"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/hide_dev = SubResource( 2 )
+anims/hide_warning = SubResource( 8 )
+anims/show_dev = SubResource( 3 )
+anims/show_warning = SubResource( 7 )
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_finished"]
