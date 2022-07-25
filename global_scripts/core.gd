@@ -147,8 +147,6 @@ const secret_sounds: Array = [
 	preload('res://resourses/audio/secret_sounds/ben/ughhh.ogg'),
 ]
 
-var used_images: Array = []
-
 var main_menu_screenshot: ImageTexture
 
 var player
@@ -185,7 +183,3 @@ func shuffle_images():
 	animals.shuffle()
 	unusual_people.shuffle()
 	structures.shuffle()
-
-func image_is_used(image: Image) -> bool:
-	if used_images.find(image) != -1: return true
-	else: return false

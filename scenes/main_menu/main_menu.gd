@@ -37,7 +37,7 @@ func _open_demo_win():
 		add_child(demo)
 
 func update_ui():
-	if Data.data_achievements.quiz_win and !Data.data_achievements.is_achievement_opened:
+	if Data.data_achievements.quiz_win and not Data.data_achievements.is_achievement_opened:
 		$Margin/Panel/VB/Name.text = "Shift+A"
 	elif is_showing_main_hint:
 		$Margin/Panel/VB/Name.text = "F5"
@@ -139,7 +139,7 @@ func _hint() -> void:
 				break
 
 	if i == 1:
-		$Version.text = " " + hint
+		$Version.text = "%s%s" % [tr('hint_showed'), hint]
 		$TimerHintDuration.start()
 		is_showing_main_hint = false
 		AchvCards.is_allowed = true
