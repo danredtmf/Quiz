@@ -17,6 +17,7 @@ var bw_state = BW_STATE.DEFAULT
 
 func _ready():
 	_config()
+	_update_ui()
 	_start_animation()
 
 func _process(_delta):

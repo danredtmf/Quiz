@@ -59,7 +59,6 @@ func _ready():
 	data_settings.set_volume()
 
 func clear_data():
-	Core.used_images.clear()
 	is_playing = false
 	data_player.clear_quiz()
 	data_achievements.is_chapter_two_opened = false

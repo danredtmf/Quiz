@@ -101,15 +101,15 @@ achv_26_desc,"hear ""Bruh""","услышать ""Bruh""","aŭdu ""Bruh"""
 achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
 achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
 achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
-achv_30_desc,play the demo version of the game,пройти демо версию игры,ludu la demonstran version de la ludo
+achv_30_desc,complete the demo version of the game,пройти демо версию игры,ludu la demonstran version de la ludo
 achv_31_desc,"enter the secret word ""ben"" during the slideshow","ввести секретное слово ""ben"" во время слайд-шоу","enigu la sekretan vorton ""ben"" dum la bildoprezento"
 achv_32_desc,"hear ""Ben"" after entering the secret word ""ben""","услышать ""Бен"" после ввода секретного слова ""ben""","aŭdu ""Ben"" post enigo de la sekreta vorto ""ben"""
 achv_33_desc,"hear ""Yes"" after entering the secret word ""ben""","услышать ""Yes"" после ввода секретного слова ""ben""","aŭdu ""Jes"" post enigi la sekretan vorton ""ben"""
 achv_34_desc,"hear ""No"" after entering the secret word ""ben""","услышать ""No"" после ввода секретного слова ""ben""","aŭdu ""Ne"" post enigo de la sekreta vorto ""ben"""
 achv_35_desc,"hear ""Ughhh"" after entering the secret word ""ben""","услышать ""Ughhh"" после ввода секретного слова ""ben""","aŭdu ""Ughhh"" post enigo de la sekreta vorto ""ben"""
 achv_36_desc,"hear ""Ho-Ho-Ho"" after entering the secret word ""ben""","услышать ""Хо-Хо-Хо"" после ввода секретного слова ""ben""","aŭdu ""Ho-Ho-Ho"" post enigo de la sekreta vorto ""ben"""
-achv_37_desc,use hint to show another hint,"воспользоваться подсказкой, чтобы показать другую подсказку",uzu sugeston por montri alian sugeston
-achv_38_desc,show tooltip before the tooltip for that,показать подсказку до появления подсказки для этого,montri konsileton antaŭ la konsileto por tio
+achv_37_desc,use the hint to show another hint,"воспользоваться подсказкой, чтобы показать другую подсказку",uzu sugeston por montri alian sugeston
+achv_38_desc,show the hint before the hint for this,показать подсказку до появления подсказки для этого,montri konsileton antaŭ la konsileto por tio
 achv_39_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
 achv_40_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
 achv_41_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn
@@ -121,14 +121,15 @@ reset,Reset,Сброс,Restarigi
 reset_progress,Progress,Прогресса,Progreso
 reset_settings,Settings,Настроек,Agordoj
 reset_achievements,Achievements,Достижений,Atingoj
-demo_win_header,End of demo?,Конец демо версии?,Fino de demo?
-demo_win_info,"Unfortunately yes. Thank you for your time. I'm sure you haven't unlocked all the achievements yet, so... go for it :) I'll be glad if you support the development with your attention and/or in other ways ;)","К сожалению, да. Благодарю за уделённое время. Уверен, вы ещё не открыли все достижения, поэтому… дерзайте :) Буду рад, если вы поддержите разработку своим вниманием и/или другими способами ;)","Bedaŭrinde jes. Dankon pro via tempo. Mi certas, ke vi ankoraŭ ne malŝlosis ĉiujn atingojn, do... iru por ĝi :) Mi ĝojos, se vi subtenos la evoluon per via atento kaj/aŭ alimaniere ;)"
+demo_win_header,The end of the demo version?,Конец демо версии?,Fino de demo?
+demo_win_info,"Unfortunately, yes. Thank you for your time. I'm sure you haven't discovered all the achievements yet, so... go for it :) I will be glad if you support the development with your attention and/or in other ways ;)","К сожалению, да. Благодарю за уделённое время. Уверен, вы ещё не открыли все достижения, поэтому… дерзайте :) Буду рад, если вы поддержите разработку своим вниманием и/или другими способами ;)","Bedaŭrinde jes. Dankon pro via tempo. Mi certas, ke vi ankoraŭ ne malŝlosis ĉiujn atingojn, do... iru por ĝi :) Mi ĝojos, se vi subtenos la evoluon per via atento kaj/aŭ alimaniere ;)"
 tsp_gw_1,I'm more into code than 3D...,"Я больше в код, чем в 3D…",Mi pli ŝatas kodon ol 3D...
-tsp_gw_2,Can't think of anything better...,Не придумал ничего лучше…,Ne povas pensi pri io pli bona...
+tsp_gw_2,I couldn't think of anything better...,Не придумал ничего лучше…,Ne povas pensi pri io pli bona...
 tsp_gw_3,At least something…,Хоть что-то…,Almenaŭ io...
-tsp_gw_4,"The quality is not very good, since I work alone ...","Качество не очень, так как я работаю один…","La kvalito ne estas tre bona, ĉar mi laboras sola..."
-tsp_gw_5,"You could ask, but...","Можно было попросить, но…","Vi povus demandi, sed..."
-tsp_gw_6,Who will agree?,Кто согласится?,Kiu konsentos?
+tsp_gw_4,"The quality is not very good, since I work alone...","Качество не очень, так как я работаю один…","La kvalito ne estas tre bona, ĉar mi laboras sola..."
+tsp_gw_5,"I could have asked, but...","Можно было попросить, но…","Vi povus demandi, sed..."
+tsp_gw_6,Who would agree?,Кто согласится?,Kiu konsentos?
 tsp_g_1,The quiz is over...,Викторина окончена…,La kvizo finiĝis...
 tsp_g_2,They won't do anything...,Они ничего не сделают…,Ili faros nenion...
-tsp_g_3,"Good idea, worth a try...","Задумка неплохая, стоит попробовать…","Bona ideo, indas provi..."
+tsp_g_3,"It's not a bad idea, it's worth a try...","Задумка неплохая, стоит попробовать…","Bona ideo, indas provi..."
+hint_showed,You can enter during a slideshow: ,Можно ввести во время слайд-шоу: ,Vi povas eniri dum la bildoprezento:

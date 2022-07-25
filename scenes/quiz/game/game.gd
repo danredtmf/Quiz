@@ -6,6 +6,8 @@ var current_state: int = Core.GAME_STATE.ENTER_NICKNAME
 # Для соблюдения последовательности тестирования
 var current_stage: int = Core.TEST_STAGE.NONE
 
+var used_images: Array = []
+
 var selected_images: Array = []
 var selected_sound: AudioStreamOGGVorbis
 
@@ -165,8 +167,13 @@ func _change_stage():
 
 func _add_image(image: Image):
 	selected_images.append(image)
-	Core.used_images.append(image)
+	used_images.append(image)
 	Data.data_achievements.add_image(image)
+
+func image_is_used(image: Image) -> bool:
+	if used_images.find(image) != -1 or selected_images.find(image) != -1:
+		return true
+	else: return false
 
 func _load_pictures():
 	randomize()
@@ -178,107 +185,116 @@ func _load_pictures():
 			var i = 0
 			while i != 1:
 				for pic in Core.abandoned_houses:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 2:
 				for pic in Core.structures:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 3:
 				for pic in Core.animals:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 		Core.GAME_STATE.TEST2:
 			var i = 0
 			while i != 1:
 				for pic in Core.illuminating_spaces:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 2:
 				for pic in Core.illuminating_spaces:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 3:
 				for pic in Core.abstraction:
-					if randi() % 2 == 0 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 		Core.GAME_STATE.TEST3:
 			var i = 0
 			while i != 1:
 				for pic in Core.unusual_people:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 2:
 				for pic in Core.abstraction:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 			while i != 3:
 				for pic in Core.abstraction:
-					if randi() % 2 == 0 and !Core.image_is_used(pic):
-						if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-							_add_image(pic)
-							i += 1
-							break
-						else:
-							_add_image(pic)
-							i += 1
-							break
+					if not image_is_used(pic):
+						if randi() % 2 == 0:
+							if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+								_add_image(pic)
+								i += 1
+								break
+							else:
+								_add_image(pic)
+								i += 1
+								break
 	
 	Data.data_achievements.check_achievement()
 
@@ -290,105 +306,114 @@ func _load_pictures_test():
 	var i = 0
 	while i != 1:
 		for pic in Core.abandoned_houses:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 2:
 		for pic in Core.structures:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 3:
 		for pic in Core.animals:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	i = 0
 	while i != 1:
 		for pic in Core.illuminating_spaces:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 2:
 		for pic in Core.illuminating_spaces:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 3:
 		for pic in Core.abstraction:
-			if randi() % 2 == 0 and !Core.image_is_used(pic) and selected_images.find(pic) == -1:
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	i = 0
 	while i != 1:
 		for pic in Core.unusual_people:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 2:
 		for pic in Core.abstraction:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	while i != 3:
 		for pic in Core.abstraction:
-			if randi() % 2 == 0 and !Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	
 	Data.data_achievements.check_achievement()
 
