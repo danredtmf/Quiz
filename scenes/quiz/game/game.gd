@@ -17,7 +17,7 @@ func _ready():
 	AchvCards.is_allowed = false
 	set_process(false)
 	Core.shuffle_images()
-	if !OS.has_feature('editor'):
+	if OS.has_feature('editor'):
 		_load_pictures_test()
 		_load_audio()
 		Data.data_player.test_data()
