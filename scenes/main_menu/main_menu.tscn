@@ -295,6 +295,11 @@ anims/show = SubResource( 4 )
 wait_time = 5.0
 one_shot = true
 
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+bus = "Music"
+
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Achievements" to="." method="_on_Achievements_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Settings" to="." method="_on_Settings_pressed"]
