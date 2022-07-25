@@ -213,7 +213,7 @@ custom_fonts/font = SubResource( 4 )
 custom_styles/focus = SubResource( 6 )
 custom_styles/normal = SubResource( 5 )
 align = 1
-expand_to_text_length = true
+max_length = 16
 placeholder_text = "Введите никнейм..."
 
 [node name="Buttons" type="HBoxContainer" parent="VB"]
