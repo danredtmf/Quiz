@@ -367,15 +367,16 @@ func _load_pictures_test():
 						break
 	while i != 3:
 		for pic in Core.abstraction:
-			if randi() % 2 == 0 and not Core.image_is_used(pic):
-				if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
-					_add_image(pic)
-					i += 1
-					break
-				else:
-					_add_image(pic)
-					i += 1
-					break
+			if not image_is_used(pic):
+				if randi() % 2 == 0:
+					if randi() % 5 == 0 and Data.data_achievements.open_image_is_used(pic):
+						_add_image(pic)
+						i += 1
+						break
+					else:
+						_add_image(pic)
+						i += 1
+						break
 	i = 0
 	while i != 1:
 		for pic in Core.unusual_people:
