@@ -1,33 +1,4 @@
 id,en,ru,eo
-play,Play,Играть,Ludi
-settings,Settings,Настройки,Agordoj
-about,About,Об игре,Pri la ludo
-exit,Exit,Выход,Eliro
-lang,Language,Язык,Lingvo
-ru,Russian,Русский,Rusa
-en,English,Английский,Angla
-eo,Esperanto,Эсперанто,Esperanto
-site,Site,Сайт,Retejo
-close,Close,Закрыть,Proksime
-about_info,Version: %s\nAuthor: DanRedTMF\nMade with Godot Engine %s,Версия: %s\nАвтор: DanRedTMF\nСделано с помощью Godot Engine %s,Versio: %s\nAŭtoro: DanRedTMF\nFarita per Godot Engine %s
-request,Request,Просьба,Peto
-enter_nickname,Enter Nickname...,Введите никнейм...,Enigu kromnomon...
-start_quiz,Start Quiz,Начать викторину,Komencu Kvizon
-ok,OK,Окей,Bone
-next,Next,Далее,Plue
-question,Question,Вопрос,Demando
-send_data_info,"There is a server on the Internet that collects data about the quiz (the Nickname you will enter later, your answers and the time of the quiz). It will happen, naturally, if you let it. You can see the answers of other players (who, accordingly, agreed) after the end of the quiz in the form of a small animation.\nWill you allow me to submit quiz data?","В интернете присутствует сервер, собирающий данные о викторине (Никнейм, который Вы введёте позже, Ваши ответы и Время викторины). Это произойдёт, естественно, если вы позволите. Ответы других игроков (которые, соответственно, согласились) вы сможете увидеть после окончания викторины в виде небольшой анимации.\nРазрешите ли вы отправить данные о викторине?","Estas servilo en la Interreto, kiu kolektas datumojn pri la kvizo (la Alnomo, kiun vi enigos poste, viajn respondojn kaj la tempon de la kvizo). Ĝi okazos, nature, se vi lasos ĝin. Vi povas vidi la respondojn de aliaj ludantoj (kiuj, sekve, konsentis) post la fino de la kvizo en formo de malgranda animacio.\nĈu vi permesos al mi sendi kvizdatenojn?"
-win,"Congratulations, %s!\nTest passed!","Поздравляем, %s!\nТест пройден!","Gratulon, %s!\nTesto trapasis!"
-time_result,"Time: %d min, %d sec","Время: %d мин., %d сек.","Tempo: %d min, %d sek"
-in_main_menu,To Main Menu,В Главное Меню,Al Ĉefa Menuo
-test1_name,Test 1: Photos,Тест 1: Фотографии,Testo 1: Fotoj
-test2_name,Test 2: Drawings,Тест 2: Рисунки,Testo 2: Desegnoj
-test3_name,Test 3: Black and White,Тест 3: Чёрно-белое,Testo 3: Nigra kaj Blanka
-test3_info,"First, an easily visible black dot and a color picture will appear on the screen. After 10 seconds, the picture becomes black and white. After, you can write your feelings/emotions/feelings/whatever you want.","Сначала на экране появится легко заметная черная точка и цветная картинка. Через 10 секунд картинка становиться чёрно-белой. После, вы можете написать свои ощущения/эмоции/чувства/всё-что-захотите.","Unue, facile videbla nigra punkto kaj kolora bildo aperos sur la ekrano. Post 10 sekundoj, la bildo fariĝas nigrablanka. Poste, vi povas skribi viajn sentojn/emociojn/sentojn/kio ajn vi volas."
-test1_header,What do you feel when looking at the photo?,"Что вы чувствуете, смотря на фото?",Kion vi sentas kiam vi rigardas la foton?
-test2_header,What is your opinion about this drawing?,Ваше мнение насчет данного рисунка,Kio estas via opinio pri ĉi tiu desegno?
-test3_header,Your reply?,Ваш ответ?,Via respondo?
-achievements,Achievements,Достижения,Atingoj
 achv_info,New achievement!,Новое достижение!,Nova atingo!
 achv_closed,Achievements locked: %d,Закрытые достижения: %d,Atingoj ŝlositaj: %d
 achv_opened,All achievements are unlocked!,Все достижения открыты!,Ĉiuj atingoj estas malŝlositaj!
@@ -113,26 +84,3 @@ achv_38_desc,show the hint before the hint for this,показать подск�
 achv_39_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
 achv_40_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
 achv_41_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn
-volume,Volume,Громкость,Volumo
-volume_general,General,Общая,Generalo
-volume_music,Music,Музыки,Muziko
-volume_sound,Sounds,Звуков,Sonoj
-reset,Reset,Сброс,Restarigi
-reset_progress,Progress,Прогресса,Progreso
-reset_settings,Settings,Настроек,Agordoj
-reset_achievements,Achievements,Достижений,Atingoj
-demo_win_header,The end of the demo version?,Конец демо версии?,Fino de demo?
-demo_win_info,"Unfortunately, yes. Thank you for your time. I'm sure you haven't discovered all the achievements yet, so... go for it :) I will be glad if you support the development with your attention and/or in other ways ;)","К сожалению, да. Благодарю за уделённое время. Уверен, вы ещё не открыли все достижения, поэтому… дерзайте :) Буду рад, если вы поддержите разработку своим вниманием и/или другими способами ;)","Bedaŭrinde jes. Dankon pro via tempo. Mi certas, ke vi ankoraŭ ne malŝlosis ĉiujn atingojn, do... iru por ĝi :) Mi ĝojos, se vi subtenos la evoluon per via atento kaj/aŭ alimaniere ;)"
-tsp_gw_1,I'm more into code than 3D...,"Я больше в код, чем в 3D…",Mi pli ŝatas kodon ol 3D...
-tsp_gw_2,I couldn't think of anything better...,Не придумал ничего лучше…,Ne povas pensi pri io pli bona...
-tsp_gw_3,At least something…,Хоть что-то…,Almenaŭ io...
-tsp_gw_4,"The quality is not very good, since I work alone...","Качество не очень, так как я работаю один…","La kvalito ne estas tre bona, ĉar mi laboras sola..."
-tsp_gw_5,"I could have asked, but...","Можно было попросить, но…","Vi povus demandi, sed..."
-tsp_gw_6,Who would agree?,Кто согласится?,Kiu konsentos?
-tsp_g_1,The quiz is over...,Викторина окончена…,La kvizo finiĝis...
-tsp_g_2,They won't do anything...,Они ничего не сделают…,Ili faros nenion...
-tsp_g_3,"It's not a bad idea, it's worth a try...","Задумка неплохая, стоит попробовать…","Bona ideo, indas provi..."
-hint_showed,You can enter during a slideshow: ,Можно ввести во время слайд-шоу: ,Vi povas eniri dum la bildoprezento:
-warning,Warning!,Внимание!,Atentu!
-warning_info,"The game features flickering and suddenness. If you feel sick, it is strongly recommended to turn off the game! The developer declines responsibility for failure to comply with such an important recommendation!","В игре присутсвует мерцание и внезапность. Если вы почувствовали себя плохо, настоятельно рекомендуется выключить игру! Разработчик снимает с себя ответственность за несоблюдение такой важной рекомендации!","Estas brilo kaj subiteco en la ludo. Se vi sentas malbonon, estas tre rekomendite malŝalti la ludon! La programisto malakceptas respondecon pri nerespekto de tia grava rekomendo!"
-splash_hint,"Press ""Enter"" to continue","Нажмите ""Enter"", чтобы продолжить","Premu ""Enter"" por daŭrigi"

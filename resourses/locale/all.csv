@@ -1,0 +1,12 @@
+id,en,ru,eo
+close,Close,Закрыть,Proksime
+ok,OK,Окей,Bone
+next,Next,Далее,Plue
+request,Request,Просьба,Peto
+site,Site,Сайт,Retejo
+in_main_menu,To Main Menu,В Главное Меню,Al Ĉefa Menuo
+question,Question,Вопрос,Demando
+send_data_info,"There is a server on the Internet that collects data about the quiz (the Nickname you will enter later, your answers and the time of the quiz). It will happen, naturally, if you let it. You can see the answers of other players (who, accordingly, agreed) after the end of the quiz in the form of a small animation.\nWill you allow me to submit quiz data?","В интернете присутствует сервер, собирающий данные о викторине (Никнейм, который Вы введёте позже, Ваши ответы и Время викторины). Это произойдёт, естественно, если вы позволите. Ответы других игроков (которые, соответственно, согласились) вы сможете увидеть после окончания викторины в виде небольшой анимации.\nРазрешите ли вы отправить данные о викторине?","Estas servilo en la Interreto, kiu kolektas datumojn pri la kvizo (la Alnomo, kiun vi enigos poste, viajn respondojn kaj la tempon de la kvizo). Ĝi okazos, nature, se vi lasos ĝin. Vi povas vidi la respondojn de aliaj ludantoj (kiuj, sekve, konsentis) post la fino de la kvizo en formo de malgranda animacio.\nĈu vi permesos al mi sendi kvizdatenojn?"
+demo_win_header,The end of the demo version?,Конец демо версии?,Fino de demo?
+demo_win_info,"Unfortunately, yes. Thank you for your time. I'm sure you haven't discovered all the achievements yet, so... go for it :) I will be glad if you support the development with your attention and/or in other ways ;)","К сожалению, да. Благодарю за уделённое время. Уверен, вы ещё не открыли все достижения, поэтому… дерзайте :) Буду рад, если вы поддержите разработку своим вниманием и/или другими способами ;)","Bedaŭrinde jes. Dankon pro via tempo. Mi certas, ke vi ankoraŭ ne malŝlosis ĉiujn atingojn, do... iru por ĝi :) Mi ĝojos, se vi subtenos la evoluon per via atento kaj/aŭ alimaniere ;)"
+hint_showed,You can enter during a slideshow: ,Можно ввести во время слайд-шоу: ,Vi povas eniri dum la bildoprezento:

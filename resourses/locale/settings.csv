@@ -1,0 +1,13 @@
+id,en,ru,eo
+lang,Language,Язык,Lingvo
+ru,Russian,Русский,Rusa
+en,English,Английский,Angla
+eo,Esperanto,Эсперанто,Esperanto
+volume,Volume,Громкость,Volumo
+volume_general,General,Общая,Generalo
+volume_music,Music,Музыки,Muziko
+volume_sound,Sounds,Звуков,Sonoj
+reset,Reset,Сброс,Restarigi
+reset_progress,Progress,Прогресса,Progreso
+reset_settings,Settings,Настроек,Agordoj
+reset_achievements,Achievements,Достижений,Atingoj
