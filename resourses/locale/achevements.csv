@@ -1,0 +1,86 @@
+id,en,ru,eo
+achv_info,New achievement!,Новое достижение!,Nova atingo!
+achv_closed,Achievements locked: %d,Закрытые достижения: %d,Atingoj ŝlositaj: %d
+achv_opened,All achievements are unlocked!,Все достижения открыты!,Ĉiuj atingoj estas malŝlositaj!
+achv_1_name,Welcome,Добро пожаловать,Bonvenon
+achv_2_name,Ahead of time,Раньше времени,Antaŭtempe
+achv_3_name,Can not hear anything,Ничего не слышу,Ne povas aŭdi ion ajn
+achv_4_name,English-man,English-man,angla-viro
+achv_5_name,Translation into Русский,Перевод на Russian,Traduko en la rusan
+achv_6_name,Ĉu vi komprenas min?,Ĉu vi komprenas min?,Ĉu vi komprenas min?
+achv_7_name,I am the first,Я первый,Mi estas la unua
+achv_8_name,Secret?,Секрет?,Sekreto?
+achv_9_name,My life,Моя жизнь,Mia vivo
+achv_10_name,He is blue,Он синий,Li estas blua
+achv_11_name,Dumplings,Пельмени,Dumplings
+achv_12_name,Who is the boss of this gym?,Who is the boss of this gym?,Kiu estas la estro de ĉi tiu gimnazio?
+achv_13_name,Liminal space,Лиминальное пространство,Liminala spaco
+achv_14_name,Abandoned houses,Заброшенные дома,Forlasitaj domoj
+achv_15_name,Abstraction,Абстракция,Abstraktado
+achv_16_name,Animals,Животные,Bestoj
+achv_17_name,Unusual people,Необычные люди,Nekutimaj homoj
+achv_18_name,The buildings,Постройки,La konstruaĵoj
+achv_19_name,I have seen everything,Я видел всё,Mi vidis ĉion
+achv_20_name,Hello to you too,И тебе привет,Saluton ankaŭ al vi
+achv_21_name,Who is speaking?,Кто говорит?,Kiu parolas?
+achv_22_name,Ho,Хо,Ho
+achv_23_name,Joke,Прикол,Amuza
+achv_24_name,We have lost...,У нас пропал…,Ni perdis...
+achv_25_name,Cool dude,Харош,Mirinda ulo
+achv_26_name,hurB,hurB,hurB
+achv_27_name,hhhhhA,hhhhhA,hhhhhA
+achv_28_name,Device connection sound,Звук подключения устройства,Aparato-konekto sono
+achv_29_name,I heard everything,Я слышал всё,Mi aŭdis ĉion
+achv_30_name,And all?,И все?,Kaj ĉio?
+achv_31_name,Bye-bye,До связи,Antaŭ komunikado
+achv_32_name,Ben,Бен,Ben
+achv_33_name,Yes,Yes,Jes
+achv_34_name,No...,No,Ne
+achv_35_name,Ughhh,Ughhh,Ughhh
+achv_36_name,Ho-ho-ho,Хо-Хо-Хо,Ho-ho-ho
+achv_37_name,F5,F5,F5
+achv_38_name,I already know everything,Я уже всё знаю,Mi jam scias ĉion
+achv_39_name,Сramped,Тесновато,Malvasta
+achv_40_name,That was not boring…,Чтобы не было скучно…,Tio ne estis enuiga...
+achv_41_name,They didn't hear me...,Они меня не слышали…,Ili ne aŭdis min...
+achv_1_desc,"open ""Achievements""","открыть ""Достижения""","malfermu ""Atingoj"""
+achv_2_desc,"open ""Achievements"" before the first playthrough","открыть ""Достижения"" перед первым прохождением","malfermu ""Atingojn"" antaŭ la unua ludo"
+achv_3_desc,reduce the volume of music and sounds to 0%,уменьшить громкость музыки и звуков до 0%,redukti la volumon de muziko kaj sonoj al 0%
+achv_4_desc,switch game language to English,переключить язык игры на Английский,ŝanĝi ludolingvon al la angla
+achv_5_desc,switch game language to Russian,переключить язык игры на Русский,ŝanĝi ludolingvon al la rusa
+achv_6_desc,switch game language to Esperanto,переключить язык игры на Эсперанто,ŝanĝi ludolingvon al Esperanto
+achv_7_desc,pass the quiz once,пройти викторину один раз,pasigu la kvizon unufoje
+achv_8_desc,"enter the secret word ""secret"" during the slideshow","ввести секретное слово ""secret"" во время слайд-шоу","enigu la sekretan vorton ""sekreto"" dum la bildoprezento"
+achv_9_desc,"enter the secret word ""minecraft"" during the slideshow","ввести секретное слово ""minecraft"" во время слайд-шоу","enigu la sekretan vorton ""minecraft"" dum la bildoprezento"
+achv_10_desc,"enter the secret word ""haggy"" during the slideshow","ввести секретное слово ""haggy"" во время слайд-шоу","enigu la sekretan vorton ""haggy"" dum la bildoprezento"
+achv_11_desc,"enter the secret word ""floppa"" during the slideshow","ввести секретное слово ""floppa"" во время слайд-шоу","enigu la sekretan vorton ""floppa"" dum la bildoprezento"
+achv_12_desc,"enter the secret word ""gachi"" during the slideshow","ввести секретное слово ""gachi"" во время слайд-шоу","enigu la sekretan vorton ""gachi"" dum la bildoprezento"
+achv_13_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_14_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_15_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_16_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_17_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_18_desc,see all pictures from this category,увидеть все картинки из данной категории,vidu ĉiujn bildojn de ĉi tiu kategorio
+achv_19_desc,see all pictures from the quiz,увидеть все картинки из викторины,vidu ĉiujn bildojn de la kvizo
+achv_20_desc,"hear ""hello""","услышать ""Привет""","aŭdi ""saluton"""
+achv_21_desc,"hear ""Are you playing?""","услышать ""Играешь?""","aŭdi ""Ĉu vi ludas?"""
+achv_22_desc,"hear ""Ha...""","услышать ""Ха…""","aŭdu ""Ha..."""
+achv_23_desc,"hear ""Joke""","услышать ""Прикол""","aŭdu ""Ŝercon"""
+achv_24_desc,"hear ""Blue Hagi Wagi""","услышать ""Синий Хаги Ваги""","aŭdu ""Blue Hagi Wagi"""
+achv_25_desc,"hear ""Chel is not bad ...""","услышать ""Чел неплох…""","aŭdi ""Chel ne estas malbona ..."""
+achv_26_desc,"hear ""Bruh""","услышать ""Bruh""","aŭdu ""Bruh"""
+achv_27_desc,"hear ""Ahhhhh""","услышать ""Ahhhhh""","aŭdu ""Ahhhhh"""
+achv_28_desc,"hear ""Device shutdown sound""","услышать ""Звук отключения устройства""","aŭdi ""Sonon de malŝalto de aparato"""
+achv_29_desc,hear all the special sounds,услышать все особенные звуки,aŭdu ĉiujn specialajn sonojn
+achv_30_desc,complete the demo version of the game,пройти демо версию игры,ludu la demonstran version de la ludo
+achv_31_desc,"enter the secret word ""ben"" during the slideshow","ввести секретное слово ""ben"" во время слайд-шоу","enigu la sekretan vorton ""ben"" dum la bildoprezento"
+achv_32_desc,"hear ""Ben"" after entering the secret word ""ben""","услышать ""Бен"" после ввода секретного слова ""ben""","aŭdu ""Ben"" post enigo de la sekreta vorto ""ben"""
+achv_33_desc,"hear ""Yes"" after entering the secret word ""ben""","услышать ""Yes"" после ввода секретного слова ""ben""","aŭdu ""Jes"" post enigi la sekretan vorton ""ben"""
+achv_34_desc,"hear ""No"" after entering the secret word ""ben""","услышать ""No"" после ввода секретного слова ""ben""","aŭdu ""Ne"" post enigo de la sekreta vorto ""ben"""
+achv_35_desc,"hear ""Ughhh"" after entering the secret word ""ben""","услышать ""Ughhh"" после ввода секретного слова ""ben""","aŭdu ""Ughhh"" post enigo de la sekreta vorto ""ben"""
+achv_36_desc,"hear ""Ho-Ho-Ho"" after entering the secret word ""ben""","услышать ""Хо-Хо-Хо"" после ввода секретного слова ""ben""","aŭdu ""Ho-Ho-Ho"" post enigo de la sekreta vorto ""ben"""
+achv_37_desc,use the hint to show another hint,"воспользоваться подсказкой, чтобы показать другую подсказку",uzu sugeston por montri alian sugeston
+achv_38_desc,show the hint before the hint for this,показать подсказку до появления подсказки для этого,montri konsileton antaŭ la konsileto por tio
+achv_39_desc,"open the second part of the ""Labyrinth""","открыть вторую часть ""Лабиринт""","malfermu la duan parton de la ""Labirinto"""
+achv_40_desc,Shadow caught you,Тень поймала вас,La ombro kaptis vin
+achv_41_desc,find all 9 wall graffiti,найти все 9 надписей на стенах,trovi ĉiujn 9 grafitiojn

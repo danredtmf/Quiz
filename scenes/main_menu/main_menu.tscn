@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resourses/themes/default/styles/win_main_menu.tres" type="StyleBox" id=2]
 [ext_resource path="res://resourses/themes/default/default.tres" type="Theme" id=3]
 [ext_resource path="res://scenes/main_menu/main_menu.gd" type="Script" id=4]
-[ext_resource path="res://scenes/quiz/secondary/animated_background/animated_background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/secondary/showing_secrets/showing_secrets.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/secondary/animated_background/animated_background.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=8]
 size = 24
@@ -150,6 +151,8 @@ script = ExtResource( 4 )
 
 [node name="AnimatedBackground" parent="." instance=ExtResource( 6 )]
 
+[node name="ShowingSecrets" parent="." instance=ExtResource( 5 )]
+
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 1.0
@@ -294,6 +297,11 @@ anims/show = SubResource( 4 )
 [node name="TimerHintDuration" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+autoplay = true
+bus = "Music"
 
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Achievements" to="." method="_on_Achievements_pressed"]

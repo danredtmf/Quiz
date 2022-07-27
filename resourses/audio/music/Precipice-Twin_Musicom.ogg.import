@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Precipice-Twin_Musicom.ogg-0d32246354b55af24e5560a213efe7c0.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/music/Precipice-Twin_Musicom.ogg"
+dest_files=[ "res://.import/Precipice-Twin_Musicom.ogg-0d32246354b55af24e5560a213efe7c0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

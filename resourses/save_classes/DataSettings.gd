@@ -43,6 +43,11 @@ func set_eo() -> void:
 	saving()
 
 func set_volume() -> void:
+	AudioServer.set_bus_volume_db(Data.master_idx, volume_master)
+	AudioServer.set_bus_volume_db(Data.music_idx, volume_music)
+	AudioServer.set_bus_volume_db(Data.sound_idx, volume_sounds)
+
+func get_volume() -> void:
 	if !volume_master and !volume_music and !volume_sounds:
 		volume_master = AudioServer.get_bus_volume_db(Data.master_idx)
 		volume_music = AudioServer.get_bus_volume_db(Data.music_idx)
@@ -52,13 +57,13 @@ func reset_volume() -> void:
 	AudioServer.set_bus_volume_db(Data.master_idx, 0)
 	AudioServer.set_bus_volume_db(Data.music_idx, 0)
 	AudioServer.set_bus_volume_db(Data.sound_idx, 0)
-	set_volume()
+	get_volume()
 
 func loading():
 	var data := ConfigFile.new()
 	
 	if data.load(PATH) != OK:
-		printerr("File settings has been not found!")
+		print("File settings has been not found!")
 	
 	current_lang = data.get_value("settings", "lang", LANG.ENGLISH)
 	volume_master = data.get_value("settings", "v_master", AudioServer.get_bus_volume_db(Data.master_idx))

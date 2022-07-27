@@ -1,0 +1,12 @@
+id,en,ru,eo
+enter_nickname,Enter Nickname...,Введите никнейм...,Enigu kromnomon...
+start_quiz,Start Quiz,Начать викторину,Komencu Kvizon
+win,"Congratulations, %s!\nTest passed!","Поздравляем, %s!\nТест пройден!","Gratulon, %s!\nTesto trapasis!"
+time_result,"Time: %d min, %d sec","Время: %d мин., %d сек.","Tempo: %d min, %d sek"
+test1_name,Test 1: Photos,Тест 1: Фотографии,Testo 1: Fotoj
+test2_name,Test 2: Drawings,Тест 2: Рисунки,Testo 2: Desegnoj
+test3_name,Test 3: Black and White,Тест 3: Чёрно-белое,Testo 3: Nigra kaj Blanka
+test3_info,"First, an easily visible black dot and a color picture will appear on the screen. After 10 seconds, the picture becomes black and white. After, you can write your feelings/emotions/feelings/whatever you want.","Сначала на экране появится легко заметная черная точка и цветная картинка. Через 10 секунд картинка становиться чёрно-белой. После, вы можете написать свои ощущения/эмоции/чувства/всё-что-захотите.","Unue, facile videbla nigra punkto kaj kolora bildo aperos sur la ekrano. Post 10 sekundoj, la bildo fariĝas nigrablanka. Poste, vi povas skribi viajn sentojn/emociojn/sentojn/kio ajn vi volas."
+test1_header,What do you feel when looking at the photo?,"Что вы чувствуете, смотря на фото?",Kion vi sentas kiam vi rigardas la foton?
+test2_header,What is your opinion about this drawing?,Ваше мнение насчет данного рисунка,Kio estas via opinio pri ĉi tiu desegno?
+test3_header,Your reply?,Ваш ответ?,Via respondo?

@@ -305,7 +305,7 @@ func loading():
 	var data := ConfigFile.new()
 	
 	if data.load(PATH) != OK:
-		printerr("File achievements has been not found!")
+		print("File achievements has been not found!")
 	
 	opened = data.get_value("achv", "o", [])
 	quiz_win = data.get_value("achv", "quiz_win", false)

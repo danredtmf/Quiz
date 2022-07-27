@@ -15,7 +15,7 @@
 [ext_resource path="res://resourses/audio/sounds/amicasys_glitch.wav" type="AudioStream" id=13]
 [ext_resource path="res://resourses/images/glitches/2.jpg" type="Texture" id=14]
 [ext_resource path="res://resourses/images/glitches/3.jpg" type="Texture" id=15]
-[ext_resource path="res://resourses/audio/music/osiruswaltz_creepy-background-noise-1-loopable.wav" type="AudioStream" id=16]
+[ext_resource path="res://resourses/audio/music/osiruswaltz_creepy-background-noise-1-loopable.ogg" type="AudioStream" id=16]
 [ext_resource path="res://resourses/audio/sounds/kathakaku_alien-10.wav" type="AudioStream" id=17]
 
 [sub_resource type="Animation" id=1]

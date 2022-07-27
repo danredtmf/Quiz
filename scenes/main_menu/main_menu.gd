@@ -1,5 +1,8 @@
 extends Control
 
+const music1 = preload('res://resourses/audio/music/Precipice-Twin_Musicom.ogg')
+const music2 = preload('res://resourses/audio/music/It_Is_Lost-Kevin_MacLeod.ogg')
+
 signal captured
 
 var is_showing_main_hint: bool = false
@@ -19,6 +22,7 @@ func _config():
 	AchvCards.is_allowed = true
 	Data.data_achievements.check_achievement()
 	OS.window_fullscreen = false
+	_choose_music()
 	_open_demo_win()
 	update_ui()
 	_gen_hint()
@@ -66,6 +70,14 @@ func check_achv():
 		$Margin/Panel/VB/Buttons/Achievements.visible = true
 	else:
 		$Margin/Panel/VB/Buttons/Achievements.visible = false
+
+func _choose_music():
+	if not Data.data_achievements.is_demo_passed:
+		$Music.stream = music1
+	else:
+		$Music.stream = music2
+	
+	$Music.play()
 
 func _on_AnimReady_animation_finished(anim_name):
 	if anim_name == "show":
@@ -139,7 +151,7 @@ func _hint() -> void:
 				break
 
 	if i == 1:
-		$Version.text = "%s%s" % [tr('hint_showed'), hint]
+		$Version.text = " " + hint
 		$TimerHintDuration.start()
 		is_showing_main_hint = false
 		AchvCards.is_allowed = true

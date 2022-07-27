@@ -36,7 +36,7 @@ config/name="Quiz"
 run/main_scene="res://scenes/loading_game/loading_game.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://resourses/images/icon/icon-16.ico"
-config/version="0.8.2-alpha"
+config/version="0.8.3-alpha"
 
 [autoload]
 
@@ -89,7 +89,7 @@ jump={
 
 [locale]
 
-translations=PoolStringArray( "res://resourses/locale/locale.en.translation", "res://resourses/locale/locale.eo.translation", "res://resourses/locale/locale.ru.translation" )
+translations=PoolStringArray( "res://resourses/locale/about.en.translation", "res://resourses/locale/about.eo.translation", "res://resourses/locale/about.ru.translation", "res://resourses/locale/achevements.en.translation", "res://resourses/locale/achevements.eo.translation", "res://resourses/locale/achevements.ru.translation", "res://resourses/locale/all.en.translation", "res://resourses/locale/all.eo.translation", "res://resourses/locale/all.ru.translation", "res://resourses/locale/ch1.en.translation", "res://resourses/locale/ch1.eo.translation", "res://resourses/locale/ch1.ru.translation", "res://resourses/locale/ch2.en.translation", "res://resourses/locale/ch2.eo.translation", "res://resourses/locale/ch2.ru.translation", "res://resourses/locale/main_menu.en.translation", "res://resourses/locale/main_menu.eo.translation", "res://resourses/locale/main_menu.ru.translation", "res://resourses/locale/settings.en.translation", "res://resourses/locale/settings.eo.translation", "res://resourses/locale/settings.ru.translation", "res://resourses/locale/splash.en.translation", "res://resourses/locale/splash.eo.translation", "res://resourses/locale/splash.ru.translation" )
 
 [physics]
 

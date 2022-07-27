@@ -1,0 +1,20 @@
+id,en,ru,eo
+about_info,Version: %s\nAuthor: DanRedTMF\nMade with Godot Engine %s,Версия: %s\nАвтор: DanRedTMF\nСделано с помощью Godot Engine %s,Versio: %s\nAŭtoro: DanRedTMF\nFarita per Godot Engine %s
+move_header,Control,Управление,Kontrolo
+move_info,Movement,Движение,Trafiko
+pause_info,Pause,Пауза,Paŭzo
+assets_header,Resources,Ресурсы,Rimedoj
+music_info,Music,Музыка,Muziko
+shaders_info,Shaders,Шейдеры,Ombriloj
+background_music_info,Background music,Фоновая музыка,Fona muziko
+sounds_info,Sounds,Звуки,Sonoj
+textures_info,Textures,Текстуры,Teksturoj
+images_info_1,Images (≈ 80 pieces),Изображения (≈ 80 штук),Bildoj (≈ 80 pecoj)
+images_info_2,From the Internet,Из Интернета,De la Interreto
+wall,Wall,Стена,Muro
+floor,Floor,Пол,Planko
+desk,Table,Стол,Tablo
+ceiling,Ceiling,Потолок,Plafono
+license,License,Лицензия,Permesilo
+source,Source,Источник,Fonto
+author,Author,Автор,Aŭtoro

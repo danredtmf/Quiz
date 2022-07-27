@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/quiz/secondary/slide_show/slide_show.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://resourses/themes/default/styles/button/button_hover.tres" type="StyleBox" id=4]
 [ext_resource path="res://resourses/themes/default/styles/button/button_pressed.tres" type="StyleBox" id=5]
 [ext_resource path="res://scenes/quiz/secondary/result/result.gd" type="Script" id=6]
+[ext_resource path="res://scenes/secondary/showing_secrets/showing_secrets.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -372,6 +373,8 @@ script = ExtResource( 6 )
 
 [node name="SlideShow" parent="." instance=ExtResource( 2 )]
 MIN_IMAGES = 3
+
+[node name="ShowingSecrets" parent="." instance=ExtResource( 7 )]
 
 [node name="MarginInfo" type="MarginContainer" parent="."]
 anchor_left = 0.5

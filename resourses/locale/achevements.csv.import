@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://resourses/locale/achevements.en.translation", "res://resourses/locale/achevements.ru.translation", "res://resourses/locale/achevements.eo.translation" ]
+
+source_file="res://resourses/locale/achevements.csv"
+dest_files=[ "res://resourses/locale/achevements.en.translation", "res://resourses/locale/achevements.ru.translation", "res://resourses/locale/achevements.eo.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

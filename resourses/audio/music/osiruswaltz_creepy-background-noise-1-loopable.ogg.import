@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/osiruswaltz_creepy-background-noise-1-loopable.ogg-9c65f5ab7e3c660afaeb5717c078dc57.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/music/osiruswaltz_creepy-background-noise-1-loopable.ogg"
+dest_files=[ "res://.import/osiruswaltz_creepy-background-noise-1-loopable.ogg-9c65f5ab7e3c660afaeb5717c078dc57.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
