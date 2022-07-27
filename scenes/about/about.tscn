@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resourses/themes/default/styles/win_default.tres" type="StyleBox" id=2]
@@ -7,9 +7,23 @@
 [ext_resource path="res://resourses/themes/default/styles/button/button_hover.tres" type="StyleBox" id=5]
 [ext_resource path="res://resourses/themes/default/styles/button/button_pressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://scenes/about/about.gd" type="Script" id=7]
+[ext_resource path="res://resourses/images/icon/game_icon.png" type="Texture" id=8]
+[ext_resource path="res://resourses/fonts/roboto_16.tres" type="DynamicFont" id=9]
+[ext_resource path="res://resourses/images/textures/floor_icon.png" type="Texture" id=10]
+[ext_resource path="res://resourses/images/logos/danredtmf_circle.png" type="Texture" id=11]
+[ext_resource path="res://resourses/images/logos/logo_godot.png" type="Texture" id=12]
+[ext_resource path="res://resourses/themes/default/styles/block_round_shadow.tres" type="StyleBox" id=13]
+[ext_resource path="res://resourses/images/textures/ceiling_icon.png" type="Texture" id=14]
+[ext_resource path="res://resourses/images/textures/desk_wood_icon.png" type="Texture" id=15]
+[ext_resource path="res://resourses/images/textures/wall_icon.png" type="Texture" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 24
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -149,36 +163,938 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -300.0
-margin_top = -200.0
-margin_right = 300.0
-margin_bottom = 200.0
-rect_min_size = Vector2( 600, 400 )
+margin_left = -400.0
+margin_top = -250.0
+margin_right = 400.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 800, 500 )
 custom_styles/panel = ExtResource( 2 )
 script = ExtResource( 7 )
 
 [node name="VB" type="VBoxContainer" parent="."]
-margin_right = 600.0
-margin_bottom = 400.0
+margin_right = 800.0
+margin_bottom = 500.0
 
 [node name="Header" type="PanelContainer" parent="VB"]
-margin_right = 600.0
+margin_right = 800.0
 margin_bottom = 53.0
 custom_styles/panel = ExtResource( 3 )
 
 [node name="Info" type="Label" parent="VB/Header"]
 margin_top = 5.0
-margin_right = 600.0
+margin_right = 800.0
 margin_bottom = 43.0
 custom_fonts/font = SubResource( 1 )
 text = "Об игре"
 align = 1
 valign = 1
 
-[node name="Info" type="Label" parent="VB"]
+[node name="Scroll" type="ScrollContainer" parent="VB"]
 margin_top = 57.0
-margin_right = 600.0
-margin_bottom = 296.0
+margin_right = 800.0
+margin_bottom = 448.0
+size_flags_vertical = 3
+scroll_vertical = 758
+
+[node name="List" type="VBoxContainer" parent="VB/Scroll"]
+margin_top = -758.0
+margin_right = 788.0
+margin_bottom = 391.0
+size_flags_horizontal = 3
+custom_constants/separation = 10
+
+[node name="Main" type="HBoxContainer" parent="VB/Scroll/List"]
+show_behind_parent = true
+margin_right = 788.0
+margin_bottom = 184.0
+custom_constants/separation = 25
+alignment = 1
+
+[node name="GameVersion" type="VBoxContainer" parent="VB/Scroll/List/Main"]
+margin_left = 177.0
+margin_right = 305.0
+margin_bottom = 184.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Main/GameVersion"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Main/GameVersion"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "@version"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="GameAuthor" type="VBoxContainer" parent="VB/Scroll/List/Main"]
+margin_left = 330.0
+margin_right = 458.0
+margin_bottom = 184.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Main/GameAuthor"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Main/GameAuthor"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "DanRedTMF"
+align = 1
+valign = 1
+
+[node name="Site" type="Button" parent="VB/Scroll/List/Main/GameAuthor"]
+margin_top = 155.0
+margin_right = 128.0
+margin_bottom = 184.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Сайт"
+
+[node name="GameEngine" type="VBoxContainer" parent="VB/Scroll/List/Main"]
+margin_left = 483.0
+margin_right = 611.0
+margin_bottom = 184.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Main/GameEngine"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Main/GameEngine"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "@version"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HeaderMovement" type="Label" parent="VB/Scroll/List"]
+margin_top = 194.0
+margin_right = 788.0
+margin_bottom = 223.0
+custom_fonts/font = SubResource( 8 )
+text = "Управление"
+align = 1
+valign = 1
+
+[node name="Movement" type="HBoxContainer" parent="VB/Scroll/List"]
+margin_top = 233.0
+margin_right = 788.0
+margin_bottom = 289.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="WASD" type="VBoxContainer" parent="VB/Scroll/List/Movement"]
+margin_left = 318.0
+margin_right = 404.0
+margin_bottom = 56.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Movement/WASD"]
+margin_right = 86.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Movement/WASD/Margin"]
+margin_right = 86.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Movement/WASD/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 81.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Движение"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Movement/WASD"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 86.0
+margin_bottom = 56.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Key" type="VBoxContainer" parent="VB/Scroll/List/Movement/WASD/List"]
+margin_left = 10.0
+margin_right = 75.0
+margin_bottom = 29.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Movement/WASD/List/Key"]
+margin_right = 65.0
+margin_bottom = 29.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Movement/WASD/List/Key/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 60.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"WASD\""
+align = 1
+valign = 1
+
+[node name="Esc" type="VBoxContainer" parent="VB/Scroll/List/Movement"]
+margin_left = 414.0
+margin_right = 469.0
+margin_bottom = 56.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Movement/Esc"]
+margin_right = 55.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Movement/Esc/Margin"]
+margin_right = 55.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Movement/Esc/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Пауза"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Movement/Esc"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 55.0
+margin_bottom = 56.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Key" type="VBoxContainer" parent="VB/Scroll/List/Movement/Esc/List"]
+margin_left = 5.0
+margin_right = 50.0
+margin_bottom = 29.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Movement/Esc/List/Key"]
+margin_right = 45.0
+margin_bottom = 29.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Movement/Esc/List/Key/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 40.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Esc\""
+align = 1
+valign = 1
+
+[node name="HeaderAssets" type="Label" parent="VB/Scroll/List"]
+margin_top = 299.0
+margin_right = 788.0
+margin_bottom = 328.0
+custom_fonts/font = SubResource( 8 )
+text = "Ресурсы"
+align = 1
+valign = 1
+
+[node name="Assets" type="VBoxContainer" parent="VB/Scroll/List"]
+margin_top = 338.0
+margin_right = 788.0
+margin_bottom = 1149.0
+custom_constants/separation = 10
+
+[node name="Music" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_right = 788.0
+margin_bottom = 177.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Assets/Music"]
+margin_right = 788.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Music/Margin"]
+margin_left = 359.0
+margin_right = 429.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/Music/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 65.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Музыка"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/Music"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 788.0
+margin_bottom = 177.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Music1" type="VBoxContainer" parent="VB/Scroll/List/Assets/Music/List"]
+margin_left = 272.0
+margin_right = 387.0
+margin_bottom = 150.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Music/List/Music1"]
+margin_right = 115.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Music/List/Music1/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 110.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Precipice\"
+Twin Musicom"
+align = 1
+valign = 1
+
+[node name="BtnLicense" type="Button" parent="VB/Scroll/List/Assets/Music/List/Music1"]
+margin_top = 55.0
+margin_right = 115.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Лицензия"
+
+[node name="BtnAuthor" type="Button" parent="VB/Scroll/List/Assets/Music/List/Music1"]
+margin_top = 88.0
+margin_right = 115.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Автор"
+
+[node name="Music2" type="VBoxContainer" parent="VB/Scroll/List/Assets/Music/List"]
+margin_left = 397.0
+margin_right = 516.0
+margin_bottom = 150.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Music/List/Music2"]
+show_behind_parent = true
+margin_right = 119.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Music/List/Music2/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 114.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"It Is Lost\"
+Kevin MacLeod"
+align = 1
+valign = 1
+
+[node name="BtnLicense" type="Button" parent="VB/Scroll/List/Assets/Music/List/Music2"]
+margin_top = 55.0
+margin_right = 119.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Лицензия"
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Music/List/Music2"]
+margin_top = 88.0
+margin_right = 119.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="BtnAuthor" type="Button" parent="VB/Scroll/List/Assets/Music/List/Music2"]
+margin_top = 121.0
+margin_right = 119.0
+margin_bottom = 150.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Автор"
+
+[node name="Shaders" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_top = 187.0
+margin_right = 788.0
+margin_bottom = 309.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Assets/Shaders"]
+margin_right = 788.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Shaders/Margin"]
+margin_left = 353.0
+margin_right = 434.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/Shaders/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Шейдеры"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/Shaders"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 788.0
+margin_bottom = 122.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Shader1" type="VBoxContainer" parent="VB/Scroll/List/Assets/Shaders/List"]
+margin_left = 305.0
+margin_right = 392.0
+margin_bottom = 95.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Shaders/List/Shader1"]
+margin_right = 87.0
+margin_bottom = 29.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Shaders/List/Shader1/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 82.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Старое ТВ"
+align = 1
+valign = 1
+
+[node name="BtnAuthor" type="Button" parent="VB/Scroll/List/Assets/Shaders/List/Shader1"]
+margin_top = 33.0
+margin_right = 87.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Автор"
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Shaders/List/Shader1"]
+margin_top = 66.0
+margin_right = 87.0
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Shader2" type="VBoxContainer" parent="VB/Scroll/List/Assets/Shaders/List"]
+margin_left = 402.0
+margin_right = 483.0
+margin_bottom = 95.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Shaders/List/Shader2"]
+show_behind_parent = true
+margin_right = 81.0
+margin_bottom = 29.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Shaders/List/Shader2/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Виньетка"
+align = 1
+valign = 1
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Shaders/List/Shader2"]
+margin_top = 33.0
+margin_right = 81.0
+margin_bottom = 62.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="BackgroundMusic" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_top = 319.0
+margin_right = 788.0
+margin_bottom = 430.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Assets/BackgroundMusic"]
+margin_right = 788.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/BackgroundMusic/Margin"]
+margin_left = 325.0
+margin_right = 463.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/BackgroundMusic/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 133.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Фоновая музыка"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/BackgroundMusic"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 788.0
+margin_bottom = 111.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Music1" type="VBoxContainer" parent="VB/Scroll/List/Assets/BackgroundMusic/List"]
+margin_left = 246.0
+margin_right = 541.0
+margin_bottom = 84.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/BackgroundMusic/List/Music1"]
+margin_right = 295.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/BackgroundMusic/List/Music1/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 290.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Creepy Background Noise 1 (Loopable)\"
+Osiruswaltz"
+align = 1
+valign = 1
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/BackgroundMusic/List/Music1"]
+margin_top = 55.0
+margin_right = 295.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Sounds" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_top = 440.0
+margin_right = 788.0
+margin_bottom = 551.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Assets/Sounds"]
+margin_right = 788.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Sounds/Margin"]
+margin_left = 366.0
+margin_right = 421.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/Sounds/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 50.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Звуки"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/Sounds"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 788.0
+margin_bottom = 111.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Sound1" type="VBoxContainer" parent="VB/Scroll/List/Assets/Sounds/List"]
+margin_left = 186.0
+margin_right = 413.0
+margin_bottom = 84.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Sounds/List/Sound1"]
+margin_right = 227.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Sounds/List/Sound1/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 222.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Footstep Walk HardSurface 6\"
+nicholasdaryl"
+align = 1
+valign = 1
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Sounds/List/Sound1"]
+margin_top = 55.0
+margin_right = 227.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Sound2" type="VBoxContainer" parent="VB/Scroll/List/Assets/Sounds/List"]
+margin_left = 423.0
+margin_right = 511.0
+margin_bottom = 84.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Sounds/List/Sound2"]
+margin_right = 88.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Sounds/List/Sound2/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 83.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Alien 10\"
+KatHakaku"
+align = 1
+valign = 1
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Sounds/List/Sound2"]
+margin_top = 55.0
+margin_right = 88.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Sound3" type="VBoxContainer" parent="VB/Scroll/List/Assets/Sounds/List"]
+margin_left = 521.0
+margin_right = 602.0
+margin_bottom = 84.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Sounds/List/Sound3"]
+margin_right = 81.0
+margin_bottom = 51.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Sounds/List/Sound3/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 76.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 9 )
+text = "\"Glitch\"
+AmicaSys"
+align = 1
+valign = 1
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Sounds/List/Sound3"]
+margin_top = 55.0
+margin_right = 81.0
+margin_bottom = 84.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Textures" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_top = 561.0
+margin_right = 788.0
+margin_bottom = 745.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Textures"]
+margin_left = 353.0
+margin_right = 435.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/Textures/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 77.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Текстуры"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/Textures"]
+show_behind_parent = true
+margin_top = 33.0
+margin_right = 788.0
+margin_bottom = 184.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Texture1" type="VBoxContainer" parent="VB/Scroll/List/Assets/Textures/List"]
+margin_left = 123.0
+margin_right = 251.0
+margin_bottom = 151.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Assets/Textures/List/Texture1"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 7
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Textures/List/Texture1"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "Стена"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Textures/List/Texture1"]
+visible = false
+margin_top = 155.0
+margin_right = 128.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Texture2" type="VBoxContainer" parent="VB/Scroll/List/Assets/Textures/List"]
+margin_left = 261.0
+margin_right = 389.0
+margin_bottom = 151.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Assets/Textures/List/Texture2"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 7
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Textures/List/Texture2"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "Пол"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Textures/List/Texture2"]
+visible = false
+margin_top = 155.0
+margin_right = 128.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Texture3" type="VBoxContainer" parent="VB/Scroll/List/Assets/Textures/List"]
+margin_left = 399.0
+margin_right = 527.0
+margin_bottom = 151.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Assets/Textures/List/Texture3"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 7
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Textures/List/Texture3"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "Стол"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Textures/List/Texture3"]
+visible = false
+margin_top = 155.0
+margin_right = 128.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Texture4" type="VBoxContainer" parent="VB/Scroll/List/Assets/Textures/List"]
+margin_left = 537.0
+margin_right = 665.0
+margin_bottom = 151.0
+
+[node name="Icon" type="TextureRect" parent="VB/Scroll/List/Assets/Textures/List/Texture4"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 7
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Textures/List/Texture4"]
+margin_top = 132.0
+margin_right = 128.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 9 )
+text = "Потолок"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="BtnSource" type="Button" parent="VB/Scroll/List/Assets/Textures/List/Texture4"]
+visible = false
+margin_top = 155.0
+margin_right = 128.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 9 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 4 )
+text = "Источник"
+
+[node name="Images" type="VBoxContainer" parent="VB/Scroll/List/Assets"]
+margin_top = 755.0
+margin_right = 788.0
+margin_bottom = 811.0
+
+[node name="Margin" type="MarginContainer" parent="VB/Scroll/List/Assets/Images"]
+margin_right = 788.0
+margin_bottom = 23.0
+custom_constants/margin_bottom = -6
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Images/Margin"]
+margin_left = 294.0
+margin_right = 494.0
+margin_bottom = 29.0
+size_flags_horizontal = 4
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Header" type="Label" parent="VB/Scroll/List/Assets/Images/Margin/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 195.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Изображения (≈ 80 штук)"
+align = 1
+valign = 1
+
+[node name="List" type="HBoxContainer" parent="VB/Scroll/List/Assets/Images"]
+show_behind_parent = true
+margin_top = 27.0
+margin_right = 788.0
+margin_bottom = 56.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Sound1" type="VBoxContainer" parent="VB/Scroll/List/Assets/Images/List"]
+margin_left = 338.0
+margin_right = 450.0
+margin_bottom = 29.0
+
+[node name="Panel" type="PanelContainer" parent="VB/Scroll/List/Assets/Images/List/Sound1"]
+margin_right = 112.0
+margin_bottom = 29.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="Info" type="Label" parent="VB/Scroll/List/Assets/Images/List/Sound1/Panel"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 107.0
+margin_bottom = 24.0
+custom_fonts/font = ExtResource( 9 )
+text = "Из Интернета"
+align = 1
+valign = 1
+
+[node name="Info" type="Label" parent="VB/Scroll/List"]
+visible = false
+margin_top = 155.0
+margin_right = 588.0
+margin_bottom = 248.0
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "Версия: @version
@@ -188,30 +1104,13 @@ align = 1
 autowrap = true
 
 [node name="Buttons" type="VBoxContainer" parent="VB"]
-margin_top = 300.0
-margin_right = 600.0
-margin_bottom = 400.0
-
-[node name="Horizontal" type="HBoxContainer" parent="VB/Buttons"]
-margin_right = 600.0
-margin_bottom = 48.0
-alignment = 1
-
-[node name="Site" type="Button" parent="VB/Buttons/Horizontal"]
-margin_right = 600.0
-margin_bottom = 48.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
-custom_styles/hover = ExtResource( 5 )
-custom_styles/pressed = ExtResource( 6 )
-custom_styles/focus = ExtResource( 5 )
-custom_styles/normal = ExtResource( 4 )
-text = "Сайт"
+margin_top = 452.0
+margin_right = 800.0
+margin_bottom = 500.0
 
 [node name="Close" type="Button" parent="VB/Buttons"]
-margin_top = 52.0
-margin_right = 600.0
-margin_bottom = 100.0
+margin_right = 800.0
+margin_bottom = 48.0
 custom_fonts/font = SubResource( 3 )
 custom_styles/hover = ExtResource( 5 )
 custom_styles/pressed = ExtResource( 6 )
@@ -224,6 +1123,22 @@ anims/RESET = SubResource( 4 )
 anims/hide = SubResource( 5 )
 anims/show = SubResource( 6 )
 
-[connection signal="pressed" from="VB/Buttons/Horizontal/Site" to="." method="_on_Site_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Main/GameAuthor/Site" to="." method="_on_Site_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Music/List/Music1/BtnLicense" to="." method="_on_BtnLicense_in_Music1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Music/List/Music1/BtnAuthor" to="." method="_on_BtnAuthor_in_Music1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Music/List/Music2/BtnLicense" to="." method="_on_BtnLicense_in_Music2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Music/List/Music2/BtnSource" to="." method="_on_BtnSource_in_Music2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Music/List/Music2/BtnAuthor" to="." method="_on_BtnAuthor_in_Music2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Shaders/List/Shader1/BtnAuthor" to="." method="_on_BtnAuthor_in_Shader1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Shaders/List/Shader1/BtnSource" to="." method="_on_BtnSource_in_Shader1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Shaders/List/Shader2/BtnSource" to="." method="_on_BtnSource_in_Shader2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/BackgroundMusic/List/Music1/BtnSource" to="." method="_on_BtnSource_in_BGMusic1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Sounds/List/Sound1/BtnSource" to="." method="_on_BtnSource_in_Sound1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Sounds/List/Sound2/BtnSource" to="." method="_on_BtnSource_in_Sound2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Sounds/List/Sound3/BtnSource" to="." method="_on_BtnSource_in_Sound3_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Textures/List/Texture1/BtnSource" to="." method="_on_BtnSource_in_Texture1_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Textures/List/Texture2/BtnSource" to="." method="_on_BtnSource_in_Texture2_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Textures/List/Texture3/BtnSource" to="." method="_on_BtnSource_in_Texture3_pressed"]
+[connection signal="pressed" from="VB/Scroll/List/Assets/Textures/List/Texture4/BtnSource" to="." method="_on_BtnSource_in_Texture4_pressed"]
 [connection signal="pressed" from="VB/Buttons/Close" to="." method="_on_Close_pressed"]
 [connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

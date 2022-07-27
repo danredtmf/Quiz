@@ -53,6 +53,7 @@ var secret_sounds: Array = [
 func _ready():
 	data_player.loading()
 	data_settings.loading()
+	data_settings.set_volume()
 	data_achievements.loading()
 	
 	data_settings.change_locale()

@@ -73,7 +73,7 @@ func loading():
 	var data := ConfigFile.new()
 	
 	if data.load(PATH) != OK:
-		printerr("File player has been not found!")
+		print("File player has been not found!")
 	
 	nick_name = data.get_value("player", "nick_name", "")
 	test_time = data.get_value("player", "t_time", 0)
