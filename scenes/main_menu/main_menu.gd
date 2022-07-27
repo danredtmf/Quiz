@@ -151,7 +151,7 @@ func _hint() -> void:
 				break
 
 	if i == 1:
-		$Version.text = "%s%s" % [tr('hint_showed'), hint]
+		$Version.text = " " + hint
 		$TimerHintDuration.start()
 		is_showing_main_hint = false
 		AchvCards.is_allowed = true
