@@ -11,13 +11,15 @@ func _ready():
 	_check_state()
 
 func _process(_delta: float) -> void:
+	$CanvasLayer/MoveInfo.text = "%s:\nWASD - %s\nEsc - %s" % [tr('move_header'), tr('move_info'), tr('pause_info')]
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if Input.is_action_just_pressed('ui_cancel'):
 		var pause = Core.pause_res.instance()
 		add_child(pause)
 		
-		get_tree().paused = not get_tree().paused
+		get_tree().set_pause(true)
 
 func _check_state():
 	match current_state:
