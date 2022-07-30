@@ -72,7 +72,7 @@ func _create_test_data() -> String:
 func loading():
 	var data := ConfigFile.new()
 	
-	if data.load(PATH) != OK:
+	if data.load_encrypted_pass(PATH, Data._password) != OK:
 		print("File player has been not found!")
 	
 	nick_name = data.get_value("player", "nick_name", "")
@@ -100,7 +100,7 @@ func saving():
 	result.set_value("player", "t_1_p_answers", test_1_pass_answers)
 	result.set_value("player", "t_2_p_answers", test_2_pass_answers)
 	result.set_value("player", "t_3_p_answers", test_3_pass_answers)
-	if result.save(PATH) == OK:
+	if result.save_encrypted_pass(PATH, Data._password) == OK:
 		print('complete saving settings')
 #	var result = ResourceSaver.save(PATH, self)
 #	if result == OK:

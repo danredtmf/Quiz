@@ -22,7 +22,7 @@ func _ready():
 	Core.game = self
 	AchvCards.is_allowed = false
 	Core.shuffle_images()
-	if !OS.has_feature('editor'):
+	if OS.has_feature('editor'):
 		_load_pictures_test()
 		_load_audio()
 		Data.data_player.test_data()
