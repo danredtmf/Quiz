@@ -1,6 +1,37 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/quiz/game/game.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -15.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "end"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, -80.0 ]
+}
 
 [node name="Game" type="Node"]
 script = ExtResource( 1 )
@@ -9,3 +40,14 @@ script = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+autoplay = true
+bus = "Music"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/end = SubResource( 2 )
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_finished"]

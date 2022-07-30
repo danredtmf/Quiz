@@ -112,8 +112,11 @@ func _on_Site_pressed():
 	if err == OK:
 		print('Open link...')
 
-func _on_Close_pressed():
+func close():
 	_end_animation()
+
+func _on_Close_pressed():
+	close()
 
 func _on_Lang_item_selected(index):
 	match index:

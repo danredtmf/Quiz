@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://resourses/models/wall_three.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resourses/models/wall_two.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://resourses/images/glitches/3.jpg" type="Texture" id=15]
 [ext_resource path="res://resourses/audio/music/osiruswaltz_creepy-background-noise-1-loopable.ogg" type="AudioStream" id=16]
 [ext_resource path="res://resourses/audio/sounds/kathakaku_alien-10.wav" type="AudioStream" id=17]
+[ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=18]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -152,6 +153,30 @@ tracks/10/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer/MoveInfo:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/MoveInfo:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "end_start"
@@ -180,6 +205,34 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "popup_move"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/MoveInfo:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/MoveInfo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 4.8, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -351,6 +404,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+use_filter = true
+font_data = ExtResource( 18 )
 
 [node name="StartLocation" type="Spatial"]
 script = ExtResource( 6 )
@@ -685,6 +743,7 @@ min_x_size = 390
 [node name="Animation" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/end_start = SubResource( 3 )
+anims/popup_move = SubResource( 7 )
 anims/show = SubResource( 4 )
 anims/start = SubResource( 2 )
 anims/stop = SubResource( 5 )
@@ -702,6 +761,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 12 )
 expand = true
+
+[node name="MoveInfo" type="Label" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 208.0
+margin_bottom = 37.0
+rect_min_size = Vector2( 400, 0 )
+custom_fonts/font = SubResource( 6 )
+text = "Управление:
+WASD - Движение
+Esc - Пауза"
+autowrap = true
 
 [node name="GlitchCutScene" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )

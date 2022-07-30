@@ -102,21 +102,31 @@ func _on_Timer_timeout():
 func _audio():
 	match Core.get_audio_name(audio):
 		"disconnect":
+			if Core.game:
+				Core.game.call_deferred("set_pause_music")
 			_init_audio()
 			_play_audio()
 			$BG.show()
 			OS.window_fullscreen = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			yield(get_tree().create_timer(3), "timeout")
+			yield($SoundPlayer, 'finished')
+			yield(get_tree().create_timer(1), "timeout")
 			_set_stream("connect")
 			_play_audio()
 			yield(get_tree().create_timer(.5), "timeout")
+			if Core.game:
+				Core.game.call_deferred("set_pause_music")
 			OS.window_fullscreen = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$BG.hide()
 		_:
+			if Core.game:
+				Core.game.call_deferred("set_pause_music")
 			_init_audio()
 			_play_audio()
+			yield($SoundPlayer, 'finished')
+			if Core.game:
+				Core.game.call_deferred("set_pause_music")
 
 func _init_audio():
 	$SoundPlayer.stream = audio

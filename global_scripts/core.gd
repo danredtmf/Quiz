@@ -4,6 +4,9 @@ const splash_screen_res = preload("res://scenes/splash_screen/splash_screen.tscn
 const main_menu_res = preload("res://scenes/main_menu/main_menu.tscn")
 # Окно соглашения
 const send_data_question_res = preload("res://scenes/quiz/secondary/send_data_question/send_data_question.tscn")
+
+const pause_res = preload('res://scenes/secondary/pause_menu/pause_menu.tscn')
+
 const game_res = preload("res://scenes/quiz/game/game.tscn")
 
 const achievements_res = preload("res://scenes/achievements/achievements.tscn")
@@ -150,6 +153,7 @@ const secret_sounds: Array = [
 var main_menu_screenshot: ImageTexture
 
 var player
+var game
 
 func load_scene(scene_name: String, scene: PackedScene):
 	var err = get_tree().change_scene_to(scene)

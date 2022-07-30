@@ -44,6 +44,10 @@ func _chance_chapter_two():
 		if chance == 0:
 			_delete_slide_show()
 			is_chapter_two_opened = true
+		else:
+			if Core.game: Core.game.call_deferred("set_music")
+	else:
+		if Core.game: Core.game.call_deferred("set_music")
 
 func _delete_slide_show():
 	$SlideShow.queue_free()
