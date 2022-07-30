@@ -120,13 +120,8 @@ func _audio():
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			$BG.hide()
 		_:
-			if Core.game:
-				Core.game.call_deferred("set_pause_music")
 			_init_audio()
 			_play_audio()
-			yield($SoundPlayer, 'finished')
-			if Core.game:
-				Core.game.call_deferred("set_pause_music")
 
 func _init_audio():
 	$SoundPlayer.stream = audio
