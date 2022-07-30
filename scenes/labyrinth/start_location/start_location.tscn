@@ -748,7 +748,9 @@ anims/show = SubResource( 4 )
 anims/start = SubResource( 2 )
 anims/stop = SubResource( 5 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="BG" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -778,11 +780,12 @@ autowrap = true
 
 [node name="GlitchCutScene" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
+volume_db = -5.0
 bus = "Sound"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 bus = "Music"
 

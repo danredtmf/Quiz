@@ -304,7 +304,7 @@ func _gen_achv_id() -> Array:
 func loading():
 	var data := ConfigFile.new()
 	
-	if data.load(PATH) != OK:
+	if data.load_encrypted_pass(PATH, Data._password) != OK:
 		print("File achievements has been not found!")
 	
 	opened = data.get_value("achv", "o", [])
@@ -338,7 +338,7 @@ func saving():
 	result.set_value("achv", "o_secret_sounds", open_secret_sounds)
 	result.set_value("achv", "is_demo_passed", is_demo_passed)
 	result.set_value("achv", "is_chp_two_o", is_chapter_two_opened)
-	if result.save(PATH) == OK:
+	if result.save_encrypted_pass(PATH, Data._password) == OK:
 		print('complete saving settings')
 #	var result = ResourceSaver.save(PATH, self)
 #	if result == OK:

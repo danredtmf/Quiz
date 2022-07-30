@@ -62,7 +62,7 @@ func reset_volume() -> void:
 func loading():
 	var data := ConfigFile.new()
 	
-	if data.load(PATH) != OK:
+	if data.load_encrypted_pass(PATH, Data._password) != OK:
 		print("File settings has been not found!")
 	
 	current_lang = data.get_value("settings", "lang", LANG.ENGLISH)
@@ -76,7 +76,7 @@ func saving():
 	result.set_value("settings", "v_master", volume_master)
 	result.set_value("settings", "v_music", volume_music)
 	result.set_value("settings", "v_sounds", volume_sounds)
-	if result.save(PATH) == OK:
+	if result.save_encrypted_pass(PATH, Data._password) == OK:
 		print('complete saving settings')
 #	var result = ResourceSaver.save(PATH, self)
 #	if result == OK:

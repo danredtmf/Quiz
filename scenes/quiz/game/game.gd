@@ -14,12 +14,13 @@ var used_images: Array = []
 var selected_images: Array = []
 var selected_sound: AudioStreamOGGVorbis
 
+var test_started := false
+
 var test_time: float = 0
 
 func _ready():
 	Core.game = self
 	AchvCards.is_allowed = false
-	set_process(false)
 	Core.shuffle_images()
 	if OS.has_feature('editor'):
 		_load_pictures_test()
@@ -30,13 +31,14 @@ func _ready():
 		_check_state()
 
 func _process(delta):
-	test_time += delta
-	
-	if Input.is_action_just_pressed('ui_cancel'):
-		var pause = Core.pause_res.instance()
-		add_child(pause)
+	if test_started:
+		test_time += delta
 		
-		get_tree().paused = not get_tree().paused
+		if Input.is_action_just_pressed('ui_cancel'):
+			var pause = Core.pause_res.instance()
+			add_child(pause)
+			
+			get_tree().set_pause(true)
 
 func _end_animation():
 	var end = $Animation.get_animation("end")
@@ -63,12 +65,14 @@ func _check_state():
 			set_music()
 			_state_enter_nickname()
 		Core.GAME_STATE.TEST1:
+			test_started = true
 			_state_test1()
 		Core.GAME_STATE.TEST2:
 			_state_test2()
 		Core.GAME_STATE.TEST3:
 			_state_test3()
 		Core.GAME_STATE.ENDING:
+			test_started = false
 			_end_animation()
 			yield($Animation, 'animation_finished')
 			_state_ending()
@@ -90,7 +94,6 @@ func _state_enter_nickname():
 	enter_nickname.connect("pressed", self, "_on_enter_nickname_pressed")
 
 func _state_test1():
-	set_process(true)
 	_check_stage()
 	_load_pictures()
 
@@ -104,7 +107,6 @@ func _state_test3():
 	_load_audio()
 
 func _state_ending():
-	set_process(false)
 	_record_test_time()
 	var ending = Core.ending_res.instance()
 	add_child(ending)

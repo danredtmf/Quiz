@@ -39,7 +39,7 @@ func _check_childs():
 
 func _on_BtnContinue_pressed() -> void:
 	_check_childs()
-	get_tree().paused = false
+	get_tree().set_pause(false)
 	queue_free()
 
 func _on_BtnSettings_pressed() -> void:
@@ -51,7 +51,6 @@ func _on_BtnSettings_pressed() -> void:
 
 func _on_BtnInMainMenu_pressed() -> void:
 	state = States.Exit
-	_check_childs()
 	_end_animation()
 
 func _on_closing_settings_win():
@@ -62,4 +61,5 @@ func _on_Animation_animation_finished(anim_name: String) -> void:
 	if anim_name == "exit":
 		match state:
 			States.Exit:
+				get_tree().set_pause(false)
 				Core.load_scene("main_menu", Core.main_menu_res)

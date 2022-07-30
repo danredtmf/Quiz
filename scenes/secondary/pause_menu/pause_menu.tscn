@@ -80,7 +80,7 @@ script = ExtResource( 5 )
 [node name="BG" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.235294, 0.235294, 0.235294, 0.498039 )
+color = Color( 0.0784314, 0.0784314, 0.0784314, 0.666667 )
 
 [node name="List" type="VBoxContainer" parent="."]
 anchor_right = 1.0
