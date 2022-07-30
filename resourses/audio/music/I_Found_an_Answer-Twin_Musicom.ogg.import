@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/I_Found_an_Answer-Twin_Musicom.ogg-8b6eeb8b694c760b7407023f6bdaebde.oggstr"
+
+[deps]
+
+source_file="res://resourses/audio/music/I_Found_an_Answer-Twin_Musicom.ogg"
+dest_files=[ "res://.import/I_Found_an_Answer-Twin_Musicom.ogg-8b6eeb8b694c760b7407023f6bdaebde.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

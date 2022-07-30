@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://resourses/fonts/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resourses/themes/default/styles/win_main_menu.tres" type="StyleBox" id=2]
@@ -141,6 +141,37 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.0 ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "end_music"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -10.0, -80.0 ]
 }
 
 [node name="MainMenu" type="Control"]
@@ -303,6 +334,10 @@ volume_db = -10.0
 autoplay = true
 bus = "Music"
 
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 28 )
+anims/end_music = SubResource( 29 )
+
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Achievements" to="." method="_on_Achievements_pressed"]
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Settings" to="." method="_on_Settings_pressed"]
@@ -310,3 +345,4 @@ bus = "Music"
 [connection signal="pressed" from="Margin/Panel/VB/Buttons/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="animation_finished" from="AnimReady" to="." method="_on_AnimReady_animation_finished"]
 [connection signal="timeout" from="TimerHintDuration" to="." method="_on_TimerHintDuration_timeout"]
+[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]

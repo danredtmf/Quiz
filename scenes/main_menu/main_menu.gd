@@ -16,6 +16,7 @@ func _start_animation():
 	$AnimReady.play("show")
 
 func _end_animation():
+	$Animation.play('end_music')
 	$AnimReady.play("hide")
 
 func _config():
@@ -168,3 +169,6 @@ func _gen_hint() -> void:
 
 func _on_TimerHintDuration_timeout() -> void:
 	$Version.text = " " + ProjectSettings.get_setting('application/config/version')
+
+func _on_Animation_animation_finished(_anim_name: String) -> void:
+	pass # Replace with function body.

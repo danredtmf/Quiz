@@ -1,5 +1,8 @@
 extends Node
 
+const music1 = preload('res://resourses/audio/music/Retro_Dreamscape-Twin_Musicom.ogg')
+const music2 = preload('res://resourses/audio/music/I_Found_an_Answer-Twin_Musicom.ogg')
+
 # Для соблюдения последовательности геймплея
 var current_state: int = Core.GAME_STATE.ENTER_NICKNAME
 
@@ -14,6 +17,7 @@ var selected_sound: AudioStreamOGGVorbis
 var test_time: float = 0
 
 func _ready():
+	Core.game = self
 	AchvCards.is_allowed = false
 	set_process(false)
 	Core.shuffle_images()
@@ -27,10 +31,36 @@ func _ready():
 
 func _process(delta):
 	test_time += delta
+	
+	if Input.is_action_just_pressed('ui_cancel'):
+		var pause = Core.pause_res.instance()
+		add_child(pause)
+		
+		get_tree().paused = not get_tree().paused
+
+func _end_animation():
+	var end = $Animation.get_animation("end")
+	end.track_set_key_value(0, 0, $Music.volume_db)
+	$Animation.play('end')
+
+func set_music():
+	match current_state:
+		Core.GAME_STATE.ENTER_NICKNAME:
+			$Music.stream = music1
+			$Music.volume_db = -20
+			$Music.play()
+		Core.GAME_STATE.ENDING:
+			$Music.stream = music2
+			$Music.volume_db = -25
+			$Music.play()
+
+func set_pause_music():
+	$Music.stream_paused = not $Music.stream_paused
 
 func _check_state():
 	match current_state:
 		Core.GAME_STATE.ENTER_NICKNAME:
+			set_music()
 			_state_enter_nickname()
 		Core.GAME_STATE.TEST1:
 			_state_test1()
@@ -39,6 +69,8 @@ func _check_state():
 		Core.GAME_STATE.TEST3:
 			_state_test3()
 		Core.GAME_STATE.ENDING:
+			_end_animation()
+			yield($Animation, 'animation_finished')
 			_state_ending()
 
 func _check_stage():
@@ -451,3 +483,8 @@ func _on_testing_pressed():
 
 func _on_enter_nickname_pressed():
 	_change_state()
+
+func _on_Animation_finished(anim_name: String) -> void:
+	if anim_name == "end":
+		$Music.stop()
+		$Music.volume_db = -10
