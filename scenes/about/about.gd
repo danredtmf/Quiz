@@ -13,7 +13,7 @@ onready var esc_info = $VB/Scroll/List/Movement/Esc/Margin/Panel/Header
 onready var header_assets = $VB/Scroll/List/HeaderAssets
 onready var music_info = $VB/Scroll/List/Assets/Music/Margin/Panel/Header
 onready var shaders_info = $VB/Scroll/List/Assets/Shaders/Margin/Panel/Header
-onready var bg_music_info = $VB/Scroll/List/Assets/BackgroundMusic/Margin/Panel/Header
+
 onready var sounds_info = $VB/Scroll/List/Assets/Sounds/Margin/Panel/Header
 onready var textures_info = $VB/Scroll/List/Assets/Textures/Panel/Header
 onready var images_info_1 = $VB/Scroll/List/Assets/Images/Margin/Panel/Header
@@ -26,12 +26,22 @@ onready var btn_music2_license = $VB/Scroll/List/Assets/Music/List/Music2/BtnLic
 onready var btn_music2_source = $VB/Scroll/List/Assets/Music/List/Music2/BtnSource
 onready var btn_music2_author = $VB/Scroll/List/Assets/Music/List/Music2/BtnAuthor
 
+onready var btn_music3_license = $VB/Scroll/List/Assets/Music/List2/Music3/BtnLicense
+onready var btn_music3_source = $VB/Scroll/List/Assets/Music/List2/Music3/BtnSource
+onready var btn_music3_author = $VB/Scroll/List/Assets/Music/List2/Music3/BtnAuthor
+
+onready var btn_music4_license = $VB/Scroll/List/Assets/Music/List2/Music4/BtnLicense
+onready var btn_music4_author = $VB/Scroll/List/Assets/Music/List2/Music4/BtnAuthor
+
+onready var btn_bg_music1_source = $VB/Scroll/List/Assets/Music/List3/Music5/BtnSource
+
+onready var shader1_info = $VB/Scroll/List/Assets/Shaders/List/Shader1/Panel/Info
+onready var shader2_info = $VB/Scroll/List/Assets/Shaders/List/Shader2/Panel/Info
+
 onready var btn_shader1_author = $VB/Scroll/List/Assets/Shaders/List/Shader1/BtnAuthor
 onready var btn_shader1_source = $VB/Scroll/List/Assets/Shaders/List/Shader1/BtnSource
 
 onready var btn_shader2_source = $VB/Scroll/List/Assets/Shaders/List/Shader2/BtnSource
-
-onready var btn_bg_music1_source = $VB/Scroll/List/Assets/BackgroundMusic/List/Music1/BtnSource
 
 onready var btn_sound1_source = $VB/Scroll/List/Assets/Sounds/List/Sound1/BtnSource
 onready var btn_sound2_source = $VB/Scroll/List/Assets/Sounds/List/Sound2/BtnSource
@@ -75,11 +85,13 @@ func update_ui():
 	header_assets.text = tr('assets_header')
 	music_info.text = tr('music_info')
 	shaders_info.text = tr('shaders_info')
-	bg_music_info.text = tr('background_music_info')
 	sounds_info.text = tr('sounds_info')
 	textures_info.text = tr('textures_info')
 	images_info_1.text = tr('images_info_1')
 	images_info_2.text = tr('images_info_2')
+	
+	shader1_info.text = tr('old_tv')
+	shader2_info.text = tr('vignette')
 	
 	btn_music1_license.text = tr('license')
 	btn_music1_author.text = tr('author')
@@ -88,12 +100,19 @@ func update_ui():
 	btn_music2_source.text = tr('source')
 	btn_music2_author.text = tr('author')
 	
+	btn_music3_license.text = tr('license')
+	btn_music3_source.text = tr('source')
+	btn_music3_author.text = tr('author')
+	
+	btn_music4_license.text = tr('license')
+	btn_music4_author.text = tr('author')
+	
+	btn_bg_music1_source.text = tr('source')
+	
 	btn_shader1_author.text = tr('author')
 	btn_shader1_source.text = tr('source')
 	
 	btn_shader2_source.text = tr('source')
-	
-	btn_bg_music1_source.text = tr('source')
 	
 	btn_sound1_source.text = tr('source')
 	btn_sound2_source.text = tr('source')
@@ -151,6 +170,26 @@ func _on_BtnSource_in_Music2_pressed() -> void:
 func _on_BtnAuthor_in_Music2_pressed() -> void:
 # warning-ignore:return_value_discarded
 	OS.shell_open("http://incompetech.com/")
+
+func _on_BtnLicense_in_Music3_pressed() -> void:
+# warning-ignore:return_value_discarded
+	OS.shell_open("https://creativecommons.org/licenses/by/4.0/")
+
+func _on_BtnSource_in_Music3_pressed() -> void:
+# warning-ignore:return_value_discarded
+	OS.shell_open("http://www.twinmusicom.org/song/283/retro-dreamscape")
+
+func _on_BtnAuthor_in_Music3_pressed() -> void:
+# warning-ignore:return_value_discarded
+	OS.shell_open("http://www.twinmusicom.org/")
+
+func _on_BtnLicense_in_Music4_pressed() -> void:
+# warning-ignore:return_value_discarded
+	OS.shell_open("https://creativecommons.org/licenses/by/4.0/")
+
+func _on_BtnAuthor_in_Music4_pressed() -> void:
+# warning-ignore:return_value_discarded
+	OS.shell_open("http://www.twinmusicom.org/")
 
 func _on_BtnAuthor_in_Shader1_pressed() -> void:
 # warning-ignore:return_value_discarded
