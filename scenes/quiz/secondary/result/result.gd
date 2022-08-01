@@ -37,8 +37,6 @@ func _end_animation():
 	$Animation.play("hide")
 
 func _chance_chapter_two():
-	randomize()
-	
 	if Data.data_achievements.quiz_win == true and Data.data_player.is_possible_activate_chapter_two == true:
 		var chance = randi() % 2
 		if chance == 0:

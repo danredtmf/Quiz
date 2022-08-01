@@ -51,7 +51,6 @@ func connect_answers() -> void:
 
 # Создание ответов в массивах каждой чатси викторины
 func test_data() -> void:
-	randomize()
 	for _i in range(3):
 		test_1_answers.append(_create_test_data())
 	for _i in range(3):

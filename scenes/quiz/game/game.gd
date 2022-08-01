@@ -210,8 +210,6 @@ func image_is_used(image: Image) -> bool:
 	else: return false
 
 func _load_pictures():
-	randomize()
-	
 	selected_images.clear()
 	
 	match current_state:
@@ -333,8 +331,6 @@ func _load_pictures():
 	Data.data_achievements.check_achievement()
 
 func _load_pictures_test():
-	randomize()
-	
 	selected_images.clear()
 	
 	var i = 0
@@ -452,8 +448,6 @@ func _load_pictures_test():
 	Data.data_achievements.check_achievement()
 
 func _load_audio():
-	randomize()
-	
 	var audio: AudioStreamOGGVorbis
 	
 	var i = 0

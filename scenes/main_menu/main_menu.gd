@@ -8,8 +8,6 @@ signal captured
 var is_showing_main_hint: bool = false
 
 func _ready():
-	randomize()
-	
 	_config()
 
 func _start_animation():

@@ -17,8 +17,6 @@ func _start_animation():
 	$Anim.play("show_2")
 
 func _choose_pictures():
-	randomize()
-	
 	for img in Core.abandoned_houses:
 		if randi() % 10 == 0:
 			slide_show_pics.append(img)
@@ -48,8 +46,6 @@ func _choose_pictures():
 		slide_show_pics.append_array(Core.special_images)
 
 func _change_pictures(number: int) -> void:
-	randomize()
-	
 	var texture = ImageTexture.new()
 	var image: Image = slide_show_pics[randi() % slide_show_pics.size()]
 	

@@ -155,6 +155,9 @@ var main_menu_screenshot: ImageTexture
 var player
 var game
 
+func _ready() -> void:
+	randomize()
+
 func load_scene(scene_name: String, scene: PackedScene):
 	var err = get_tree().change_scene_to(scene)
 	if err == OK:
@@ -173,11 +176,9 @@ func get_audio(name: String) -> AudioStreamOGGVorbis:
 	return audio
 
 func get_rand_screen_position() -> Vector2:
-	randomize()
 	return Vector2(rand_range(0, get_viewport().size.x / 3), rand_range(0, get_viewport().size.y))
 
 func get_rand_chance() -> float:
-	randomize()
 	return rand_range(0, 100)
 
 func shuffle_images():
